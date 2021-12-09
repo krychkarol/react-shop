@@ -1,0 +1,17 @@
+//Font
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+$Merriweather: 'Merriweather', serif;
+
+//Colors
+$Dark: rgb(41, 41, 41);
+$Light: rgb(235, 235, 235);
+$White: rgb(255, 255, 255);
+
+//Position
+$Padding: 2vh 10vh;
+
+//Properties
+@mixin title($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}

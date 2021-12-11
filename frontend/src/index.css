@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
 .navbar {
   background-color: #292929;
   color: #ebebeb;
-  padding: 2vh 10vh;
+  padding: 2vh 10vw;
 }
 
 .navbar .wrapper {
@@ -205,6 +206,62 @@
   display: flex;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+
+.slider {
+  padding: 2vh 10vw;
+  position: relative;
+  height: 40vh;
+}
+
+.slider .arrow-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 0 2vw;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 5;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.slider .arrow-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 2vw;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 5;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.slider .arrow-left:hover,
+.slider .arrow-right:hover {
+  background-color: rgba(41, 41, 41, 0.1);
+}
+
+.slider .slide {
+  opacity: 0;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.slider .slide.active {
+  opacity: 1;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  height: 100%;
 }
 
 body {

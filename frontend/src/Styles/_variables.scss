@@ -4,14 +4,28 @@ $Merriweather: 'Merriweather', serif;
 
 //Colors
 $Dark: rgb(41, 41, 41);
+$Dark_o: rgba(41, 41, 41, .1);
 $Light: rgb(235, 235, 235);
 $White: rgb(255, 255, 255);
 
 //Position
-$Padding: 2vh 10vh;
+$Padding: 2vh 10vw;
 
 //Properties
 @mixin title($size, $weight) {
     font-size: $size;
     font-weight: $weight;
+}
+
+@mixin arrow($direction) {
+    position: absolute;
+    top: 0;
+    #{$direction}:0;
+    height: 100%;
+    padding: 0 2vw;
+    cursor: pointer;
+    user-select: none;
+    z-index: 5;
+    transition: .5s ease;
+    
 }

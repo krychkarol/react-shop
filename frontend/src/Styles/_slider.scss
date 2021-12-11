@@ -1,0 +1,35 @@
+@import './variables';
+
+
+
+.slider{
+    padding: $Padding;
+    position: relative;
+    height: 40vh;
+
+    .arrow-left{
+        @include arrow(left);
+    }
+
+    .arrow-right{
+        @include arrow(right);
+    }
+
+    .arrow-left:hover,
+    .arrow-right:hover{
+        background-color: $Dark_o;
+    }
+
+    .slide{
+        opacity: 0;
+        transition: 1s ease;
+    }
+
+    .slide.active{
+        opacity: 1;
+        transition: 1s ease;
+        height: 100%;
+    }
+
+
+}

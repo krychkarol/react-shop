@@ -23,7 +23,7 @@ const Navbar = () => {
                     </div>
                     <div className='right'>
                         <PermIdentityIcon className='icon'/>
-                        <Badge badgeContent={99} color='error'>
+                        <Badge badgeContent={5} color='error'>
                             <ShoppingCartOutlinedIcon className='icon'/>
                         </Badge>
                     </div>

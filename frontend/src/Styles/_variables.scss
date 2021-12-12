@@ -11,6 +11,12 @@ $White: rgb(255, 255, 255);
 //Position
 $Padding: 2vh 10vw;
 
+//Breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+
+
 //Properties
 @mixin title($size, $weight) {
     font-size: $size;

@@ -11,6 +11,13 @@
         align-items: center;
 
         .top{
+            @media (max-width:#{$sm}) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -18,6 +25,9 @@
             justify-content: space-between;
 
             .left{
+                @media (max-width:#{$md}) {
+                    display: none;
+                }
 
                 .search{
                     display: flex;
@@ -49,21 +59,59 @@
             }
 
             .center{
+                @media (max-width:#{$sm}) {
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                }
                 display: flex;
                 flex-direction: row;
                 align-items: center;
 
+                .toggle-btn{
+                    @media (max-width:#{$sm}) {
+                        display: flex;
+                    }
+    
+                    display: none;
+
+                    .icon{
+                        font-size: 2.2rem;
+                        margin: 0 5px;
+                        padding: 2px;
+                        border-radius: 50%;
+                        transition: all 0.5s ease;
+                    }
+    
+                    .icon:hover,.icon.active{
+                        cursor: pointer;
+                        color: $Dark;
+                        background-color: $Light;
+                    }
+                }
+
                 img{
+                    @media (max-width:#{$lg}) {
+                        display: none;
+                    }
+                    
                     height: 3rem;
                     margin-right: 1rem;
                 }
 
                 .title{
-                    @include title(3rem,900)
+                    @include title(3rem,900);
                 }
             }
 
             .right{
+                @media (max-width:#{$sm}) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -85,14 +133,22 @@
         }
 
         .bottom{
+            @media (max-width:#{$lg}) {
+                width: 100%;
+            }
+
             margin-top: 10px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            width: 60%;
+            width: 70%;
 
             .category{
+                @media (max-width:#{$sm}) {
+                    display: none;
+                }
+
                 flex: 1;
                 display: flex;
                 align-items: center;
@@ -102,7 +158,6 @@
                 border-radius: 0.5rem;
                 transition: all 0.5s ease;
                 position: relative;
-                border-bottom: dashed 1px $Light;
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
 
@@ -143,6 +198,55 @@
                     display: flex;
                     border-bottom-left-radius: 0.5rem;
                     border-bottom-right-radius: 0.5rem;
+                }
+            }
+        }
+
+        .toggle-menu{
+            width: 100%;
+            display: none;
+
+            .toggle-category{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 0;
+                margin: 0 0.5rem;
+                border-radius: 0.5rem;
+                transition: all 0.5s ease;
+
+                .title{
+                    @include title(1.4rem,300);
+                }
+
+                .dropdown-list{
+                    display: none;
+                    flex-direction: column;
+                    background-color: $Light;
+                    z-index: 1;
+                    width: 100%;
+                    left: 0;
+                    top: 100%;
+
+                    .item{
+                        padding: 1rem;
+                    }
+
+                    .item:hover{
+                        background-color: $White;
+                        border-radius: 0.5rem;
+                    }
+                }
+            }
+
+            .toggle-category:hover{
+                background-color: $Light;
+                color: $Dark;
+                cursor: pointer;
+
+                .dropdown-list{
+                    display: flex;
                 }
             }
         }

@@ -1,0 +1,9 @@
+@import './variables';
+
+.product-list{
+    padding: $Padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

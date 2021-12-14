@@ -3,22 +3,33 @@
 .categories{
     padding: $Padding;
     background-image: linear-gradient($Light, $White);
+    margin: 0 -10px;
 
     .wrapper{
+        @media (max-width:#{$md}) {
+            flex-direction: column;
+        }
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         .item{
+            @media (max-width:#{$md}) {
+                width: 100%;
+            }
             flex: 1;
             margin: 10px;
             height: 40vh;
             position: relative;
 
             img{
+                @media (max-width:#{$md}) {
+                    height: 25vh;
+                }
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                border-radius: 5px;
             }
 
             .info{

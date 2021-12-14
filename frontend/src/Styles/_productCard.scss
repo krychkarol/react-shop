@@ -1,0 +1,77 @@
+@import './variables';
+
+.product-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 10px;
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40vh;
+        background-color: $Light;
+        color: $Dark;
+        border-radius: 5px;
+        padding: 10px;
+        transition: all 0.5s ease;
+
+        .image{
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $White;
+            border-radius: 5px;
+            padding: 10px 0;
+            
+            img{
+            height: 100%;
+            object-fit: contain;
+            }
+        }
+        
+        .desc{
+            flex: 1;
+            margin-top: 10px;
+            @include title(1.2rem,300)
+        }
+
+        .price{
+            flex: 1;
+            @include title(1rem,900);
+            padding: 10px;
+        }
+
+        button{
+            flex: 1;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: $Dark;
+            color: $Light;
+            @include title(1rem,300);
+        }
+
+        
+    }
+
+    .wrapper:hover{
+        cursor: pointer;
+        background-color: $Dark;
+        color: $Light;
+
+        .image{
+            background-color: $Light;
+        }
+        
+        button{
+            cursor: pointer;
+            background-color: $Light;
+            color: $Dark;
+        }
+    }
+}

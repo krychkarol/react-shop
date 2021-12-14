@@ -28,10 +28,9 @@ $lg: 992px;
     top: 0;
     #{$direction}:0;
     height: 100%;
-    padding: 0 2vw;
+    padding: 0 1vw;
     cursor: pointer;
     user-select: none;
     z-index: 5;
     transition: .5s ease;
-    
 }

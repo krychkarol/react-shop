@@ -7,13 +7,19 @@ const Slider = () => {
     //TMP DATA
     const data = [
         {
-            img: '1'
+            img: 'https://ambasadapiekna.com/userdata/public/gfx/3083/be-my-barber-zestaw-full.jpg',
+            desc: 'Akcesoria do brody!',
+            link: ''
         },
         {
-            img: '2'
+            img: 'https://5.allegroimg.com/s1024/0ceb7e/e78142f84b829dda0db4bd28b835',
+            desc: 'Nowa dostawa!',
+            link: ''
         },
         {
-            img: '3'
+            img: 'https://jakubwiacek.com/wp-content/uploads/2019/12/3b544544e9d770f6742b78d9f2a5ba77.png',
+            desc: 'Polecany zestaw!',
+            link: ''
         },
     ];
 
@@ -43,9 +49,19 @@ const Slider = () => {
             {data.map((item, index) => (
                 <div className={index === active ? 'slide active' : 'slide'} key={index}>
                     {index === active && (
-                    <>
-                        slajd nr {item.img}
-                    </>
+                        <div className='wrapper'>
+                            <div className="image">
+                                <img src={item.img} alt='#' />
+                            </div>
+                            <div className="desc">
+                                <div className="title">
+                                    {item.desc}
+                                </div>
+                                <div className="btn">
+                                    <button>Pokaż</button>
+                                </div>
+                            </div>
+                        </div>
                     )}
                 </div>
             ))}

@@ -10,7 +10,7 @@
     padding: $Padding;
     position: relative;
     height: 60vh;
-    background-image: linear-gradient($Dark, $Light, $White);
+    background-image: linear-gradient($Dark, $Light);
 
     .arrow-left{
         @include arrow(left);

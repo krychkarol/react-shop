@@ -50,14 +50,14 @@ const Slider = () => {
                 <div className={index === active ? 'slide active' : 'slide'} key={index}>
                     {index === active && (
                         <div className='wrapper'>
-                            <div className="image">
+                            <div className='image'>
                                 <img src={item.img} alt='#' />
                             </div>
-                            <div className="desc">
-                                <div className="title">
+                            <div className='desc'>
+                                <div className='title'>
                                     {item.desc}
                                 </div>
-                                <div className="btn">
+                                <div className='btn'>
                                     <button>Pokaż</button>
                                 </div>
                             </div>

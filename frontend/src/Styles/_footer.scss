@@ -6,6 +6,9 @@
     color: $Light;
 
     .wrapper{
+        @media (max-width:#{$md}) {
+            flex-direction: column;;
+        }
         display: flex;
         flex-direction: row;
         gap: 20px;
@@ -45,12 +48,19 @@
             flex: 1;
 
             .title{
+                @media (max-width:#{$md}) {
+                    text-align: start;
+                    margin-top: 20px;
+                }
                 @include title(1.5rem,600);
                 margin-bottom: 10px;
                 text-align: end;
             }
 
             .contact{
+                @media (max-width:#{$md}) {
+                    align-items: flex-start;
+                }
                 display: flex;
                 align-items: flex-end;
                 flex-direction: column;

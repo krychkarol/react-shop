@@ -1,0 +1,24 @@
+@import './variables';
+
+.title-bar{
+    padding: $Padding;
+    margin-top: 3vh;
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .title{
+            @include title(2rem, 900);
+            color: $Dark;
+            padding-bottom: 0.5rem
+        }
+
+        .subtitle{
+            @include title(1rem, 600);
+            color: $Dark_ooo;
+            padding-left: 1rem;
+        }
+    }
+}

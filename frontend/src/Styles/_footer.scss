@@ -1,0 +1,71 @@
+@import './variables';
+
+.footer{
+    padding: $Padding;
+    background-color: $Dark;
+    color: $Light;
+
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        .left{
+            flex: 1;
+
+            .title{
+                @include title(1.5rem,600);
+            }
+        }
+
+        .desc{
+            margin: 10px 0;
+        }
+
+        .social{
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+
+            .icon{
+                border-radius: 100%;
+                padding: 5px;
+                transition: all 0.5s ease;
+            }
+
+            .icon:hover{
+                background-color: $Light;
+                color: $Dark;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+
+        .right{
+            flex: 1;
+
+            .title{
+                @include title(1.5rem,600);
+                margin-bottom: 10px;
+                text-align: end;
+            }
+
+            .contact{
+                display: flex;
+                align-items: flex-end;
+                flex-direction: column;
+
+                div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px 0;
+
+                    .icon{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,6 @@
 .categories{
     padding: $Padding;
     background-image: linear-gradient($Light, $White);
-    margin: 0 -10px;
 
     .wrapper{
         @media (max-width:#{$md}) {
@@ -12,13 +11,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 15px;
 
         .item{
             @media (max-width:#{$md}) {
                 width: 100%;
             }
             flex: 1;
-            margin: 10px;
             height: 40vh;
             position: relative;
 
@@ -64,6 +63,7 @@
         .info:hover{
             background-color: $Dark_oo;
             cursor: pointer;
+            border-radius: 5px;
 
             button{
                 background-color: $Light;

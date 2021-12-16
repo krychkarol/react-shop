@@ -54,9 +54,8 @@
             background-color: $Dark;
             color: $Light;
             @include title(1rem,300);
+            transition: all 0.5s ease;
         }
-
-        
     }
 
     .wrapper:hover{
@@ -72,6 +71,10 @@
             cursor: pointer;
             background-color: $Light;
             color: $Dark;
+        }
+
+        button:hover{
+            background-color: $White;
         }
     }
 }

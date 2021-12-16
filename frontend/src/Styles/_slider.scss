@@ -1,7 +1,5 @@
 @import './variables';
 
-
-
 .slider{
     @media (max-width:#{$md}) {
         display: none;
@@ -10,7 +8,7 @@
     padding: $Padding;
     position: relative;
     height: 60vh;
-    background-image: linear-gradient($Dark, $Light);
+    background-color: $Light;
 
     .arrow-left{
         @include arrow(left);

@@ -7,7 +7,7 @@
 
     .wrapper{
         @media (max-width:#{$md}) {
-            flex-direction: column;;
+            flex-direction: column;
         }
         display: flex;
         flex-direction: row;

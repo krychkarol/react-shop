@@ -1,0 +1,118 @@
+@import './variables';
+
+.product-details{
+    padding: $Padding;
+
+    .wrapper{
+        @media (max-width:#{$md}) {
+            flex-direction: column;
+        }
+        display: flex;
+        flex-direction: row;
+
+        .image{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                object-fit: contain;
+                width: 80%;
+                max-height: 40vh;
+            }
+        }
+
+        .info{
+            @media (max-width:#{$md}) {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: $Dark;
+            }
+            flex: 1;
+
+            .title{
+                @include title(2.2rem,600);
+            }
+
+            .desc{
+                margin: 30px 0px;
+                @include title(1rem,300);
+            }
+
+            .price{
+                display: flex;
+                @include title(1.5rem,600);
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+
+        .add{
+            @media (max-width:#{$md}){
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            margin: 10px 0px;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            justify-content: center;
+            @include title(1.2rem,600);
+
+            .amount{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                div{
+                    margin-right: 5px;
+                }
+
+                .icon{
+                    cursor: pointer;
+                    border-radius: 50%;
+                }
+                .icon:hover{
+                    background-color: $Light;
+                }
+
+                .qty{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 5px;
+                }
+            }
+
+            button{
+                @media (max-width:#{$lg}){
+                    min-width: 50%
+                }
+                @media (max-width:#{$md}){
+                    min-width: 75%
+                }
+                @include title(1rem,600);
+                border-radius: 5px;
+                margin-top: 10px;
+                padding: 15px;
+                border: none;
+                background-color: $Dark;
+                color: $Light;
+                cursor: pointer;
+                min-width: 35%;
+                transition: all 0.5s ease;
+            }
+            
+            button:hover{
+                background-color: $Light;
+                color: $Dark;
+            }
+        }
+    }
+}

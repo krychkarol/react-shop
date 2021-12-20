@@ -1,18 +1,17 @@
 import Navbar from './Components/Navbar';
-import Slider from './Components/Slider';
-import Categories from './Components/Categories';
-import ProductList from './Components/ProductList';
-import TitleBar from './Components/TitleBar';
 import Footer from './Components/Footer';
+import Home from './Pages/Home'
+import Products from './Pages/Products';
+import ProductDetails from './Components/ProductDetails';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Cart from './Pages/Cart';
 
 function App() {
     return (
         <div className="App">
             <Navbar/>
-            <Slider/>
-            <Categories/>
-            <TitleBar title='Najnowsze produkty' subtitle='Sprawdź nasze nowości !'/>
-            <ProductList/>
+            <Cart/>
             <Footer/>
         </div>
     );

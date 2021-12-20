@@ -1,0 +1,25 @@
+@import './variables';
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-left: 2vw;
+    padding: 15px;
+
+    .text{
+        @include title(1.2rem,500);
+        padding-right: 5px;
+    }
+
+    select{
+        @include title(1rem,300);
+        padding: 5px;
+        color: $Dark;
+
+        option:hover{
+            background-color: red !important;
+        }
+    }
+}

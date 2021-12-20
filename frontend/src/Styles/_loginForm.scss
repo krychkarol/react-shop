@@ -1,0 +1,65 @@
+@import './variables';
+
+.login-form{
+    @media (max-width:#{$md}){
+        min-width: 100%
+    }
+    padding: 20px;
+    background-color: $Light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    color: $Dark;
+
+    .title{
+        @include title(2rem,600);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+
+        input{
+            margin: 10px 0px;
+            padding: 10px;
+            width: 90%;
+            background-color: inherit;
+            border: none;
+            border-bottom: 1px solid $Dark;
+            font-size: 1rem;
+        }
+
+        button{
+            @include title(1rem,600);
+            width: 75%;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 15px;
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: $Dark_oo;
+        }
+        
+        .err{
+            color: red;
+        }
+
+        a{
+            padding: 10px;
+        }
+        a:hover{
+            color:$Dark_oo;
+        }
+    }
+}

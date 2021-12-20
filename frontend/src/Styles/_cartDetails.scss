@@ -1,0 +1,183 @@
+@import './variables';
+
+.cart-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $Dark;
+
+    .title{
+        @include title(2rem,600);
+        margin-bottom: 15px;
+    }
+
+    .top{
+        @media (max-width:#{$sm}){
+            flex-direction: column;
+            justify-content: center;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 20px 0;
+
+        button{
+            @include title(1rem,600);
+            border-radius: 5px;
+            min-width: 200px;
+            margin: 10px 0;
+            padding: 15px;
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        button:hover{
+            background-color: $Dark_oo;
+        }
+    }
+
+    .bottom{
+        @media (max-width:#{$lg}){
+            flex-direction: column;
+            justify-content: center;
+        }
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .list{
+            flex: 5;
+
+            .item{
+                display: flex;
+                flex-direction: row;
+
+                .image{
+                    margin-right: 10px;
+
+                    img{
+                        padding: 10px;
+                        border-radius: 5px;
+                        object-fit: contain;
+                        height: 10vh;
+                        max-width: 10vh;
+                        background-color: $Light;
+                    }
+                }
+
+                .wrapper{
+                    @media (max-width:#{$md}){
+                        flex-direction: column;
+                    }
+                    flex:5;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+
+                    .details{
+                        flex: 2;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: space-evenly;
+                        @include title(1.5rem,500);
+                    }
+
+                    .qty{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+        
+                        .icon{
+                            cursor: pointer;
+                            border-radius: 50%;
+                            transition: all 0.5s ease;
+                        }
+                        .icon:hover{
+                            background-color: $Light;
+                        }
+        
+                        div{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0 10px;
+                            @include title(1.5rem,500);
+                        }
+                    }
+
+                    .price{
+                        flex: 2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include title(1.5rem,500);
+                    }
+                }
+                
+                .delete{
+                    flex: 0.5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .icon{
+                        font-size: 2rem;
+                        cursor: pointer;
+                        border-radius: 50%;
+                        transition: all 0.5s ease;
+                    }
+                    .icon:hover{
+                        background-color: $Light;
+                    }
+                }
+            }
+        }
+
+        .summary{
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: $Light;
+            color: $Dark;
+            border-radius: 5px;
+            margin-left: 20px;
+
+            .title{
+                @include title(1.5rem,300);
+                margin: 20px 0;
+            }
+
+            .price{
+                @include title(1.25rem,600);
+                margin-bottom: 10px;
+            }
+
+            button{
+                @include title(1rem,600);
+                border-radius: 5px;
+                min-width: 200px;
+                margin: 20px 0;
+                padding: 10px;
+                border: none;
+                background-color: $Dark;
+                color: $Light;
+                cursor: pointer;
+                transition: all 0.5s ease;
+            }
+            button:hover{
+                background-color: $Dark_oo;
+            }
+        }
+    }
+
+}

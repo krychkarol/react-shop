@@ -33,7 +33,6 @@ const Slider = () => {
         setActive(active === 0 ? length - 1 : active - 1)
     }
 
-
     useEffect(() => {
       const slide = setInterval(() => next(), 7777)
       return () => {

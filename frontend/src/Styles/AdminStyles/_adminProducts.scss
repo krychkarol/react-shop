@@ -1,0 +1,106 @@
+@import '../variables';
+
+.admin-products{
+    padding: $Padding;
+
+    .top{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .title-bar{
+            padding: 0;
+        }
+
+        button{
+            @include title(1rem,600);
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            border-radius: 5px;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            width: 200px;
+        }
+
+        button:hover{
+            background-color: $Light;
+            color: $Dark;
+        }
+    }
+
+    .list{
+        width: 100%;
+
+        .filters{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $Dark;
+            padding: 10px;
+            border-radius: 5px;
+            color: $Light;
+            margin-bottom: 10px;
+
+            .search{
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                border-radius: 5px;
+                width: fit-content;
+                background-color: $Light;
+
+                input{
+                    border: none;
+                    height: 2rem;
+                    font-size: 1rem;
+                    background-color: transparent;
+                }
+                input:focus{
+                    outline: none;
+                }
+
+                .icon{
+                    margin-left: 5px;
+                    padding: 2px;
+                    color: $Dark;
+                    border-radius: 50%;
+                    transition: all 0.5s ease;
+                }
+
+                .icon:hover{
+                    cursor: pointer;
+                    color: $Light;
+                    background-color: $Dark;
+                }
+            }
+
+            .filter{
+                padding: 0;
+                margin: 0;
+            
+                .text{
+                    @include title(1.2rem,600);
+                    padding-right: 5px;
+                }
+            
+                select{
+                    @include title(1rem,300);
+                    padding: 5px;
+                    border-radius: 5px;
+                    color: $Dark;
+                    background-color: $Light;
+                }
+            }
+        }
+
+        .grid{
+            width: 100%;
+            height: 300px;
+        }
+    }
+}

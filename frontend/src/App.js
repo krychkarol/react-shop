@@ -6,12 +6,13 @@ import ProductDetails from './Components/ProductDetails';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Cart from './Pages/Cart';
+import Admin from './Pages/Admin';
 
 function App() {
     return (
         <div className="App">
             <Navbar/>
-            <Cart/>
+            <Admin/>
             <Footer/>
         </div>
     );

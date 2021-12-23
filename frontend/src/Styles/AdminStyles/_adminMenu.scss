@@ -1,0 +1,44 @@
+@import '../variables';
+
+.admin-menu{
+    padding: $Padding;
+
+    .wrapper{
+
+        .title-bar{
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .list{
+            
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            margin: -20px;
+
+            .option{
+                @media (max-width:#{$md}) {
+                    flex: 100%;
+                } 
+                flex: 0 0 50%;
+
+                div{
+                    background-color: $Light;
+                    margin: 20px;
+                    padding: 20px;
+                    text-align: center;
+                    @include title(2rem, 300);
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                }
+
+                div:hover{
+                    background-color: $Dark;
+                    color: $Light;
+                }
+            }
+        }
+    }
+}

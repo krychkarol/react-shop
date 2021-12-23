@@ -17,9 +17,5 @@
         @include title(1rem,300);
         padding: 5px;
         color: $Dark;
-
-        option:hover{
-            background-color: red !important;
-        }
     }
 }

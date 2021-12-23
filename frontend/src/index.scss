@@ -12,6 +12,9 @@
 @import './Styles/loginForm';
 @import './Styles/registerForm';
 @import './Styles/cartDetails';
+@import './Styles/AdminStyles/adminNavbar';
+@import './Styles/AdminStyles/adminMenu';
+@import './Styles/AdminStyles/adminProducts';
 
 body{
     font-family: $Merriweather;
@@ -82,4 +85,9 @@ body{
 .cart{
     padding: $Padding;
     height: 80vh;
+}
+
+.admin{
+    display: flex;
+    flex-direction: column;
 }

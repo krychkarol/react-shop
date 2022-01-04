@@ -21,6 +21,69 @@ const AdminProducts = () => {
             price: 35.23,
             link: ''
         },
+        {
+            id: 3,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 4,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 5,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 6,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 7,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 8,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 9,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 10,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
+        {
+            id: 11,
+            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
+            desc: 'Olejek do brody',
+            price: 35.23,
+            link: ''
+        },
     ];
 
     const columns = [

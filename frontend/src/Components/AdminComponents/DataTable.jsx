@@ -41,13 +41,13 @@ export default function DataTable({products, columns}) {
     const classes = useStyles();
 
     return (
-        <DataGrid
+        <DataGrid style={{height: `${52 * 11 + 60}px`}}
             className={classes.root}
             rows={products}
             columns={columns}
             pagination
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
             components={{
                 Pagination: CustomPagination,
             }}

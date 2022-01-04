@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminMenu from '../Components/AdminComponents/AdminMenu';
 import AdminNavbar from '../Components/AdminComponents/AdminNavbar';
+import AdminProduct from '../Components/AdminComponents/AdminProduct';
 import AdminProducts from '../Components/AdminComponents/AdminProducts';
 
 const Admin = () => {
@@ -15,7 +16,7 @@ const Admin = () => {
     return (
         <div className='admin'>
             <AdminNavbar/>
-            <AdminProducts/>
+            <AdminProduct/>
         </div>
     )
 }

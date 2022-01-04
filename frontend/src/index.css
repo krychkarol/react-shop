@@ -15,6 +15,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
 .navbar {
   background-color: #292929;
   color: #ebebeb;
@@ -2038,7 +2039,220 @@
 
 .admin-products .list .grid {
   width: 100%;
-  height: 300px;
+}
+
+.admin-product {
+  padding: 2vh 10vw;
+}
+
+.admin-product .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.admin-product .top .title-bar {
+  padding: 0;
+}
+
+.admin-product .top button {
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background-color: #292929;
+  color: #ebebeb;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 200px;
+}
+
+.admin-product .top button:hover {
+  background-color: #be0000;
+  color: #ebebeb;
+}
+
+.admin-product .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 3vw;
+}
+
+.admin-product .bottom .left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-product .bottom .left .name, .admin-product .bottom .left .category, .admin-product .bottom .left .subcategory, .admin-product .bottom .left .price, .admin-product .bottom .left .stock, .admin-product .bottom .left .desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-product .bottom .left .name label, .admin-product .bottom .left .category label, .admin-product .bottom .left .subcategory label, .admin-product .bottom .left .price label, .admin-product .bottom .left .stock label, .admin-product .bottom .left .desc label {
+  color: rgba(41, 41, 41, 0.7);
+  font-weight: 600;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.admin-product .bottom .left .name input, .admin-product .bottom .left .name select, .admin-product .bottom .left .category input, .admin-product .bottom .left .category select, .admin-product .bottom .left .subcategory input, .admin-product .bottom .left .subcategory select, .admin-product .bottom .left .price input, .admin-product .bottom .left .price select, .admin-product .bottom .left .stock input, .admin-product .bottom .left .stock select, .admin-product .bottom .left .desc input, .admin-product .bottom .left .desc select {
+  color: #292929;
+  font-size: 1rem;
+  height: 2rem;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: #292929 1px solid;
+}
+
+.admin-product .bottom .left .name textarea, .admin-product .bottom .left .category textarea, .admin-product .bottom .left .subcategory textarea, .admin-product .bottom .left .price textarea, .admin-product .bottom .left .stock textarea, .admin-product .bottom .left .desc textarea {
+  overflow: auto;
+  resize: none;
+  font-size: 1rem;
+  height: 10rem;
+}
+
+.admin-product .bottom .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-product .bottom .right .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.admin-product .bottom .right .image img {
+  height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.admin-product .bottom .right .file {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-product .bottom .right .file .file1 {
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+}
+
+.admin-product .bottom .right .file .file2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: solid 1px #292929;
+  margin-bottom: 20px;
+  padding-top: 25px;
+  height: 33px;
+}
+
+.admin-product .bottom .right .url, .admin-product .bottom .right .file1, .admin-product .bottom .right .file2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-product .bottom .right .url label, .admin-product .bottom .right .file1 label, .admin-product .bottom .right .file2 label {
+  color: rgba(41, 41, 41, 0.7);
+  font-weight: 600;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.admin-product .bottom .right .url input, .admin-product .bottom .right .file1 input, .admin-product .bottom .right .file2 input {
+  color: #292929;
+  font-size: 1rem;
+  height: 2rem;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: #292929 1px solid;
+}
+
+.admin-product .bottom .right .url input[type=file]::file-selector-button, .admin-product .bottom .right .file1 input[type=file]::file-selector-button, .admin-product .bottom .right .file2 input[type=file]::file-selector-button {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+  margin-right: 10px;
+  background-color: #292929;
+  color: #ebebeb;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
+.admin-product .bottom .right .url input[type=file]::file-selector-button:hover, .admin-product .bottom .right .file1 input[type=file]::file-selector-button:hover, .admin-product .bottom .right .file2 input[type=file]::file-selector-button:hover {
+  cursor: pointer;
+  background-color: #ebebeb;
+  color: #292929;
+}
+
+.admin-product .bottom .right .or {
+  color: rgba(41, 41, 41, 0.7);
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 body {

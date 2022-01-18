@@ -62,6 +62,12 @@
                         color: $Light;
                         background-color: $Dark;
                     }
+
+                    .search-link{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
             }
 
@@ -142,6 +148,61 @@
                     cursor: pointer;
                     color: $Dark;
                     background-color: $Light;
+                }
+
+                .login-dropdown{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    transition: all 0.5s ease;
+                    border-radius: 50%;
+
+                    .icon-drop{
+                        font-size: 2.2rem;
+                        margin: 0 5px;
+                        padding: 2px;
+                    }
+
+                    .dropdown-list{
+                        display: none;
+                        flex-direction: column;
+                        position: absolute;
+                        background-color: $Light;
+                        box-shadow: 0px 30px 20px 0px $Dark;
+                        z-index: 1;
+                        left: 0;
+                        top: 100%;
+                        border-radius: 0.5rem;
+                        border-top-left-radius: 0;
+    
+                        .item{
+                            padding: 1rem;
+                        }
+    
+                        .item:hover{
+                            background-color: $White;
+                            border-radius: 0.5rem;
+                        }
+                    }
+                }
+
+                .login-dropdown:hover{
+
+                    background-color: $Light;
+                    color: $Dark;
+                    border-radius: 50%;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                    cursor: pointer;
+
+                    .dropdown-list{
+                        color: $Dark;
+                        display: flex;
+                        border-bottom-left-radius: 0.5rem;
+                        border-bottom-right-radius: 0.5rem;
+                    }
+
                 }
             }
         }

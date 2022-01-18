@@ -7,12 +7,20 @@ const router = require ("express").Router();
 router.get("/", async (req, res) => {
     const queryNew = req.query.new;  // ?new=true
     const queryCategory = req.query.category; // ?category=nazwa
+    const queryName = req.query.name //?name=nazwa
+    const querySubCategory = req.query.subcategory //?subcategory=nazwa
+
     try{
         let products;
         if(queryNew){
             products = await Product.find().sort({ createdAt: -1 }).limit(5);
         }else if(queryCategory){
-            products = await Product.find({category: { $in: [queryCategory] } });
+            if(querySubCategory)
+            products = await Product.find({category: { $in: [queryCategory] } }).find({subcategory: { $in: [querySubCategory] } });
+            else
+            products = await Product.find({category: { $in: [queryCategory] } })
+        }else if(queryName){
+            products = await Product.find({name: { '$regex' : queryName, '$options' : 'i' } });
         }else{
             products = await Product.find();
         }

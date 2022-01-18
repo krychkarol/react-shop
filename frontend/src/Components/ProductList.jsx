@@ -1,71 +1,48 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard';
 
-const ProductList = () => {
+const ProductList = ({category , subcategory , sort}) => {
 
-    //TMP DATA
-    const data = [
-       {
-            id: 1,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 25.23,
-            link: ''
-        },
-        {
-            id: 2,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 3,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 45.23,
-            link: ''
-        },
-        {
-            id: 4,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 55.23,
-            link: ''
-        },
-        {
-            id: 5,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 25.23,
-            link: ''
-        },
-        {
-            id: 6,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 7,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 45.23,
-            link: ''
-        },
-        {
-            id: 8,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 55.23,
-            link: ''
-        },
-    ];
-    
+    const [ products, setProducts ] = useState([]);
+    const [ sortProducts, setSortProducts ] = useState([])
+
+    useEffect(() => {
+        const getProducts = async () => {
+            try{
+                const res = await axios.get(
+                        category === 'New' ? // FOR HOME PAGE - NEWEST PRODUCTS
+                        `http://localhost:5000/api/products?new=true`
+                    :   category === 'Pokaz' ? // FOR SEARCH LABEL IN NAVBAR - SUBCATEGORY = SEARCH NAME
+                        `http://localhost:5000/api/products?name=${subcategory}`
+                    :   subcategory ==='Wszystko' ? // FOR PRODUCTS PAGE - SHOW ALL PRODUCTS IN CATEGORY, OR IN SUBCATEGORY
+                        `http://localhost:5000/api/products?category=${category}`
+                    :   `http://localhost:5000/api/products?category=${category}&subcategory=${subcategory}`
+                );
+                setProducts(res.data); // UNSORT
+                setSortProducts(res.data); // DEFAULT 
+            }
+            catch(err){}
+        };
+        getProducts();
+    },[category, subcategory])
+
+    useEffect(() => {
+        if(sort === 'asc')
+            setSortProducts(products =>
+                [...products].sort((a, b) => a.price - b.price)
+            );
+        else if(sort === 'desc')
+            setSortProducts(products =>
+                [...products].sort((a, b) => b.price - a.price)
+            );
+        else if(sort === 'DEFAULT')
+            setSortProducts(products);
+    },[sort])
+
     return (
         <div className='product-list'>
-            {data.map(product => <ProductCard product={product} key={product.id}/>)}
+            {sortProducts.map(product => <ProductCard product={product} key={product._id}/>)}
         </div>
     )
 }

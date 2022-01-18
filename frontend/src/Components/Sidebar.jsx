@@ -1,42 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const Sidebar = () => {
+const Sidebar = ({categories, category, subcategory}) => {
+
+    const [ sortedCategories, setSortedCategories ] = useState([])
+
+    useEffect(() => {
+        setSortedCategories(categories.sort((a, b) => a.order - b.order))
+
+    },[categories])
+
     return (
         <div className='sidebar'>
-            <div className='category active'>
-                <div className='title'>
-                    Broda
-                </div>
-                <div className='list'>
-                    <div className='item'>Olejki</div>
-                    <div className='item'>Odżywki</div>
-                    <div className='item'>Szampony</div>
-                    <div className='item'>Farby</div>
-                </div>
-            </div>
-            <div className='category'>
-                <div className='title'>
-                    Włosy
-                </div>
-                <div className='list'>
-                    <div className='item'>Pasty</div>
-                    <div className='item'>Pudry</div>
-                    <div className='item'>Szampony</div>
-                    <div className='item'>Odżywki</div>
-                    <div className='item'>Farby</div>
-                </div>
-            </div>
-            <div className='category'>
-                <div className='title'>
-                    Akcesoria
-                </div>
-                <div className='list'>
-                    <div className='item'>Szczotki</div>
-                    <div className='item'>Grzebienie</div>
-                    <div className='item'>Kartacze</div>
-                    <div className='item'>Inne</div>
-                </div>
-            </div>
+            {sortedCategories.map(item => 
+                <div className={item.name === category ? 'category active' : 'category'} key={item._id}>
+                    <Link to={`/produkty/${item.name}/wszystko`} className='link'>
+                        <div className='title'>
+                            {item.name}
+                        </div>
+                    </Link>
+                    
+                    <div className='list'>
+                        {item.subcategory.map(items =>
+                            <Link to={`/produkty/${item.name}/${items}`} className='link'>
+                                <div className={items === subcategory ? 'item active' : 'item'}  key={items}>
+                                    {items}
+                                </div>
+                            </Link>
+                        )}
+                    </div>
+                </div>   
+            )}
         </div>
     )
 }

@@ -9,7 +9,7 @@ const ProductCard = ({product}) => {
                     <img src={product.img} alt='#'/>
                 </div>
                 <div className='desc'>
-                    {product.desc}
+                    {product.name}
                 </div>
                 <div className='price'>
                     {product.price} zł

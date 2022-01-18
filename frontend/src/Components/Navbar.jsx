@@ -4,6 +4,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -22,6 +24,11 @@ const Navbar = () => {
         }
     }
 
+    const [ search, setSearch ] = useState("");
+
+    let isLogIn = false;
+    let isAdmin = false;
+
 
     return (
         <div className='navbar'>
@@ -29,8 +36,12 @@ const Navbar = () => {
                 <div className='top'>
                     <div className='left'>
                         <div className='search'>
-                            <input type='text' placeholder='Szukaj...' />
-                            <SearchIcon className='icon'/>
+                            <input type='text' placeholder='Szukaj...' onChange={e => setSearch(e.target.value)}/>
+                            {search.toString().length > 2 ? (
+                                <Link to={`/produkty/pokaż/${search}`} className='search-link'>
+                                    <SearchIcon className='icon'/> 
+                                </Link>
+                            ) : <SearchIcon className='icon'/>}
                         </div>
                     </div>
                     <div className='center'>
@@ -43,7 +54,30 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className='right'>
-                        <PermIdentityIcon className='icon'/>
+                        <div className='login-dropdown'>
+                            <PermIdentityIcon className='icon-drop'/>
+                            <div className='dropdown-list'>
+                                {isLogIn ? (
+                                    isAdmin ? (
+                                        <>
+                                        <div className='item'>Wyloguj</div>
+                                        <div className='item'>Panel Admina</div>
+                                        </>
+                                        ) : (
+                                        <>
+                                        <div className='item'>Wyloguj</div>
+                                        <div className='item'>Moje Konto</div>
+                                        </>
+                                    )
+                                ) : (
+                                    <>
+                                    <div className='item'>Zaloguj</div>
+                                    <div className='item'>Zarejestruj</div>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        
                         <Badge badgeContent={5} color='error'>
                             <ShoppingCartOutlinedIcon className='icon'/>
                         </Badge>

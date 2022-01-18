@@ -1,22 +1,29 @@
 import React from 'react'
 import AdminMenu from '../Components/AdminComponents/AdminMenu';
-import AdminNavbar from '../Components/AdminComponents/AdminNavbar';
 import AdminProduct from '../Components/AdminComponents/AdminProduct';
 import AdminProducts from '../Components/AdminComponents/AdminProducts';
 
-const Admin = () => {
+import {
+    Routes,
+    Route,
+    Navigate,
+    useLocation
+} from "react-router-dom";
+import Home from './Home';
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const navbar = document.getElementsByClassName('navbar');
-        const footer = document.getElementsByClassName('footer');
-        navbar[0].style.display = 'none';
-        footer[0].style.display = 'none';
-     }, false);
+
+
+const Admin = () => {
 
     return (
         <div className='admin'>
-            <AdminNavbar/>
-            <AdminProduct/>
+            <Routes>
+                <Route path="*" element={<></>}/>
+                <Route path="/" element={<Home />} />
+                <Route path="/admin" element={<AdminMenu />} />
+                <Route path="/admin/produkty" element={<AdminProducts />} />
+                <Route path="/admin/produkt/:id" element={<AdminProduct />} />
+            </Routes>
         </div>
     )
 }

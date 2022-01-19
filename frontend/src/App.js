@@ -49,7 +49,7 @@ function App() {
 
     return (
         <div className="App">
-                {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar/>}
+                {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar categories={categories}/>}
                     <Routes>
                         <Route path="*" element={<Home />} />
                         <Route path="/produkty/:category/:subcategory" element={<Products categories={categories}/>} />

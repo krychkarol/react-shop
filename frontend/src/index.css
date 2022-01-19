@@ -288,11 +288,12 @@
 }
 
 .navbar .wrapper .top .right .login-dropdown .dropdown-list {
-  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   background-color: #ebebeb;
   -webkit-box-shadow: 0px 30px 20px 0px #292929;
@@ -302,6 +303,8 @@
   top: 100%;
   border-radius: 0.5rem;
   border-top-left-radius: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .navbar .wrapper .top .right .login-dropdown .dropdown-list .item {
@@ -324,6 +327,8 @@
 
 .navbar .wrapper .top .right .login-dropdown:hover .dropdown-list {
   color: #292929;
+  visibility: visible;
+  opacity: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
@@ -7,7 +7,10 @@ import Badge from '@mui/material/Badge';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({categories}) => {
+
+    const [ search, setSearch ] = useState("");
+    const [ sortedCategories, setSortedCategories ] = useState([])
 
     const toggleMenu = () => {
         const menu = document.getElementById('toggle-button');
@@ -24,11 +27,13 @@ const Navbar = () => {
         }
     }
 
-    const [ search, setSearch ] = useState("");
+    useEffect(() => {
+        setSortedCategories(categories.sort((a, b) => a.order - b.order))
+
+    },[categories]);
 
     let isLogIn = false;
     let isAdmin = false;
-
 
     return (
         <div className='navbar'>
@@ -36,23 +41,25 @@ const Navbar = () => {
                 <div className='top'>
                     <div className='left'>
                         <div className='search'>
-                            <input type='text' placeholder='Szukaj...' onChange={e => setSearch(e.target.value)}/>
+                            <input id='search-input' type='text' placeholder='Szukaj...' onChange={e => setSearch(e.target.value)}/>
                             {search.toString().length > 2 ? (
-                                <Link to={`/produkty/pokaż/${search}`} className='search-link'>
+                                <Link to={`/produkty/pokaz/${search}`} className='search-link'>
                                     <SearchIcon className='icon'/> 
                                 </Link>
                             ) : <SearchIcon className='icon'/>}
                         </div>
                     </div>
-                    <div className='center'>
-                        <img src='https://battleofthebeardswi.com/wp-content/uploads/2019/05/8-1.png' alt='#' />
-                        <div className='toggle-btn' onClick={toggleMenu}>
-                            <MenuIcon className='icon' id='toggle-button' />
+                    <Link to='/'>
+                        <div className='center'>
+                            <img src='logo.png' alt='#' />
+                            <div className='toggle-btn' onClick={toggleMenu}>
+                                <MenuIcon className='icon' id='toggle-button' />
+                            </div>
+                            <div className='title'>
+                                BRODACZ
+                            </div>
                         </div>
-                        <div className='title'>
-                            BRODACZ
-                        </div>
-                    </div>
+                    </Link>
                     <div className='right'>
                         <div className='login-dropdown'>
                             <PermIdentityIcon className='icon-drop'/>
@@ -61,104 +68,81 @@ const Navbar = () => {
                                     isAdmin ? (
                                         <>
                                         <div className='item'>Wyloguj</div>
-                                        <div className='item'>Panel Admina</div>
+                                        {/* ON CLICK LOGOUT ACTION */}
+                                        <Link to='/admin'>
+                                            <div className='item'>Panel Admina</div>
+                                        </Link>
                                         </>
                                         ) : (
                                         <>
                                         <div className='item'>Wyloguj</div>
-                                        <div className='item'>Moje Konto</div>
+                                        {/* ON CLICK LOGOUT ACTION */}
+                                        <Link to='#'>
+                                            {/* TODO USER ACCOUNT DETAILS */}
+                                            <div className='item'>Moje Konto</div>
+                                        </Link>
                                         </>
                                     )
                                 ) : (
                                     <>
-                                    <div className='item'>Zaloguj</div>
-                                    <div className='item'>Zarejestruj</div>
+                                    <Link to='/zaloguj'>
+                                        <div className='item'>Zaloguj</div>
+                                    </Link>
+                                    <Link to='/zarejestruj'>
+                                        <div className='item'>Zarejestruj</div>
+                                    </Link>
+                                    
                                     </>
                                 )}
                             </div>
                         </div>
-                        
-                        <Badge badgeContent={5} color='error'>
-                            <ShoppingCartOutlinedIcon className='icon'/>
-                        </Badge>
+                        <Link to='/koszyk'>
+                            <Badge badgeContent={5} color='error'>
+                                <ShoppingCartOutlinedIcon className='icon'/>
+                            </Badge>
+                        </Link>
                     </div>
                 </div>
                 <div className='bottom'>
-                    <div className='category'>
-                        <div className='title'>
-                            Broda
-                        </div>
+                    {sortedCategories.map(item => 
+                    <div className='category' key={item._id}>
+                        <Link to={`/produkty/${item.name}/wszystko`} className='link'>
+                            <div className='title'>
+                                {item.name}
+                            </div>
+                        </Link>
                         <div className='dropdown-list'>
-                            <div className='item'>Olejki</div>
-                            <div className='item'>Odżywki</div>
-                            <div className='item'>Szampony</div>
-                            <div className='item'>Farby</div>
+                            {item.subcategory.map(items =>
+                                <Link to={`/produkty/${item.name}/${items}`} className='link'>
+                                    <div className='item' key={items}>
+                                        {items}
+                                    </div>
+                                </Link>
+                            )}
                         </div>
-                    </div>
-                    <div className='category'>
-                        <div className='title'>
-                            Włosy
-                        </div>
-                        <div className='dropdown-list'>
-                            <div className='item'>Pasty</div>
-                            <div className='item'>Pudry</div>
-                            <div className='item'>Szampony</div>
-                            <div className='item'>Odżywki</div>
-                            <div className='item'>Farby</div>
-                        </div>
-                    </div>
-                    <div className='category'>
-                        <div className='title'>
-                            Akcesoria
-                        </div>
-                        <div className='dropdown-list'>
-                            <div className='item'>Szczotki</div>
-                            <div className='item'>Grzebienie</div>
-                            <div className='item'>Kartacze</div>
-                            <div className='item'>Inne</div>
-                        </div>
-                    </div>
+                    </div>   
+                    )}
                 </div>
 
-                {
-                //TOGGLE MENU
-                }
-
                 <div className='toggle-menu' id='toggle-menu'>
-                    <div className='toggle-category'>
-                        <div className='title'>
-                            Broda
-                        </div>
-                        <div className='dropdown-list'>
-                            <div className='item'>Olejki</div>
-                            <div className='item'>Odżywki</div>
-                            <div className='item'>Szampony</div>
-                            <div className='item'>Farby</div>
-                        </div>
-                    </div>
-                    <div className='toggle-category'>
-                        <div className='title'>
-                            Włosy
-                        </div>
-                        <div className='dropdown-list'>
-                            <div className='item'>Pasty</div>
-                            <div className='item'>Pudry</div>
-                            <div className='item'>Szampony</div>
-                            <div className='item'>Odżywki</div>
-                            <div className='item'>Farby</div>
-                        </div>
-                    </div>
-                    <div className='toggle-category'>
-                        <div className='title'>
-                            Akcesoria
-                        </div>
-                        <div className='dropdown-list'>
-                            <div className='item'>Szczotki</div>
-                            <div className='item'>Grzebienie</div>
-                            <div className='item'>Kartacze</div>
-                            <div className='item'>Inne</div>
-                        </div>
-                    </div>
+                    {sortedCategories.map(item => 
+                        <div className='toggle-category' key={item._id}>
+                            <Link to={`/produkty/${item.name}/wszystko`} className='link'>
+                                <div className='title'>
+                                    {item.name}
+                                </div>
+                            </Link>
+                            <div className='dropdown-list'>
+                                {item.subcategory.map(items =>
+                                    <Link to={`/produkty/${item.name}/${items}`} className='link'>
+                                        <div className='item' key={items}>
+                                            {items}
+                                        </div>
+                                    </Link>
+                                )}
+                            </div>
+                        </div>   
+                    )}
                 </div>
             </div>
         </div>

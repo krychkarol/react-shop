@@ -2,6 +2,7 @@
 
 .product-details{
     padding: $Padding;
+    width: 100%;
 
     .wrapper{
         @media (max-width:#{$md}) {
@@ -11,9 +12,12 @@
         flex-direction: row;
 
         .image{
+            @media (max-width:#{$md}) {
+                justify-content: center;
+            }
             flex: 1;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
 
             img{

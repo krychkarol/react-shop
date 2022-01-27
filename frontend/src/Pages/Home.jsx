@@ -3,7 +3,6 @@ import Slider from '../Components/Slider';
 import Categories from '../Components/Categories';
 import ProductList from '../Components/ProductList';
 import TitleBar from '../Components/TitleBar';
-import { useLocation } from 'react-router-dom';
 
 const Home = () => {
 

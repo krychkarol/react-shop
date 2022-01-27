@@ -1,34 +1,51 @@
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../Redux/cartRedux';
 
-const ProductDetails = () => {
+const ProductDetails = ({product}) => {
+
+    const [ qty, setQty ] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const handleQty = (action) => {
+        if(action === 'remove')
+            qty > 1 && setQty(qty - 1)
+        else
+            setQty(qty + 1)
+    }
+
+    const handleAddToCart = () => {
+        dispatch(addProduct({ ...product, qty}))
+    }
+
     return (
         <div className='product-details'>
             <div className='wrapper'>
                 <div className='image'>
-                    <img src='https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png' alt='#'/>
+                    <img src={product.img} alt='#'/>
                 </div>
                 <div className='info'>
                     <div className='title'>
-                        Olejek do brody
+                        {product.name}
                     </div>
                     <div className='desc'>
-                        Morbi at ornare tortor. Cras eget molestie dui, 
-                        vitae tempor tortor. Aliquam congue vehicula elit a egestas. 
-                        Integer et vehicula erat. Sed a tortor volutpat, mattis quam vel.
+                        {product.desc}
                     </div>
                     <div className='price'>
-                        50 zł
+                        {product.price} zł
                     </div>
                     <div className='add'>
                         <div className='amount'>
                             <div>Ilość:</div> 
-                            <RemoveIcon className='icon'/>
-                            <div className='qty'>1</div>
-                            <AddIcon className='icon'/>
+                            <RemoveIcon className='icon' onClick={() => handleQty('remove')}/>
+                            <div className='qty'>{qty}</div>
+                            <AddIcon className='icon' onClick={() => handleQty('add')}/>
                         </div>
-                        <button>Do Koszyka</button>
+                        <button onClick={() => handleAddToCart()}>Do Koszyka</button>
                     </div>
                 </div>
             </div>

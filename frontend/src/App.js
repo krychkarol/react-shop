@@ -19,18 +19,15 @@ import {
     useLocation
 } from "react-router-dom";
 
-
-
 function App() {
 
     let isAdmin = true;
     let user = false;
+    let location = useLocation();
 
     const [ adminPath, setAdminPath ] = useState("");
     const [ categories, setCategories ] = useState([]);
-
-    
-    let location = useLocation();
+    const [ sortedCategories, setSortedCategories ] = useState([])
 
     useEffect(() => {
         setAdminPath(location.pathname.toString().includes("/admin"));
@@ -40,24 +37,29 @@ function App() {
         const getCategories = async () => {
             try{
                 const res = await axios.get(`http://localhost:5000/api/categories/`);
-                setCategories(res.data)
+                setCategories(res.data);
             }
             catch(err){}
         };
         getCategories();
     },[]);
 
+    useEffect(() => {
+        setSortedCategories(categories.sort((a, b) => a.order - b.order))
+    },[categories])
+
     return (
         <div className="App">
-                {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar categories={categories}/>}
+                {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar categories={sortedCategories}/>}
                     <Routes>
                         <Route path="*" element={<Home />} />
-                        <Route path="/produkty/:category/:subcategory" element={<Products categories={categories}/>} />
-                        <Route path="/produkty/pokaz/:parametr" element={<Products categories={categories}/>} />
+                        <Route path="/produkty/:category/:subcategory" element={<Products categories={sortedCategories}/>} />
+                        <Route path="/produkty/pokaz/:parametr" element={<Products categories={sortedCategories}/>} />
                         <Route path="/produkt/:id" element={<Product />} />
                         <Route path="/zaloguj" element={user ? <Navigate to="/" /> : <Login />} />
                         <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
                         <Route path="/koszyk" element={<Cart />} />
+                        <Route path="/podsumowanie" element={<div> test </div>} />
                     </Routes>
                         {isAdmin && <Admin />}
                 {!adminPath && <Footer/>}

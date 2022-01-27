@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
@@ -6,11 +6,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({categories}) => {
 
     const [ search, setSearch ] = useState("");
-    const [ sortedCategories, setSortedCategories ] = useState([])
+
+    const qty = useSelector(state => state.cart.cartQty)
 
     const toggleMenu = () => {
         const menu = document.getElementById('toggle-button');
@@ -26,11 +28,6 @@ const Navbar = ({categories}) => {
             content.style.display = 'block';
         }
     }
-
-    useEffect(() => {
-        setSortedCategories(categories.sort((a, b) => a.order - b.order))
-
-    },[categories]);
 
     let isLogIn = false;
     let isAdmin = false;
@@ -97,14 +94,14 @@ const Navbar = ({categories}) => {
                             </div>
                         </div>
                         <Link to='/koszyk'>
-                            <Badge badgeContent={5} color='error'>
+                            <Badge badgeContent={qty} color='error'>
                                 <ShoppingCartOutlinedIcon className='icon'/>
                             </Badge>
                         </Link>
                     </div>
                 </div>
                 <div className='bottom'>
-                    {sortedCategories.map(item => 
+                    {categories.map(item => 
                     <div className='category' key={item._id}>
                         <Link to={`/produkty/${item.name}/wszystko`} className='link'>
                             <div className='title'>
@@ -112,8 +109,8 @@ const Navbar = ({categories}) => {
                             </div>
                         </Link>
                         <div className='dropdown-list'>
-                            {item.subcategory.map(items =>
-                                <Link to={`/produkty/${item.name}/${items}`} className='link'>
+                            {item.subcategory.map((items, index) =>
+                                <Link to={`/produkty/${item.name}/${items}`} className='link' key={index}>
                                     <div className='item' key={items}>
                                         {items}
                                     </div>
@@ -125,7 +122,7 @@ const Navbar = ({categories}) => {
                 </div>
 
                 <div className='toggle-menu' id='toggle-menu'>
-                    {sortedCategories.map(item => 
+                    {categories.map(item => 
                         <div className='toggle-category' key={item._id}>
                             <Link to={`/produkty/${item.name}/wszystko`} className='link'>
                                 <div className='title'>
@@ -133,9 +130,9 @@ const Navbar = ({categories}) => {
                                 </div>
                             </Link>
                             <div className='dropdown-list'>
-                                {item.subcategory.map(items =>
-                                    <Link to={`/produkty/${item.name}/${items}`} className='link'>
-                                        <div className='item' key={items}>
+                                {item.subcategory.map((items, index) =>
+                                    <Link to={`/produkty/${item.name}/${items}`} className='link' key={index}>
+                                        <div className='item'>
                                             {items}
                                         </div>
                                     </Link>

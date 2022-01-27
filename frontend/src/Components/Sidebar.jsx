@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({categories, category, subcategory}) => {
 
-    const [ sortedCategories, setSortedCategories ] = useState([])
-
-    useEffect(() => {
-        setSortedCategories(categories.sort((a, b) => a.order - b.order))
-
-    },[categories])
-
     return (
         <div className='sidebar'>
-            {sortedCategories.map(item => 
+            {categories.map(item => 
                 <div className={item.name === category ? 'category active' : 'category'} key={item._id}>
                     <Link to={`/produkty/${item.name}/wszystko`} className='link'>
                         <div className='title'>
@@ -22,8 +14,8 @@ const Sidebar = ({categories, category, subcategory}) => {
                     </Link>
                     
                     <div className='list'>
-                        {item.subcategory.map(items =>
-                            <Link to={`/produkty/${item.name}/${items}`} className='link'>
+                        {item.subcategory.map((items, index) =>
+                            <Link to={`/produkty/${item.name}/${items}`} className='link' key={index}>
                                 <div className={items === subcategory ? 'item active' : 'item'}  key={items}>
                                     {items}
                                 </div>

@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useSelector } from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
+import { useState } from 'react';
+import { userReq } from '../request';
+import { useNavigate } from 'react-router-dom';
 
 const CartDetails = () => {
+
+    const KEY = process.env.REACT_APP_STRIPE
+
+    const navigate = useNavigate();
+
+    const [ stripeToken, setStripeToken ] = useState();
+
+    const cart = useSelector(state => state.cart);
+
+    const onToken = (token) => {
+        setStripeToken(token)
+    }
+
+    useEffect(() => {
+        const req = async () => {
+            try{
+                const res = await userReq.post('/stripe/payment', {
+                    tokenId: stripeToken.id,
+                    amount: cart.total * 100
+                });
+                navigate('/podsumowanie', {data: res.data});
+            }catch{}
+        }
+        stripeToken && req();
+    },[stripeToken])
+
     return (
         <div className='cart-details'>
             <div className='title'>Twój koszyk</div>
@@ -12,40 +43,52 @@ const CartDetails = () => {
             </div>
             <div className='bottom'>
                 <div className='list'>
-                    {/* map */}
+                    {cart.products.map(product => (
                     <>
-                    <div className='item'>
-                        <div className='image'>
-                            <img src='https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png' alt='#'/>
-                        </div>
-                        <div className='wrapper'>
-                            <div className='details'>
-                                <div>Olejek do brody</div>
+                        <div className='item'>
+                            <div className='image'>
+                                <img src={product.img} alt='#'/>
                             </div>
-                            <div className='qty'>
-                                <RemoveIcon className='icon'/>
-                                <div>1</div>
-                                <AddIcon className='icon'/>
+                            <div className='wrapper'>
+                                <div className='details'>
+                                    <div>{product.name}</div>
+                                </div>
+                                <div className='qty'>
+                                    <RemoveIcon className='icon'/>
+                                    <div>{product.qty}</div>
+                                    <AddIcon className='icon'/>
+                                </div>
+                                <div className='price'>
+                                    {(product.price * product.qty).toFixed(2)} zł
+                                </div>    
                             </div>
-                            <div className='price'>
-                                42.67 zł
-                            </div>    
+                            <div className='delete'>
+                                <DeleteIcon className='icon'/>
+                            </div>
                         </div>
-                        <div className='delete'>
-                            <DeleteIcon className='icon'/>
-                        </div>
-                    </div>
                     <hr/>
-                    </>
+                    </>))}
                 </div>
                 <div className='summary'>
                     <div className='title'>
                         Podsumowanie
                     </div>
                     <div className='price'>
-                        Cena: 42.67 zł
+                        Cena: {cart.total.toFixed(2)} zł
                     </div>
-                    <button>Zapłać</button>
+                    <StripeCheckout
+                        name='Brodacz'
+                        billingAddress
+                        shippingAddress
+                        description={`Zapłać ${cart.total} zł`}
+                        amount={cart.total * 100}
+                        token={onToken}
+                        stripeKey={KEY}
+                        currency='PLN'
+                    >
+                        <button>Zapłać</button>
+                    </StripeCheckout>
+                    
                 </div>
             </div>
             

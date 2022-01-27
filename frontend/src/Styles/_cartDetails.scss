@@ -151,6 +151,7 @@
             color: $Dark;
             border-radius: 5px;
             margin-left: 20px;
+            height: fit-content;
 
             .title{
                 @include title(1.5rem,300);

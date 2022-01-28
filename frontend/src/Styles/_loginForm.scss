@@ -50,9 +50,14 @@
         button:hover{
             background-color: $Dark_oo;
         }
+
+        button:disabled{
+            background-color: $Dark_oo;
+        }
         
         .err{
             color: red;
+            padding: 10px;
         }
 
         a{

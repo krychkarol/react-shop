@@ -1480,8 +1480,13 @@
   background-color: rgba(41, 41, 41, 0.5);
 }
 
+.login-form form button:disabled {
+  background-color: rgba(41, 41, 41, 0.5);
+}
+
 .login-form form .err {
   color: red;
+  padding: 10px;
 }
 
 .login-form form a {
@@ -1964,6 +1969,7 @@
 
 .admin-menu {
   padding: 2vh 10vw;
+  height: 80vh;
 }
 
 .admin-menu .wrapper .title-bar {

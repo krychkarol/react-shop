@@ -18,12 +18,14 @@ import {
     Navigate,
     useLocation
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function App() {
 
-    let isAdmin = true;
-    let user = false;
     let location = useLocation();
+
+    const user = useSelector(state => state.user.currentUser);
+    const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
 
     const [ adminPath, setAdminPath ] = useState("");
     const [ categories, setCategories ] = useState([]);
@@ -52,7 +54,7 @@ function App() {
         <div className="App">
                 {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar categories={sortedCategories}/>}
                     <Routes>
-                        <Route path="*" element={<Home />} />
+                        <Route path="/" element={<Home />} />
                         <Route path="/produkty/:category/:subcategory" element={<Products categories={sortedCategories}/>} />
                         <Route path="/produkty/pokaz/:parametr" element={<Products categories={sortedCategories}/>} />
                         <Route path="/produkt/:id" element={<Product />} />
@@ -62,7 +64,7 @@ function App() {
                         <Route path="/podsumowanie" element={<div> test </div>} />
                     </Routes>
                         {isAdmin && <Admin />}
-                {!adminPath && <Footer/>}
+                {adminPath ? <div></div> : <Footer/>}
         </div>
     );
 }

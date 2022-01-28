@@ -29,7 +29,7 @@ const CartDetails = () => {
                     tokenId: stripeToken.id,
                     amount: cart.total * 100
                 });
-                navigate('/podsumowanie', {data: res.data});
+                navigate('/podsumowanie', {stripe: res.data, cart: cart});
             }catch{}
         }
         stripeToken && req();

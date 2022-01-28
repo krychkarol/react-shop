@@ -29,8 +29,8 @@ const Navbar = ({categories}) => {
         }
     }
 
-    let isLogIn = false;
-    let isAdmin = false;
+    const isLogIn = useSelector(state => state.user.currentUser);
+    const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
 
     return (
         <div className='navbar'>

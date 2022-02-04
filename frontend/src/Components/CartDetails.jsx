@@ -33,7 +33,7 @@ const CartDetails = () => {
             }catch{}
         }
         stripeToken && req();
-    },[stripeToken])
+    },[stripeToken, navigate, cart])
 
     return (
         <div className='cart-details'>

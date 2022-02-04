@@ -85,9 +85,13 @@
             
                 .text{
                     @include title(1.2rem,600);
-                    padding-right: 5px;
+                    padding: 0 10px;
+                    margin-left: 10px;
                 }
-            
+                .text.hide.inactive{
+                    display: none;
+                }
+
                 select{
                     @include title(1rem,300);
                     padding: 5px;
@@ -95,11 +99,51 @@
                     color: $Dark;
                     background-color: $Light;
                 }
+                select.hide.inactive{
+                    display: none;
+                }
             }
         }
 
         .grid{
             width: 100%;
+
+            .grid-name{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                height: 90%;
+
+                .grid-image{
+                    object-fit: contain;
+                    margin-right: 10px;
+                }
+            }
+
+            a{
+                width: 100%;
+                height: 75%;
+                background-color: $Dark;
+                color: $Light;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                .grid-edit{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }    
+            }
+
+            a:hover{
+                background-color: $Warning;
+                color: $Dark;
+            }
         }
     }
 }

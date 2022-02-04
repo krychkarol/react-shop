@@ -52,7 +52,7 @@ function App() {
 
     return (
         <div className="App">
-                {adminPath ? (isAdmin && <AdminNavbar/>) : <Navbar categories={sortedCategories}/>}
+                {adminPath ? (isAdmin ? <AdminNavbar/> : <Navigate to="/" />) : <Navbar categories={sortedCategories}/>}
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/produkty/:category/:subcategory" element={<Products categories={sortedCategories}/>} />
@@ -62,8 +62,9 @@ function App() {
                         <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
                         <Route path="/koszyk" element={<Cart />} />
                         <Route path="/podsumowanie" element={<div> test </div>} />
+                        <Route path="*" element={<></>} />
                     </Routes>
-                        {isAdmin && <Admin />}
+                        {isAdmin && <Admin categories={sortedCategories} />}
                 {adminPath ? <div></div> : <Footer/>}
         </div>
     );

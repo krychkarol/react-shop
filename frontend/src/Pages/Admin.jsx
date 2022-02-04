@@ -5,24 +5,21 @@ import AdminProducts from '../Components/AdminComponents/AdminProducts';
 
 import {
     Routes,
-    Route,
-    Navigate,
-    useLocation
+    Route
 } from "react-router-dom";
 import Home from './Home';
 
 
 
-const Admin = () => {
+const Admin = ({categories}) => {
 
     return (
         <div className='admin'>
             <Routes>
-                <Route path="*" element={<></>}/>
                 <Route path="/" element={<Home />} />
                 <Route path="/admin" element={<AdminMenu />} />
-                <Route path="/admin/produkty" element={<AdminProducts />} />
-                <Route path="/admin/produkt/:id" element={<AdminProduct />} />
+                <Route path="/admin/produkty" element={<AdminProducts categories={categories} />} />
+                <Route path="/admin/produkt/:id" element={<AdminProduct categories={categories}/>} />
             </Routes>
         </div>
     )

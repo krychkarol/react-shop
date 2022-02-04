@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import TitleBar from '../TitleBar'
 
 const AdminMenu = () => {
@@ -8,9 +9,11 @@ const AdminMenu = () => {
                 <TitleBar title='Zarządzaj' subtitle='Wybierz opcje'/>
                 <div className='list'>
                     <div className='option'>
-                        <div>
-                            Produkty
-                        </div>
+                        <Link to={'/admin/produkty'}>
+                            <div>
+                                Produkty
+                            </div>
+                        </Link>
                     </div>
                     <div className='option'>
                         <div>

@@ -1,97 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TitleBar from '../TitleBar';
 import SearchIcon from '@mui/icons-material/Search';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DataTable from './DataTable';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getProducts } from '../../Redux/api';
+import { Link } from 'react-router-dom';
 
-const AdminProducts = () => {
+const AdminProducts = ({categories}) => {
 
-    //TMP DATA
-    const data = [
-        {
-            id: 1,
-            img: 'https://estore.oceanic.com.pl/media/catalog/product/cache/04e4e01fb709bde6b953b045644fd62f/o/l/olejek_do_brody5900116081656_t2.png',
-            desc: 'Olejek do brody',
-            price: 25.23,
-            link: ''
-        },
-        {
-            id: 2,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 3,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 4,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 5,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 6,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 7,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 8,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 9,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 10,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-        {
-            id: 11,
-            img: 'https://cdn.shopify.com/s/files/1/0270/2793/1234/products/0014_olejek-do-brody-MONOLIT_2048x2048.png?v=1601750588',
-            desc: 'Olejek do brody',
-            price: 35.23,
-            link: ''
-        },
-    ];
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.admin.product.products);
+
+    const [ search, setSearch ] = useState("");
+    const [ category, setCategory ] = useState("DEFAULT");
+    const [ subcategory, setSubcategory ] = useState("DEFAULT");
+    const [ filterProducts, setFilterProducts ] = useState(products);
+
+    useEffect(() => {
+        const findProducts = () => {
+            if(subcategory !== "DEFAULT")
+                setFilterProducts(products.filter(product => {
+                    return product.category === category && product.subcategory === subcategory && product.name.includes(search);
+                }));
+            else if(category === "DEFAULT")
+                setFilterProducts(products.filter(product => {
+                    return product.name.includes(search);
+                }));
+            else
+                setFilterProducts(products.filter(product => {
+                    return product.category === category && product.name.includes(search);
+                }));
+        }
+        findProducts();
+    },[search, category, subcategory]);
+
+    useEffect(() => {
+        const toggleSubcategory = () => {
+            const items = document.getElementsByClassName('hide');
+            if(category === "DEFAULT"){
+                for( var i = 0;  i < items.length; i++){
+                items[i].classList.add('inactive');
+                }
+            }else{
+                for( var i = 0;  i < items.length; i++){
+                    items[i].classList.remove('inactive');
+                }
+            }
+        };
+        toggleSubcategory();
+        setSubcategory("DEFAULT");
+    },[category]);
+
+    useEffect(() => {
+        getProducts(dispatch)
+    },[dispatch]);
+
 
     const columns = [
-        { field: 'id', headerName: 'ID', minWidth: 250, flex: 3 },
-        { field: 'desc', headerName: 'Nazwa', minWidth: 250, flex: 3 },
-        { field: 'price', headerName: 'Cena', minWidth: 250, flex: 3 },
+        { field: '_id', headerName: 'ID', minWidth: 220, flex: 2.2 },
+        { field: 'name', headerName: 'Nazwa', minWidth: 200, flex: 2, renderCell: (params) => {
+            return (
+              <div className='grid-name'>
+                <img className='grid-image' src={params.row.img} alt='' />
+                {params.row.name}
+              </div>
+            );
+          },
+        },
+        { field: 'price', headerName: 'Cena', minWidth: 80, flex: 0.8 },
+        { field: 'stock', headerName: 'Ilość', minWidth: 80, flex: 0.8 },
+        { field: 'edit', headerName: 'Edytuj', minWidth: 100, flex: 1, renderCell: (params) => {
+            return (
+                <Link to={'/admin/produkt/' + params.row._id}>
+                    <div className='grid-edit'>
+                            <ModeEditOutlineOutlinedIcon className='icon'/>
+                    </div>
+                </Link>
+            );
+          },
+        },
     ];
-
 
     return (
         <div className='admin-products'>
@@ -99,30 +89,40 @@ const AdminProducts = () => {
                 <TitleBar title='Zarządzaj' subtitle='Produkty'/>  
                 <button>Dodaj produkt</button>
             </div>
-            <div className="list">
-                <div className="filters">
+            <div className='list'>
+                <div className='filters'>
                     <div className='search'>
-                        <input type='text' placeholder='Szukaj...' />
+                        <input type='text' placeholder='Szukaj...' onChange={e => setSearch(e.target.value)} />
                         <SearchIcon className='icon'/>
                     </div>
                     <div className='filter'>
                         <div className='text'>
-                            Kategorie:
+                            Kategora:
                         </div>
-                        <select defaultValue={'DEFAULT'}>
+                        <select name='category' defaultValue={'DEFAULT'} onChange={e => setCategory(e.target.value)}>
                             <option value='DEFAULT'>Wszystko</option>
-                            <option value='#'>Broda</option>
-                            <option value='#'>- Olejek</option>
-                            <option value='#'>Włosy</option>
-                            <option value='#'>Akcesoria</option>
+                            {categories.map(option => (
+                                <option value={option.name} key={option._id}>{option.name}</option>
+                            ))}
+                        </select>
+                        <div className='text hide'>
+                            Podkategoria:
+                        </div>
+                        <select name='subcategory' className='hide' defaultValue={'DEFAULT'} onChange={e => setSubcategory(e.target.value)}>
+                            <option value='DEFAULT'>Wszystko</option>
+                            {categories.map(option => {
+                                if(option.name === category){
+                                    return option.subcategory.map(option => (
+                                       <option value={option} key={option}>{option}</option>
+                                    ))    
+                                }
+                            })}
                         </select>
                     </div>
                 </div>
                 <div className='grid'>
-                    <DataTable products={data} columns={columns}/>
+                    <DataTable products={filterProducts} columns={columns}/>
                 </div>
-                
-                
             </div>
         </div>
     )

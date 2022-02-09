@@ -13,23 +13,6 @@
         .title-bar{
             padding: 0;
         }
-
-        button{
-            @include title(1rem,600);
-            border: none;
-            background-color: $Dark;
-            color: $Light;
-            border-radius: 5px;
-            padding: 10px 30px;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            width: 200px;
-        }
-
-        button:hover{
-            background-color: $Danger;
-            color: $Light;
-        }
     }
 
     .bottom{
@@ -88,6 +71,7 @@
             }
 
             .file{
+                margin-top: 10px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -95,19 +79,9 @@
                 .file1{
                     flex: 9;
                 }
-                .file2{
-                    flex: 1;
-                    align-items: center;
-                    justify-content: center;
-                    border-bottom: solid 1px $Dark;
-                    margin-bottom: 20px;
-                    padding-top: 25px;
-                    height: 33px;
-                    
-                }
             }
 
-            .url,.file1,.file2{
+            .file1{
                 display: flex;
                 flex-direction: column;
 
@@ -143,12 +117,56 @@
                     color: $Dark;
                 }
             }
+        }
+    }
 
-            .or{
-                color: $Dark_ooo;
-                padding-bottom: 10px;
-                @include title(1.2rem,600)
-            }
+    .save{
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        button{
+            @include title(1rem,600);
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            border-radius: 5px;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            width: 200px;
+        }
+
+        button:hover{
+            background-color: $Warning;
+            color: $Light;
+        }
+    }
+
+    .create{
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        button{
+            @include title(1rem,600);
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            border-radius: 5px;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            width: 200px;
+        }
+
+        button:hover{
+            background-color: $Success;
+            color: $Light;
         }
     }
 }

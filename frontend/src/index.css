@@ -2193,7 +2193,11 @@
   margin-right: 10px;
 }
 
-.admin-products .list .grid a {
+.admin-products .list .grid .btn {
+  margin-left: 5px;
+}
+
+.admin-products .list .grid a, .admin-products .list .grid .btn {
   width: 100%;
   height: 75%;
   background-color: #292929;
@@ -2217,7 +2221,7 @@
           justify-content: center;
 }
 
-.admin-products .list .grid a .grid-edit {
+.admin-products .list .grid a .grid-edit, .admin-products .list .grid .btn .grid-edit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2231,6 +2235,11 @@
 
 .admin-products .list .grid a:hover {
   background-color: #bb7900;
+  color: #292929;
+}
+
+.admin-products .list .grid .btn:hover {
+  background-color: #be0000;
   color: #292929;
 }
 
@@ -2257,25 +2266,6 @@
 
 .admin-product .top .title-bar {
   padding: 0;
-}
-
-.admin-product .top button {
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  background-color: #292929;
-  color: #ebebeb;
-  border-radius: 5px;
-  padding: 10px 30px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  width: 200px;
-}
-
-.admin-product .top button:hover {
-  background-color: #be0000;
-  color: #ebebeb;
 }
 
 .admin-product .bottom {
@@ -2364,6 +2354,7 @@
 }
 
 .admin-product .bottom .right .file {
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2382,23 +2373,7 @@
           flex: 9;
 }
 
-.admin-product .bottom .right .file .file2 {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-bottom: solid 1px #292929;
-  margin-bottom: 20px;
-  padding-top: 25px;
-  height: 33px;
-}
-
-.admin-product .bottom .right .url, .admin-product .bottom .right .file1, .admin-product .bottom .right .file2 {
+.admin-product .bottom .right .file1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2408,14 +2383,14 @@
           flex-direction: column;
 }
 
-.admin-product .bottom .right .url label, .admin-product .bottom .right .file1 label, .admin-product .bottom .right .file2 label {
+.admin-product .bottom .right .file1 label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
   padding-left: 10px;
   padding-bottom: 5px;
 }
 
-.admin-product .bottom .right .url input, .admin-product .bottom .right .file1 input, .admin-product .bottom .right .file2 input {
+.admin-product .bottom .right .file1 input {
   color: #292929;
   font-size: 1rem;
   height: 2rem;
@@ -2424,7 +2399,7 @@
   border-bottom: #292929 1px solid;
 }
 
-.admin-product .bottom .right .url input[type=file]::file-selector-button, .admin-product .bottom .right .file1 input[type=file]::file-selector-button, .admin-product .bottom .right .file2 input[type=file]::file-selector-button {
+.admin-product .bottom .right .file1 input[type=file]::file-selector-button {
   border-radius: 5px;
   border: none;
   padding: 5px 15px;
@@ -2435,17 +2410,82 @@
   transition: 0.5s all ease;
 }
 
-.admin-product .bottom .right .url input[type=file]::file-selector-button:hover, .admin-product .bottom .right .file1 input[type=file]::file-selector-button:hover, .admin-product .bottom .right .file2 input[type=file]::file-selector-button:hover {
+.admin-product .bottom .right .file1 input[type=file]::file-selector-button:hover {
   cursor: pointer;
   background-color: #ebebeb;
   color: #292929;
 }
 
-.admin-product .bottom .right .or {
-  color: rgba(41, 41, 41, 0.7);
-  padding-bottom: 10px;
-  font-size: 1.2rem;
+.admin-product .save {
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.admin-product .save button {
+  font-size: 1rem;
   font-weight: 600;
+  border: none;
+  background-color: #292929;
+  color: #ebebeb;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 200px;
+}
+
+.admin-product .save button:hover {
+  background-color: #bb7900;
+  color: #ebebeb;
+}
+
+.admin-product .create {
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.admin-product .create button {
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background-color: #292929;
+  color: #ebebeb;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 200px;
+}
+
+.admin-product .create button:hover {
+  background-color: #3a9109;
+  color: #ebebeb;
 }
 
 body {

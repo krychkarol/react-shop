@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import AdminMenu from '../Components/AdminComponents/AdminMenu';
 import AdminProduct from '../Components/AdminComponents/AdminProduct';
 import AdminProducts from '../Components/AdminComponents/AdminProducts';
-
+import AdminCreateProduct from '../Components/AdminComponents/AdminCreateProduct';
 import {
     Routes,
     Route
-} from "react-router-dom";
+} from 'react-router-dom';
 import Home from './Home';
+
 
 
 
@@ -20,6 +21,7 @@ const Admin = ({categories}) => {
                 <Route path="/admin" element={<AdminMenu />} />
                 <Route path="/admin/produkty" element={<AdminProducts categories={categories} />} />
                 <Route path="/admin/produkt/:id" element={<AdminProduct categories={categories}/>} />
+                <Route path="/admin/produkt/nowy" element={<AdminCreateProduct categories={categories}/>} />
             </Routes>
         </div>
     )

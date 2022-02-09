@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import TitleBar from '../TitleBar';
 import SearchIcon from '@mui/icons-material/Search';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DataTable from './DataTable';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getProducts } from '../../Redux/api';
+import { deleteProduct, getProducts } from '../../Redux/api';
 import { Link } from 'react-router-dom';
 
 const AdminProducts = ({categories}) => {
@@ -34,7 +35,7 @@ const AdminProducts = ({categories}) => {
                 }));
         }
         findProducts();
-    },[search, category, subcategory]);
+    },[search, category, subcategory, products]);
 
     useEffect(() => {
         const toggleSubcategory = () => {
@@ -57,6 +58,11 @@ const AdminProducts = ({categories}) => {
         getProducts(dispatch)
     },[dispatch]);
 
+    const handledelete = (id) =>{
+        if (window.confirm('Czy napewno usunąć ten produkt ?')) 
+        deleteProduct(id, dispatch)
+    };
+
 
     const columns = [
         { field: '_id', headerName: 'ID', minWidth: 220, flex: 2.2 },
@@ -71,13 +77,20 @@ const AdminProducts = ({categories}) => {
         },
         { field: 'price', headerName: 'Cena', minWidth: 80, flex: 0.8 },
         { field: 'stock', headerName: 'Ilość', minWidth: 80, flex: 0.8 },
-        { field: 'edit', headerName: 'Edytuj', minWidth: 100, flex: 1, renderCell: (params) => {
+        { field: 'edit', headerName: 'Akcje', minWidth: 100, flex: 1, renderCell: (params) => {
             return (
+                <>         
                 <Link to={'/admin/produkt/' + params.row._id}>
                     <div className='grid-edit'>
-                            <ModeEditOutlineOutlinedIcon className='icon'/>
+                        <ModeEditOutlineOutlinedIcon className='icon'/>
                     </div>
                 </Link>
+                <div className='btn' onClick={() => handledelete(params.row._id)}>
+                    <div className='grid-edit'>
+                        <DeleteOutlineIcon className='icon'/>
+                    </div>
+                </div>
+                </>
             );
           },
         },

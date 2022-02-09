@@ -1,24 +1,22 @@
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import AdminNavbar from './Components/AdminComponents/AdminNavbar'
-import Home from './Pages/Home'
+import AdminNavbar from './Components/AdminComponents/AdminNavbar';
+import Home from './Pages/Home';
 import Products from './Pages/Products';
 import Product from './Pages/Product';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Cart from './Pages/Cart';
 import Admin from './Pages/Admin';
-
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-
+import React, { useEffect, useState } from 'react';
 import {
     Routes,
     Route,
     Navigate,
     useLocation
-} from "react-router-dom";
+} from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { publicReq } from './request';
 
 function App() {
 
@@ -38,7 +36,7 @@ function App() {
     useEffect(() => {
         const getCategories = async () => {
             try{
-                const res = await axios.get(`http://localhost:5000/api/categories/`);
+                const res = await publicReq.get("categories/");
                 setCategories(res.data);
             }
             catch(err){}
@@ -48,7 +46,7 @@ function App() {
 
     useEffect(() => {
         setSortedCategories(categories.sort((a, b) => a.order - b.order))
-    },[categories])
+    },[categories]);
 
     return (
         <div className="App">

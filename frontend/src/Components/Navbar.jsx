@@ -6,13 +6,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../Redux/api';
 
 const Navbar = ({categories}) => {
+
+    const dispatch = useDispatch();
 
     const [ search, setSearch ] = useState("");
 
     const qty = useSelector(state => state.cart.cartQty)
+    const isLogIn = useSelector(state => state.user.currentUser);
+    const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
 
     const toggleMenu = () => {
         const menu = document.getElementById('toggle-button');
@@ -27,10 +32,11 @@ const Navbar = ({categories}) => {
             menu.classList.add('active');
             content.style.display = 'block';
         }
-    }
+    };
 
-    const isLogIn = useSelector(state => state.user.currentUser);
-    const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
+    const handleLogout = () => {
+        logout(dispatch);
+    };
 
     return (
         <div className='navbar'>
@@ -64,31 +70,28 @@ const Navbar = ({categories}) => {
                                 {isLogIn ? (
                                     isAdmin ? (
                                         <>
-                                        <div className='item'>Wyloguj</div>
-                                        {/* ON CLICK LOGOUT ACTION */}
-                                        <Link to='/admin'>
-                                            <div className='item'>Panel Admina</div>
-                                        </Link>
+                                            <div className='item' onClick={() => handleLogout()}>Wyloguj</div>
+                                            <Link to='/admin'>
+                                                <div className='item'>Panel Admina</div>
+                                            </Link>
                                         </>
                                         ) : (
                                         <>
-                                        <div className='item'>Wyloguj</div>
-                                        {/* ON CLICK LOGOUT ACTION */}
-                                        <Link to='#'>
-                                            {/* TODO USER ACCOUNT DETAILS */}
-                                            <div className='item'>Moje Konto</div>
-                                        </Link>
+                                            <div className='item' onClick={() => handleLogout()}>Wyloguj</div>
+                                            <Link to='#'>
+                                                {/* TODO USER ACCOUNT DETAILS */}
+                                                <div className='item'>Moje Konto</div>
+                                            </Link>
                                         </>
-                                    )
+                                        )
                                 ) : (
                                     <>
-                                    <Link to='/zaloguj'>
-                                        <div className='item'>Zaloguj</div>
-                                    </Link>
-                                    <Link to='/zarejestruj'>
-                                        <div className='item'>Zarejestruj</div>
-                                    </Link>
-                                    
+                                        <Link to='/zaloguj'>
+                                            <div className='item'>Zaloguj</div>
+                                        </Link>
+                                        <Link to='/zarejestruj'>
+                                            <div className='item'>Zarejestruj</div>
+                                        </Link>
                                     </>
                                 )}
                             </div>
@@ -120,7 +123,7 @@ const Navbar = ({categories}) => {
                     </div>   
                     )}
                 </div>
-
+                {/* TOGGLE MENU */}
                 <div className='toggle-menu' id='toggle-menu'>
                     {categories.map(item => 
                         <div className='toggle-category' key={item._id}>

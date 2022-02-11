@@ -1,6 +1,7 @@
 @import '../variables';
 
-.admin-product{
+.admin-product,
+.admin-create-product{
     padding: $Padding;
 
     .top{
@@ -67,11 +68,12 @@
                 img{
                     height: 30vh;
                     object-fit: contain;
+                    max-width: 100%;
                 }
             }
 
             .file{
-                margin-top: 10px;
+                margin-top: 20px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;

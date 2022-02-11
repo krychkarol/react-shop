@@ -30,7 +30,7 @@ const AdminProduct = ({categories}) => {
         });
     };
 
-    const handleupdate = (id, product) => {
+    const handleUpdate = (id, product) => {
         updateProduct(id, product, dispatch)
     }
 
@@ -89,7 +89,7 @@ const AdminProduct = ({categories}) => {
                 </div>
             </div>
             <div className='save'>
-                <button onClick={() =>handleupdate(productId, inputs)}>Zapisz zmiany</button>
+                <button onClick={() =>handleUpdate(productId, inputs)}>Zapisz zmiany</button>
             </div>
         </div>
     )

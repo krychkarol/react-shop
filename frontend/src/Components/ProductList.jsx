@@ -38,7 +38,7 @@ const ProductList = ({category , subcategory , sort}) => {
             );
         else if(sort === 'DEFAULT')
             setSortProducts(products);
-    },[sort])
+    },[sort, products])
 
     return (
         <div className='product-list'>

@@ -5,10 +5,13 @@ import { useEffect } from 'react';
 import app from '../../firebase';
 import { createProduct } from '../../Redux/api';
 import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AdminCreateProduct = ({categories}) => {
 
     const dispatch = useDispatch();
+
+    let navigate = useNavigate();
 
     const [ inputs, setInputs ] = useState({img:'https://via.placeholder.com/1/292929/FFFFFF/'});
     const [ file, setFile ] = useState(null);
@@ -45,6 +48,8 @@ const AdminCreateProduct = ({categories}) => {
                 case 'running':
                     console.log('Upload is running');
                     break;
+                default: 
+                    //
                 }
             }, 
             (error) => {
@@ -63,14 +68,18 @@ const AdminCreateProduct = ({categories}) => {
         }
     },[file]);
 
-    const handleCreate = (product) => {
-        createProduct(product, dispatch)
+    const handleCreate = async (product) => {
+        await createProduct(product, dispatch);
+        navigate('/admin/produkty');
     };
 
     return (
         <div className='admin-create-product'>
         <div className='top'>
             <TitleBar title='Utwórz' subtitle='Nowy produkt'/>
+            <Link to={'/admin/produkty'}>
+                    <button>Lista Produktów</button>
+            </Link>
         </div>
         <div className='bottom'>
             <div className='left'>

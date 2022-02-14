@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { updateProduct } from '../../Redux/api';
 import TitleBar from '../TitleBar';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import app from '../../firebase';
 
-const AdminProduct = ({categories}) => {
+const AdminEditProduct = ({categories}) => {
 
     const dispatch = useDispatch();
+
+    let navigate = useNavigate();
 
     let location = useLocation();
     const productId = location.pathname.split('/')[3];
 
     const product = useSelector(state => state.admin.product.products.find(item => item._id === productId));
 
-    const [ file, setFile ] = useState(""); //TODO
+    const [ file, setFile ] = useState(); //TODO
     const [ inputs, setInputs ] = useState({
         name: product.name,
         category: product.category,
@@ -30,14 +34,64 @@ const AdminProduct = ({categories}) => {
         });
     };
 
-    const handleUpdate = (id, product) => {
-        updateProduct(id, product, dispatch)
-    }
+    const handleUpdate = async (id, product) => {
+        await updateProduct(id, product, dispatch);
+        navigate('/admin/produkty');
+    };
+
+    useEffect(() => {
+        if(file)
+        {
+            const fileName = new Date().getTime() + file.name;
+            const storage = getStorage(app);
+            const storageRef = ref(storage, fileName);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            // Register three observers:
+            // 1. 'state_changed' observer, called any time the state changes
+            // 2. Error observer, called on failure
+            // 3. Completion observer, called on successful completion
+            uploadTask.on('state_changed', 
+            (snapshot) => {
+                // Observe state change events such as progress, pause, and resume
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                case 'paused':
+                    console.log('Upload is paused');
+                    break;
+                case 'running':
+                    console.log('Upload is running');
+                    break;
+                default: 
+                    //
+                }
+            }, 
+            (error) => {
+                // Handle unsuccessful uploads
+            }, 
+            () => {
+                // Handle successful uploads on complete
+                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    setInputs(prev => {
+                        return {...prev, img: downloadURL}
+                    });
+                });
+                }
+            );
+        }
+    },[file]);
 
     return (
-        <div className='admin-product'>
+        <div className='admin-edit-product'>
             <div className='top'>
                 <TitleBar title='Edytuj' subtitle={`ID: `+ product._id}/>
+                <Link to={'/admin/produkty'}>
+                    <button>Lista Produktów</button>
+                </Link>
             </div>
             <div className='bottom'>
                 <div className='left'>
@@ -83,7 +137,7 @@ const AdminProduct = ({categories}) => {
                     <div className='file'>
                         <div className='file1'>
                             <label htmlFor='file'>Wybierz plik i dodaj</label>
-                            <input type='file' id='file' />
+                            <input name='img' type='file' id='file' onChange={(e) => setFile(e.target.files[0])}/>
                         </div>
                     </div>
                 </div>
@@ -95,4 +149,4 @@ const AdminProduct = ({categories}) => {
     )
 }
 
-export default AdminProduct
+export default AdminEditProduct

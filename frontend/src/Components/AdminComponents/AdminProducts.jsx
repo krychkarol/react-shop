@@ -45,8 +45,8 @@ const AdminProducts = ({categories}) => {
                 items[i].classList.add('inactive');
                 }
             }else{
-                for( var i = 0;  i < items.length; i++){
-                    items[i].classList.remove('inactive');
+                for( var j = 0;  i < items.length; i++){
+                    items[j].classList.remove('inactive');
                 }
             }
         };
@@ -99,8 +99,11 @@ const AdminProducts = ({categories}) => {
     return (
         <div className='admin-products'>
             <div className='top'>
-                <TitleBar title='Zarządzaj' subtitle='Produkty'/>  
-                <button>Dodaj produkt</button>
+                <TitleBar title='Zarządzaj' subtitle='Produkty'/>
+                <Link to={'/admin/produkt/nowy'}>
+                    <button>Dodaj produkt</button>
+                </Link>
+                
             </div>
             <div className='list'>
                 <div className='filters'>
@@ -123,13 +126,11 @@ const AdminProducts = ({categories}) => {
                         </div>
                         <select name='subcategory' className='hide' defaultValue={'DEFAULT'} onChange={e => setSubcategory(e.target.value)}>
                             <option value='DEFAULT'>Wszystko</option>
-                            {categories.map(option => {
-                                if(option.name === category){
-                                    return option.subcategory.map(option => (
-                                       <option value={option} key={option}>{option}</option>
-                                    ))    
-                                }
-                            })}
+                            {categories.map(option => (
+                                option.name === category && option.subcategory.map(option => (
+                                    <option value={option} key={option}>{option}</option>
+                                 ))    
+                            ))}
                         </select>
                     </div>
                 </div>

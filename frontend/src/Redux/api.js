@@ -44,7 +44,8 @@ export const getProducts = async (dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
     dispatch(deleteProductsRequest());
     try{
-        const res = await userReq.delete("products/"+ id);
+        //const res = await userReq.delete("products/"+ id);
+        await userReq.delete("products/"+ id);
         dispatch(deleteProductsSuccess(id));
     }catch(err){
         dispatch(deleteProductsFail());

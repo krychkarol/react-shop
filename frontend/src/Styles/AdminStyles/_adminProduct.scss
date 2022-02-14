@@ -1,6 +1,6 @@
 @import '../variables';
 
-.admin-product,
+.admin-edit-product,
 .admin-create-product{
     padding: $Padding;
 
@@ -13,6 +13,23 @@
 
         .title-bar{
             padding: 0;
+        }
+        
+        button{
+            @include title(1rem,600);
+            border: none;
+            background-color: $Dark;
+            color: $Light;
+            border-radius: 5px;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            width: 200px;
+        }
+
+        button:hover{
+            background-color: $Light;
+            color: $Dark;
         }
     }
 

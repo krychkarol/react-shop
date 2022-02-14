@@ -2243,12 +2243,12 @@
   color: #292929;
 }
 
-.admin-product,
+.admin-edit-product,
 .admin-create-product {
   padding: 2vh 10vw;
 }
 
-.admin-product .top,
+.admin-edit-product .top,
 .admin-create-product .top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2266,12 +2266,33 @@
   margin-bottom: 30px;
 }
 
-.admin-product .top .title-bar,
+.admin-edit-product .top .title-bar,
 .admin-create-product .top .title-bar {
   padding: 0;
 }
 
-.admin-product .bottom,
+.admin-edit-product .top button,
+.admin-create-product .top button {
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background-color: #292929;
+  color: #ebebeb;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 200px;
+}
+
+.admin-edit-product .top button:hover,
+.admin-create-product .top button:hover {
+  background-color: #ebebeb;
+  color: #292929;
+}
+
+.admin-edit-product .bottom,
 .admin-create-product .bottom {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2283,7 +2304,7 @@
   gap: 3vw;
 }
 
-.admin-product .bottom .left,
+.admin-edit-product .bottom .left,
 .admin-create-product .bottom .left {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -2297,7 +2318,7 @@
           flex-direction: column;
 }
 
-.admin-product .bottom .left .name, .admin-product .bottom .left .category, .admin-product .bottom .left .subcategory, .admin-product .bottom .left .price, .admin-product .bottom .left .stock, .admin-product .bottom .left .desc,
+.admin-edit-product .bottom .left .name, .admin-edit-product .bottom .left .category, .admin-edit-product .bottom .left .subcategory, .admin-edit-product .bottom .left .price, .admin-edit-product .bottom .left .stock, .admin-edit-product .bottom .left .desc,
 .admin-create-product .bottom .left .name,
 .admin-create-product .bottom .left .category,
 .admin-create-product .bottom .left .subcategory,
@@ -2313,7 +2334,7 @@
           flex-direction: column;
 }
 
-.admin-product .bottom .left .name label, .admin-product .bottom .left .category label, .admin-product .bottom .left .subcategory label, .admin-product .bottom .left .price label, .admin-product .bottom .left .stock label, .admin-product .bottom .left .desc label,
+.admin-edit-product .bottom .left .name label, .admin-edit-product .bottom .left .category label, .admin-edit-product .bottom .left .subcategory label, .admin-edit-product .bottom .left .price label, .admin-edit-product .bottom .left .stock label, .admin-edit-product .bottom .left .desc label,
 .admin-create-product .bottom .left .name label,
 .admin-create-product .bottom .left .category label,
 .admin-create-product .bottom .left .subcategory label,
@@ -2326,7 +2347,7 @@
   padding-bottom: 5px;
 }
 
-.admin-product .bottom .left .name input, .admin-product .bottom .left .name select, .admin-product .bottom .left .category input, .admin-product .bottom .left .category select, .admin-product .bottom .left .subcategory input, .admin-product .bottom .left .subcategory select, .admin-product .bottom .left .price input, .admin-product .bottom .left .price select, .admin-product .bottom .left .stock input, .admin-product .bottom .left .stock select, .admin-product .bottom .left .desc input, .admin-product .bottom .left .desc select,
+.admin-edit-product .bottom .left .name input, .admin-edit-product .bottom .left .name select, .admin-edit-product .bottom .left .category input, .admin-edit-product .bottom .left .category select, .admin-edit-product .bottom .left .subcategory input, .admin-edit-product .bottom .left .subcategory select, .admin-edit-product .bottom .left .price input, .admin-edit-product .bottom .left .price select, .admin-edit-product .bottom .left .stock input, .admin-edit-product .bottom .left .stock select, .admin-edit-product .bottom .left .desc input, .admin-edit-product .bottom .left .desc select,
 .admin-create-product .bottom .left .name input,
 .admin-create-product .bottom .left .name select,
 .admin-create-product .bottom .left .category input,
@@ -2347,7 +2368,7 @@
   border-bottom: #292929 1px solid;
 }
 
-.admin-product .bottom .left .name textarea, .admin-product .bottom .left .category textarea, .admin-product .bottom .left .subcategory textarea, .admin-product .bottom .left .price textarea, .admin-product .bottom .left .stock textarea, .admin-product .bottom .left .desc textarea,
+.admin-edit-product .bottom .left .name textarea, .admin-edit-product .bottom .left .category textarea, .admin-edit-product .bottom .left .subcategory textarea, .admin-edit-product .bottom .left .price textarea, .admin-edit-product .bottom .left .stock textarea, .admin-edit-product .bottom .left .desc textarea,
 .admin-create-product .bottom .left .name textarea,
 .admin-create-product .bottom .left .category textarea,
 .admin-create-product .bottom .left .subcategory textarea,
@@ -2360,7 +2381,7 @@
   height: 10rem;
 }
 
-.admin-product .bottom .right,
+.admin-edit-product .bottom .right,
 .admin-create-product .bottom .right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -2374,7 +2395,7 @@
           flex-direction: column;
 }
 
-.admin-product .bottom .right .image,
+.admin-edit-product .bottom .right .image,
 .admin-create-product .bottom .right .image {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2384,7 +2405,7 @@
           justify-content: center;
 }
 
-.admin-product .bottom .right .image img,
+.admin-edit-product .bottom .right .image img,
 .admin-create-product .bottom .right .image img {
   height: 30vh;
   -o-object-fit: contain;
@@ -2392,7 +2413,7 @@
   max-width: 100%;
 }
 
-.admin-product .bottom .right .file,
+.admin-edit-product .bottom .right .file,
 .admin-create-product .bottom .right .file {
   margin-top: 20px;
   display: -webkit-box;
@@ -2407,14 +2428,14 @@
           align-items: center;
 }
 
-.admin-product .bottom .right .file .file1,
+.admin-edit-product .bottom .right .file .file1,
 .admin-create-product .bottom .right .file .file1 {
   -webkit-box-flex: 9;
       -ms-flex: 9;
           flex: 9;
 }
 
-.admin-product .bottom .right .file1,
+.admin-edit-product .bottom .right .file1,
 .admin-create-product .bottom .right .file1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2425,7 +2446,7 @@
           flex-direction: column;
 }
 
-.admin-product .bottom .right .file1 label,
+.admin-edit-product .bottom .right .file1 label,
 .admin-create-product .bottom .right .file1 label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
@@ -2433,7 +2454,7 @@
   padding-bottom: 5px;
 }
 
-.admin-product .bottom .right .file1 input,
+.admin-edit-product .bottom .right .file1 input,
 .admin-create-product .bottom .right .file1 input {
   color: #292929;
   font-size: 1rem;
@@ -2443,7 +2464,7 @@
   border-bottom: #292929 1px solid;
 }
 
-.admin-product .bottom .right .file1 input[type=file]::file-selector-button,
+.admin-edit-product .bottom .right .file1 input[type=file]::file-selector-button,
 .admin-create-product .bottom .right .file1 input[type=file]::file-selector-button {
   border-radius: 5px;
   border: none;
@@ -2455,14 +2476,14 @@
   transition: 0.5s all ease;
 }
 
-.admin-product .bottom .right .file1 input[type=file]::file-selector-button:hover,
+.admin-edit-product .bottom .right .file1 input[type=file]::file-selector-button:hover,
 .admin-create-product .bottom .right .file1 input[type=file]::file-selector-button:hover {
   cursor: pointer;
   background-color: #ebebeb;
   color: #292929;
 }
 
-.admin-product .save,
+.admin-edit-product .save,
 .admin-create-product .save {
   margin-top: 25px;
   display: -webkit-box;
@@ -2480,7 +2501,7 @@
           justify-content: center;
 }
 
-.admin-product .save button,
+.admin-edit-product .save button,
 .admin-create-product .save button {
   font-size: 1rem;
   font-weight: 600;
@@ -2495,13 +2516,13 @@
   width: 200px;
 }
 
-.admin-product .save button:hover,
+.admin-edit-product .save button:hover,
 .admin-create-product .save button:hover {
   background-color: #bb7900;
   color: #ebebeb;
 }
 
-.admin-product .create,
+.admin-edit-product .create,
 .admin-create-product .create {
   margin-top: 25px;
   display: -webkit-box;
@@ -2519,7 +2540,7 @@
           justify-content: center;
 }
 
-.admin-product .create button,
+.admin-edit-product .create button,
 .admin-create-product .create button {
   font-size: 1rem;
   font-weight: 600;
@@ -2534,7 +2555,7 @@
   width: 200px;
 }
 
-.admin-product .create button:hover,
+.admin-edit-product .create button:hover,
 .admin-create-product .create button:hover {
   background-color: #3a9109;
   color: #ebebeb;

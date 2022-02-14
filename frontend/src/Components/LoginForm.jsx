@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { login } from '../Redux/api';
 
 const LoginForm = () => {
@@ -26,9 +27,10 @@ const LoginForm = () => {
                 <input placeholder='hasło' type='password' onChange={(e) => setPassword(e.target.value)}/>
                 <button onClick={handleLogin} disabled={fetching}>Zaloguj</button>
                 {error && <div className='err'>Nieprawidłowa nazwa użytkownika lub hasło.</div>}
-                <a href='#'>Zapomniałeś hasła ?</a>
+                {/* TODO \/\/\/\/ */}
+                <Link to={'/'}>Zapomniałeś hasła ?</Link>
                 <div> lub </div>
-                <a href='#'>Stwórz nowe konto</a>
+                <Link to={'/zarejestruj'}>Stwórz nowe konto</Link>
             </form>
         </div>
     )

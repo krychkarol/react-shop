@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import TitleBar from '../TitleBar'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import TitleBar from '../TitleBar';
 
 const AdminMenu = () => {
     return (

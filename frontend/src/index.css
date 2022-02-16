@@ -897,9 +897,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -2030,11 +2029,13 @@
   color: #ebebeb;
 }
 
-.admin-products {
+.admin-products,
+.admin-categories {
   padding: 2vh 10vw;
 }
 
-.admin-products .top {
+.admin-products .top,
+.admin-categories .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2051,11 +2052,13 @@
   margin-bottom: 30px;
 }
 
-.admin-products .top .title-bar {
+.admin-products .top .title-bar,
+.admin-categories .top .title-bar {
   padding: 0;
 }
 
-.admin-products .top button {
+.admin-products .top button,
+.admin-categories .top button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2069,16 +2072,19 @@
   width: 200px;
 }
 
-.admin-products .top button:hover {
+.admin-products .top button:hover,
+.admin-categories .top button:hover {
   background-color: #ebebeb;
   color: #292929;
 }
 
-.admin-products .list {
+.admin-products .list,
+.admin-categories .list {
   width: 100%;
 }
 
-.admin-products .list .filters {
+.admin-products .list .filters,
+.admin-categories .list .filters {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2099,7 +2105,8 @@
   margin-bottom: 10px;
 }
 
-.admin-products .list .filters .search {
+.admin-products .list .filters .search,
+.admin-categories .list .filters .search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2114,18 +2121,21 @@
   background-color: #ebebeb;
 }
 
-.admin-products .list .filters .search input {
+.admin-products .list .filters .search input,
+.admin-categories .list .filters .search input {
   border: none;
   height: 2rem;
   font-size: 1rem;
   background-color: transparent;
 }
 
-.admin-products .list .filters .search input:focus {
+.admin-products .list .filters .search input:focus,
+.admin-categories .list .filters .search input:focus {
   outline: none;
 }
 
-.admin-products .list .filters .search .icon {
+.admin-products .list .filters .search .icon,
+.admin-categories .list .filters .search .icon {
   margin-left: 5px;
   padding: 2px;
   color: #292929;
@@ -2134,29 +2144,34 @@
   transition: all 0.5s ease;
 }
 
-.admin-products .list .filters .search .icon:hover {
+.admin-products .list .filters .search .icon:hover,
+.admin-categories .list .filters .search .icon:hover {
   cursor: pointer;
   color: #ebebeb;
   background-color: #292929;
 }
 
-.admin-products .list .filters .filter {
+.admin-products .list .filters .filter,
+.admin-categories .list .filters .filter {
   padding: 0;
   margin: 0;
 }
 
-.admin-products .list .filters .filter .text {
+.admin-products .list .filters .filter .text,
+.admin-categories .list .filters .filter .text {
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0 10px;
   margin-left: 10px;
 }
 
-.admin-products .list .filters .filter .text.hide.inactive {
+.admin-products .list .filters .filter .text.hide.inactive,
+.admin-categories .list .filters .filter .text.hide.inactive {
   display: none;
 }
 
-.admin-products .list .filters .filter select {
+.admin-products .list .filters .filter select,
+.admin-categories .list .filters .filter select {
   font-size: 1rem;
   font-weight: 300;
   padding: 5px;
@@ -2165,15 +2180,18 @@
   background-color: #ebebeb;
 }
 
-.admin-products .list .filters .filter select.hide.inactive {
+.admin-products .list .filters .filter select.hide.inactive,
+.admin-categories .list .filters .filter select.hide.inactive {
   display: none;
 }
 
-.admin-products .list .grid {
+.admin-products .list .grid,
+.admin-categories .list .grid {
   width: 100%;
 }
 
-.admin-products .list .grid .grid-name {
+.admin-products .list .grid .grid-name,
+.admin-categories .list .grid .grid-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2187,17 +2205,21 @@
   height: 90%;
 }
 
-.admin-products .list .grid .grid-name .grid-image {
+.admin-products .list .grid .grid-name .grid-image,
+.admin-categories .list .grid .grid-name .grid-image {
   -o-object-fit: contain;
      object-fit: contain;
   margin-right: 10px;
 }
 
-.admin-products .list .grid .btn {
+.admin-products .list .grid .btn,
+.admin-categories .list .grid .btn {
   margin-left: 5px;
 }
 
-.admin-products .list .grid a, .admin-products .list .grid .btn {
+.admin-products .list .grid a, .admin-products .list .grid .btn,
+.admin-categories .list .grid a,
+.admin-categories .list .grid .btn {
   width: 100%;
   height: 75%;
   background-color: #292929;
@@ -2221,7 +2243,9 @@
           justify-content: center;
 }
 
-.admin-products .list .grid a .grid-edit, .admin-products .list .grid .btn .grid-edit {
+.admin-products .list .grid a .grid-edit, .admin-products .list .grid .btn .grid-edit,
+.admin-categories .list .grid a .grid-edit,
+.admin-categories .list .grid .btn .grid-edit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2233,23 +2257,29 @@
           justify-content: center;
 }
 
-.admin-products .list .grid a:hover {
+.admin-products .list .grid a:hover,
+.admin-categories .list .grid a:hover {
   background-color: #bb7900;
   color: #292929;
 }
 
-.admin-products .list .grid .btn:hover {
+.admin-products .list .grid .btn:hover,
+.admin-categories .list .grid .btn:hover {
   background-color: #be0000;
   color: #292929;
 }
 
 .admin-edit-product,
-.admin-create-product {
+.admin-create-product,
+.admin-edit-category,
+.admin-create-category {
   padding: 2vh 10vw;
 }
 
 .admin-edit-product .top,
-.admin-create-product .top {
+.admin-create-product .top,
+.admin-edit-category .top,
+.admin-create-category .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2267,12 +2297,16 @@
 }
 
 .admin-edit-product .top .title-bar,
-.admin-create-product .top .title-bar {
+.admin-create-product .top .title-bar,
+.admin-edit-category .top .title-bar,
+.admin-create-category .top .title-bar {
   padding: 0;
 }
 
 .admin-edit-product .top button,
-.admin-create-product .top button {
+.admin-create-product .top button,
+.admin-edit-category .top button,
+.admin-create-category .top button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2287,13 +2321,17 @@
 }
 
 .admin-edit-product .top button:hover,
-.admin-create-product .top button:hover {
+.admin-create-product .top button:hover,
+.admin-edit-category .top button:hover,
+.admin-create-category .top button:hover {
   background-color: #ebebeb;
   color: #292929;
 }
 
 .admin-edit-product .bottom,
-.admin-create-product .bottom {
+.admin-create-product .bottom,
+.admin-edit-category .bottom,
+.admin-create-category .bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2305,7 +2343,9 @@
 }
 
 .admin-edit-product .bottom .left,
-.admin-create-product .bottom .left {
+.admin-create-product .bottom .left,
+.admin-edit-category .bottom .left,
+.admin-create-category .bottom .left {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2318,13 +2358,28 @@
           flex-direction: column;
 }
 
-.admin-edit-product .bottom .left .name, .admin-edit-product .bottom .left .category, .admin-edit-product .bottom .left .subcategory, .admin-edit-product .bottom .left .price, .admin-edit-product .bottom .left .stock, .admin-edit-product .bottom .left .desc,
+.admin-edit-product .bottom .left .name, .admin-edit-product .bottom .left .category, .admin-edit-product .bottom .left .subcategory, .admin-edit-product .bottom .left .price, .admin-edit-product .bottom .left .stock, .admin-edit-product .bottom .left .desc, .admin-edit-product .bottom .left .order,
 .admin-create-product .bottom .left .name,
 .admin-create-product .bottom .left .category,
 .admin-create-product .bottom .left .subcategory,
 .admin-create-product .bottom .left .price,
 .admin-create-product .bottom .left .stock,
-.admin-create-product .bottom .left .desc {
+.admin-create-product .bottom .left .desc,
+.admin-create-product .bottom .left .order,
+.admin-edit-category .bottom .left .name,
+.admin-edit-category .bottom .left .category,
+.admin-edit-category .bottom .left .subcategory,
+.admin-edit-category .bottom .left .price,
+.admin-edit-category .bottom .left .stock,
+.admin-edit-category .bottom .left .desc,
+.admin-edit-category .bottom .left .order,
+.admin-create-category .bottom .left .name,
+.admin-create-category .bottom .left .category,
+.admin-create-category .bottom .left .subcategory,
+.admin-create-category .bottom .left .price,
+.admin-create-category .bottom .left .stock,
+.admin-create-category .bottom .left .desc,
+.admin-create-category .bottom .left .order {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2334,20 +2389,35 @@
           flex-direction: column;
 }
 
-.admin-edit-product .bottom .left .name label, .admin-edit-product .bottom .left .category label, .admin-edit-product .bottom .left .subcategory label, .admin-edit-product .bottom .left .price label, .admin-edit-product .bottom .left .stock label, .admin-edit-product .bottom .left .desc label,
+.admin-edit-product .bottom .left .name label, .admin-edit-product .bottom .left .category label, .admin-edit-product .bottom .left .subcategory label, .admin-edit-product .bottom .left .price label, .admin-edit-product .bottom .left .stock label, .admin-edit-product .bottom .left .desc label, .admin-edit-product .bottom .left .order label,
 .admin-create-product .bottom .left .name label,
 .admin-create-product .bottom .left .category label,
 .admin-create-product .bottom .left .subcategory label,
 .admin-create-product .bottom .left .price label,
 .admin-create-product .bottom .left .stock label,
-.admin-create-product .bottom .left .desc label {
+.admin-create-product .bottom .left .desc label,
+.admin-create-product .bottom .left .order label,
+.admin-edit-category .bottom .left .name label,
+.admin-edit-category .bottom .left .category label,
+.admin-edit-category .bottom .left .subcategory label,
+.admin-edit-category .bottom .left .price label,
+.admin-edit-category .bottom .left .stock label,
+.admin-edit-category .bottom .left .desc label,
+.admin-edit-category .bottom .left .order label,
+.admin-create-category .bottom .left .name label,
+.admin-create-category .bottom .left .category label,
+.admin-create-category .bottom .left .subcategory label,
+.admin-create-category .bottom .left .price label,
+.admin-create-category .bottom .left .stock label,
+.admin-create-category .bottom .left .desc label,
+.admin-create-category .bottom .left .order label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
   padding-left: 10px;
   padding-bottom: 5px;
 }
 
-.admin-edit-product .bottom .left .name input, .admin-edit-product .bottom .left .name select, .admin-edit-product .bottom .left .category input, .admin-edit-product .bottom .left .category select, .admin-edit-product .bottom .left .subcategory input, .admin-edit-product .bottom .left .subcategory select, .admin-edit-product .bottom .left .price input, .admin-edit-product .bottom .left .price select, .admin-edit-product .bottom .left .stock input, .admin-edit-product .bottom .left .stock select, .admin-edit-product .bottom .left .desc input, .admin-edit-product .bottom .left .desc select,
+.admin-edit-product .bottom .left .name input, .admin-edit-product .bottom .left .name select, .admin-edit-product .bottom .left .category input, .admin-edit-product .bottom .left .category select, .admin-edit-product .bottom .left .subcategory input, .admin-edit-product .bottom .left .subcategory select, .admin-edit-product .bottom .left .price input, .admin-edit-product .bottom .left .price select, .admin-edit-product .bottom .left .stock input, .admin-edit-product .bottom .left .stock select, .admin-edit-product .bottom .left .desc input, .admin-edit-product .bottom .left .desc select, .admin-edit-product .bottom .left .order input, .admin-edit-product .bottom .left .order select,
 .admin-create-product .bottom .left .name input,
 .admin-create-product .bottom .left .name select,
 .admin-create-product .bottom .left .category input,
@@ -2359,7 +2429,37 @@
 .admin-create-product .bottom .left .stock input,
 .admin-create-product .bottom .left .stock select,
 .admin-create-product .bottom .left .desc input,
-.admin-create-product .bottom .left .desc select {
+.admin-create-product .bottom .left .desc select,
+.admin-create-product .bottom .left .order input,
+.admin-create-product .bottom .left .order select,
+.admin-edit-category .bottom .left .name input,
+.admin-edit-category .bottom .left .name select,
+.admin-edit-category .bottom .left .category input,
+.admin-edit-category .bottom .left .category select,
+.admin-edit-category .bottom .left .subcategory input,
+.admin-edit-category .bottom .left .subcategory select,
+.admin-edit-category .bottom .left .price input,
+.admin-edit-category .bottom .left .price select,
+.admin-edit-category .bottom .left .stock input,
+.admin-edit-category .bottom .left .stock select,
+.admin-edit-category .bottom .left .desc input,
+.admin-edit-category .bottom .left .desc select,
+.admin-edit-category .bottom .left .order input,
+.admin-edit-category .bottom .left .order select,
+.admin-create-category .bottom .left .name input,
+.admin-create-category .bottom .left .name select,
+.admin-create-category .bottom .left .category input,
+.admin-create-category .bottom .left .category select,
+.admin-create-category .bottom .left .subcategory input,
+.admin-create-category .bottom .left .subcategory select,
+.admin-create-category .bottom .left .price input,
+.admin-create-category .bottom .left .price select,
+.admin-create-category .bottom .left .stock input,
+.admin-create-category .bottom .left .stock select,
+.admin-create-category .bottom .left .desc input,
+.admin-create-category .bottom .left .desc select,
+.admin-create-category .bottom .left .order input,
+.admin-create-category .bottom .left .order select {
   color: #292929;
   font-size: 1rem;
   height: 2rem;
@@ -2368,13 +2468,28 @@
   border-bottom: #292929 1px solid;
 }
 
-.admin-edit-product .bottom .left .name textarea, .admin-edit-product .bottom .left .category textarea, .admin-edit-product .bottom .left .subcategory textarea, .admin-edit-product .bottom .left .price textarea, .admin-edit-product .bottom .left .stock textarea, .admin-edit-product .bottom .left .desc textarea,
+.admin-edit-product .bottom .left .name textarea, .admin-edit-product .bottom .left .category textarea, .admin-edit-product .bottom .left .subcategory textarea, .admin-edit-product .bottom .left .price textarea, .admin-edit-product .bottom .left .stock textarea, .admin-edit-product .bottom .left .desc textarea, .admin-edit-product .bottom .left .order textarea,
 .admin-create-product .bottom .left .name textarea,
 .admin-create-product .bottom .left .category textarea,
 .admin-create-product .bottom .left .subcategory textarea,
 .admin-create-product .bottom .left .price textarea,
 .admin-create-product .bottom .left .stock textarea,
-.admin-create-product .bottom .left .desc textarea {
+.admin-create-product .bottom .left .desc textarea,
+.admin-create-product .bottom .left .order textarea,
+.admin-edit-category .bottom .left .name textarea,
+.admin-edit-category .bottom .left .category textarea,
+.admin-edit-category .bottom .left .subcategory textarea,
+.admin-edit-category .bottom .left .price textarea,
+.admin-edit-category .bottom .left .stock textarea,
+.admin-edit-category .bottom .left .desc textarea,
+.admin-edit-category .bottom .left .order textarea,
+.admin-create-category .bottom .left .name textarea,
+.admin-create-category .bottom .left .category textarea,
+.admin-create-category .bottom .left .subcategory textarea,
+.admin-create-category .bottom .left .price textarea,
+.admin-create-category .bottom .left .stock textarea,
+.admin-create-category .bottom .left .desc textarea,
+.admin-create-category .bottom .left .order textarea {
   overflow: auto;
   resize: none;
   font-size: 1rem;
@@ -2382,7 +2497,9 @@
 }
 
 .admin-edit-product .bottom .right,
-.admin-create-product .bottom .right {
+.admin-create-product .bottom .right,
+.admin-edit-category .bottom .right,
+.admin-create-category .bottom .right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2396,7 +2513,9 @@
 }
 
 .admin-edit-product .bottom .right .image,
-.admin-create-product .bottom .right .image {
+.admin-create-product .bottom .right .image,
+.admin-edit-category .bottom .right .image,
+.admin-create-category .bottom .right .image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2406,7 +2525,9 @@
 }
 
 .admin-edit-product .bottom .right .image img,
-.admin-create-product .bottom .right .image img {
+.admin-create-product .bottom .right .image img,
+.admin-edit-category .bottom .right .image img,
+.admin-create-category .bottom .right .image img {
   height: 30vh;
   -o-object-fit: contain;
      object-fit: contain;
@@ -2414,7 +2535,9 @@
 }
 
 .admin-edit-product .bottom .right .file,
-.admin-create-product .bottom .right .file {
+.admin-create-product .bottom .right .file,
+.admin-edit-category .bottom .right .file,
+.admin-create-category .bottom .right .file {
   margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2429,14 +2552,18 @@
 }
 
 .admin-edit-product .bottom .right .file .file1,
-.admin-create-product .bottom .right .file .file1 {
+.admin-create-product .bottom .right .file .file1,
+.admin-edit-category .bottom .right .file .file1,
+.admin-create-category .bottom .right .file .file1 {
   -webkit-box-flex: 9;
       -ms-flex: 9;
           flex: 9;
 }
 
 .admin-edit-product .bottom .right .file1,
-.admin-create-product .bottom .right .file1 {
+.admin-create-product .bottom .right .file1,
+.admin-edit-category .bottom .right .file1,
+.admin-create-category .bottom .right .file1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2447,7 +2574,9 @@
 }
 
 .admin-edit-product .bottom .right .file1 label,
-.admin-create-product .bottom .right .file1 label {
+.admin-create-product .bottom .right .file1 label,
+.admin-edit-category .bottom .right .file1 label,
+.admin-create-category .bottom .right .file1 label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
   padding-left: 10px;
@@ -2455,7 +2584,9 @@
 }
 
 .admin-edit-product .bottom .right .file1 input,
-.admin-create-product .bottom .right .file1 input {
+.admin-create-product .bottom .right .file1 input,
+.admin-edit-category .bottom .right .file1 input,
+.admin-create-category .bottom .right .file1 input {
   color: #292929;
   font-size: 1rem;
   height: 2rem;
@@ -2465,7 +2596,9 @@
 }
 
 .admin-edit-product .bottom .right .file1 input[type=file]::file-selector-button,
-.admin-create-product .bottom .right .file1 input[type=file]::file-selector-button {
+.admin-create-product .bottom .right .file1 input[type=file]::file-selector-button,
+.admin-edit-category .bottom .right .file1 input[type=file]::file-selector-button,
+.admin-create-category .bottom .right .file1 input[type=file]::file-selector-button {
   border-radius: 5px;
   border: none;
   padding: 5px 15px;
@@ -2477,14 +2610,18 @@
 }
 
 .admin-edit-product .bottom .right .file1 input[type=file]::file-selector-button:hover,
-.admin-create-product .bottom .right .file1 input[type=file]::file-selector-button:hover {
+.admin-create-product .bottom .right .file1 input[type=file]::file-selector-button:hover,
+.admin-edit-category .bottom .right .file1 input[type=file]::file-selector-button:hover,
+.admin-create-category .bottom .right .file1 input[type=file]::file-selector-button:hover {
   cursor: pointer;
   background-color: #ebebeb;
   color: #292929;
 }
 
 .admin-edit-product .save,
-.admin-create-product .save {
+.admin-create-product .save,
+.admin-edit-category .save,
+.admin-create-category .save {
   margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2502,7 +2639,9 @@
 }
 
 .admin-edit-product .save button,
-.admin-create-product .save button {
+.admin-create-product .save button,
+.admin-edit-category .save button,
+.admin-create-category .save button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2517,13 +2656,17 @@
 }
 
 .admin-edit-product .save button:hover,
-.admin-create-product .save button:hover {
+.admin-create-product .save button:hover,
+.admin-edit-category .save button:hover,
+.admin-create-category .save button:hover {
   background-color: #bb7900;
   color: #ebebeb;
 }
 
 .admin-edit-product .create,
-.admin-create-product .create {
+.admin-create-product .create,
+.admin-edit-category .create,
+.admin-create-category .create {
   margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2541,7 +2684,9 @@
 }
 
 .admin-edit-product .create button,
-.admin-create-product .create button {
+.admin-create-product .create button,
+.admin-edit-category .create button,
+.admin-create-category .create button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2556,7 +2701,9 @@
 }
 
 .admin-edit-product .create button:hover,
-.admin-create-product .create button:hover {
+.admin-create-product .create button:hover,
+.admin-edit-category .create button:hover,
+.admin-create-category .create button:hover {
   background-color: #3a9109;
   color: #ebebeb;
 }

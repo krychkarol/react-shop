@@ -16,6 +16,13 @@ const AdminMenu = () => {
                         </Link>
                     </div>
                     <div className='option'>
+                        <Link to={'/admin/kategorie'}>
+                            <div>
+                                Kategorie
+                            </div>
+                        </Link>
+                    </div>
+                    <div className='option'>
                         <div>
                             Zamówienia
                         </div>
@@ -23,11 +30,6 @@ const AdminMenu = () => {
                     <div className='option'>
                         <div>
                             Użytkownicy
-                        </div>
-                    </div>
-                    <div className='option'>
-                        <div>
-                            Kategorie
                         </div>
                     </div>
                     <div className='option'>

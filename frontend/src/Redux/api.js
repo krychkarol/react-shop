@@ -1,5 +1,11 @@
 import { publicReq, userReq } from "../request";
 import {
+    createCategoryFail, createCategoryRequest, createCategorysSuccess,
+    deleteCategoryFail, deleteCategoryRequest, deleteCategorySuccess, getCategoryFail,
+    getCategoryRequest, getCategorySuccess, updateCategoryFail,
+    updateCategoryRequest, updateCategorySuccess,
+    } from "./categoryRedux";
+import {
     createProductsFail, createProductsRequest, createProductsSuccess,
     deleteProductsFail, deleteProductsRequest, deleteProductsSuccess,
     getProductsFail, getProductsRequest, getProductsSuccess,
@@ -69,5 +75,47 @@ export const createProduct = async (product, dispatch) => {
         dispatch(createProductsSuccess(res.data));
     }catch(err){
         dispatch(createProductsFail());
+    }
+};
+
+//CATEGORY
+export const getCategory = async (dispatch) => {
+    dispatch(getCategoryRequest());
+    try{
+        const res = await publicReq.get("categories");
+        dispatch(getCategorySuccess(res.data.sort((a, b) => a.order - b.order)));
+    }catch(err){
+        dispatch(getCategoryFail());
+    }
+};
+
+export const deleteCategory = async (id, dispatch) => {
+    dispatch(deleteCategoryRequest());
+    try{
+        //const res = await userReq.delete("categories/"+ id);
+        await userReq.delete("categories/"+ id);
+        dispatch(deleteCategorySuccess(id));
+    }catch(err){
+        dispatch(deleteCategoryFail());
+    }
+};
+
+export const updateCategory = async (id, category, dispatch) => {
+    dispatch(updateCategoryRequest());
+    try{
+        const res = await userReq.put("categories/"+ id, category);
+        dispatch(updateCategorySuccess({id:id, category:res.data}));
+    }catch(err){
+        dispatch(updateCategoryFail());
+    }
+};
+
+export const createCategory = async (product, dispatch) => {
+    dispatch(createCategoryRequest());
+    try{
+        const res = await userReq.post("categories/", product);
+        dispatch(createCategorysSuccess(res.data));
+    }catch(err){
+        dispatch(createCategoryFail());
     }
 };

@@ -4,12 +4,12 @@ import Categories from '../Components/Categories';
 import ProductList from '../Components/ProductList';
 import TitleBar from '../Components/TitleBar';
 
-const Home = () => {
+const Home = ({categories}) => {
 
     return (
         <div className='home'>
             <Slider/>
-            <Categories/>
+            <Categories categories={categories}/>
             <TitleBar title='Najnowsze produkty' subtitle='Sprawdź nasze nowości !'/>
             <ProductList category='New'/>
             {/* 

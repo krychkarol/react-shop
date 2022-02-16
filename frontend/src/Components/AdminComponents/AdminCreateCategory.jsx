@@ -3,11 +3,11 @@ import TitleBar from '../TitleBar';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from 'react';
 import app from '../../firebase';
-import { createProduct } from '../../Redux/api';
+import { createCategory } from '../../Redux/api';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-const AdminCreateProduct = ({categories}) => {
+const AdminCreateCategory = () => {
 
     const dispatch = useDispatch();
 
@@ -19,6 +19,12 @@ const AdminCreateProduct = ({categories}) => {
     const handleChange = e => {
         setInputs(prev => {
             return {...prev, [e.target.name]: e.target.value}
+        });
+    };
+
+    const handleChangeSubcategory = e => {
+        setInputs(prev => {
+            return {...prev, [e.target.name]: e.target.value.split(",")}
         });
     };
 
@@ -68,18 +74,18 @@ const AdminCreateProduct = ({categories}) => {
         }
     },[file]);
 
-    const handleCreate = async (product) => {
-        await createProduct(product, dispatch);
-        navigate('/admin/produkty');
+    const handleCreate = async (category) => {
+        await createCategory(category, dispatch);
+        navigate('/admin/kategorie');
     };
 
     return (
         // SCSS => _adminProduct 
-        <div className='admin-create-product'>
+        <div className='admin-create-category'>
         <div className='top'>
-            <TitleBar title='Utwórz' subtitle='Nowy produkt'/>
-            <Link to={'/admin/produkty'}>
-                    <button>Lista Produktów</button>
+            <TitleBar title='Utwórz' subtitle='Nową kategorię'/>
+            <Link to={'/admin/kategorie'}>
+                    <button>Lista Kategorii</button>
             </Link>
         </div>
         <div className='bottom'>
@@ -88,37 +94,13 @@ const AdminCreateProduct = ({categories}) => {
                     <label>Nazwa</label>
                     <input name='name' type='text' onChange={handleChange}/>
                 </div>
-                <div className='category'>
-                    <label>Kategoria</label>
-                    <select name='category' placeholder='category' onChange={handleChange}>
-                        <option value='DEFAULT'>Wybierz...</option>
-                        {categories.map(option => (
-                            <option value={option.name} key={option.name}>{option.name}</option>
-                        ))}
-                    </select>
-                </div>
                 <div className='subcategory'>
-                    <label>Podkategoria</label>
-                    <select name='subcategory' onChange={handleChange}>
-                        <option value='DEFAULT'>Wybierz...</option>
-                        {categories.map(option => (
-                            option.name === inputs.category && option.subcategory.map(option => (
-                                <option value={option} key={option}>{option}</option> 
-                            ))
-                        ))}
-                    </select>
+                    <label>Podkategorie</label>
+                    <input name='subcategory' type='text' onChange={handleChangeSubcategory}/>
                 </div>
-                <div className='price'>
-                    <label>Cena</label>
-                    <input name='price' type='number' onChange={handleChange}/>
-                </div>
-                <div className='stock'>
-                    <label>Ilosc w magazynie</label>
-                    <input name='stock' type='number' onChange={handleChange}/>
-                </div>
-                <div className='desc'>
-                    <label>Opis</label>
-                    <textarea name='desc' onChange={handleChange}/>
+                <div className='order'>
+                    <label>Kolejność</label>
+                    <input name='order' type='number' onChange={handleChange}/>
                 </div>
             </div>
             <div className='right'>
@@ -134,10 +116,10 @@ const AdminCreateProduct = ({categories}) => {
             </div>
         </div>
         <div className='create'>
-            <button onClick={() =>handleCreate(inputs)}>Utwórz produkt</button>
+            <button onClick={() =>handleCreate(inputs)}>Utwórz kategorię</button>
         </div>
     </div>
     );
 };
 
-export default AdminCreateProduct;
+export default AdminCreateCategory;

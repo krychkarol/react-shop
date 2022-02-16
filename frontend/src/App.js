@@ -27,7 +27,6 @@ function App() {
 
     const [ adminPath, setAdminPath ] = useState("");
     const [ categories, setCategories ] = useState([]);
-    const [ sortedCategories, setSortedCategories ] = useState([])
 
     useEffect(() => {
         setAdminPath(location.pathname.toString().includes("/admin"));
@@ -37,24 +36,20 @@ function App() {
         const getCategories = async () => {
             try{
                 const res = await publicReq.get("categories/");
-                setCategories(res.data);
+                setCategories(res.data.sort((a, b) => a.order - b.order));
             }
             catch(err){}
         };
         getCategories();
     },[]);
 
-    useEffect(() => {
-        setSortedCategories(categories.sort((a, b) => a.order - b.order))
-    },[categories]);
-
     return (
         <div className="App">
-                {adminPath ? (isAdmin ? <AdminNavbar/> : <Navigate to="/" />) : <Navbar categories={sortedCategories}/>}
+                {adminPath ? (isAdmin ? <AdminNavbar/> : <Navigate to="/" />) : <Navbar categories={categories}/>}
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/produkty/:category/:subcategory" element={<Products categories={sortedCategories}/>} />
-                        <Route path="/produkty/pokaz/:parametr" element={<Products categories={sortedCategories}/>} />
+                        <Route path="/" element={<Home categories={categories} />} />
+                        <Route path="/produkty/:category/:subcategory" element={<Products categories={categories}/>} />
+                        <Route path="/produkty/pokaz/:parametr" element={<Products categories={categories}/>} />
                         <Route path="/produkt/:id" element={<Product />} />
                         <Route path="/zaloguj" element={user ? <Navigate to="/" /> : <Login />} />
                         <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
@@ -62,7 +57,7 @@ function App() {
                         <Route path="/podsumowanie" element={<div> test </div>} />
                         <Route path="*" element={<></>} />
                     </Routes>
-                        {isAdmin && <Admin categories={sortedCategories} />}
+                        {isAdmin && <Admin categories={categories} />}
                 {adminPath ? <div></div> : <Footer/>}
         </div>
     );

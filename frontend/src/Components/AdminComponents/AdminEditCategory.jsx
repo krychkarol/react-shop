@@ -1,31 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { updateProduct } from '../../Redux/api';
+import { updateCategory } from '../../Redux/api';
 import TitleBar from '../TitleBar';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import app from '../../firebase';
 
-const AdminEditProduct = ({categories}) => {
+const AdminEditCategory = () => {
 
     const dispatch = useDispatch();
 
     let navigate = useNavigate();
 
     let location = useLocation();
-    const productId = location.pathname.split('/')[3];
+    const categoryId = location.pathname.split('/')[3];
 
-    const product = useSelector(state => state.admin.product.products.find(item => item._id === productId));
+    const category = useSelector(state => state.admin.category.categories.find(item => item._id === categoryId));
 
     const [ file, setFile ] = useState(); //TODO
     const [ inputs, setInputs ] = useState({
-        name: product.name,
-        category: product.category,
-        subcategory: product.subcategory,
-        price: product.price,
-        stock: product.stock,
-        desc: product.desc,
-        img: product.img
+        name: category.name,
+        subcategory: category.subcategory,
+        order: category.order,
+        img: category.img
     });
 
     const handleChange = e => {
@@ -34,9 +31,15 @@ const AdminEditProduct = ({categories}) => {
         });
     };
 
-    const handleUpdate = async (id, product) => {
-        await updateProduct(id, product, dispatch);
-        navigate('/admin/produkty');
+    const handleChangeSubcategory = e => {
+        setInputs(prev => {
+            return {...prev, [e.target.name]: e.target.value.split(",")}
+        });
+    };
+
+    const handleUpdate = async (id, category) => {
+        await updateCategory(id, category, dispatch);
+        navigate('/admin/kategorie');
     };
 
     useEffect(() => {
@@ -87,11 +90,11 @@ const AdminEditProduct = ({categories}) => {
 
     return (
         // SCSS => _adminProduct 
-        <div className='admin-edit-product'>
+        <div className='admin-edit-category'>
             <div className='top'>
-                <TitleBar title='Edytuj' subtitle={`ID: `+ product._id}/>
-                <Link to={'/admin/produkty'}>
-                    <button>Lista Produktów</button>
+                <TitleBar title='Edytuj' subtitle={`ID: `+ category._id}/>
+                <Link to={'/admin/kategorie'}>
+                    <button>Lista Kategorii</button>
                 </Link>
             </div>
             <div className='bottom'>
@@ -100,35 +103,13 @@ const AdminEditProduct = ({categories}) => {
                         <label>Nazwa</label>
                         <input name='name' type='text' value={inputs.name} onChange={handleChange}/>
                     </div>
-                    <div className='category'>
-                        <label>Kategoria</label>
-                        <select name='category' value={inputs.category} onChange={handleChange}>
-                            {categories.map(option => (
-                                <option value={option.name} key={option.name}>{option.name}</option>
-                            ))}
-                        </select>
-                    </div>
                     <div className='subcategory'>
-                        <label>Podkategoria</label>
-                        <select name='subcategory' value={inputs.subcategory} onChange={handleChange}>
-                            {categories.map(option => (
-                                option.name === inputs.category && option.subcategory.map(option => (
-                                    <option value={option} key={option}>{option}</option> 
-                                ))
-                            ))}
-                        </select>
+                        <label>Podkategorie</label>
+                        <input name='subcategory' type='text' value={inputs.subcategory} onChange={handleChangeSubcategory}/>
                     </div>
-                    <div className='price'>
-                        <label>Cena</label>
-                        <input name='price' type='number' value={inputs.price} onChange={handleChange}/>
-                    </div>
-                    <div className='stock'>
-                        <label>Ilosc w magazynie</label>
-                        <input name='stock' type='number' value={inputs.stock} onChange={handleChange}/>
-                    </div>
-                    <div className='desc'>
-                        <label>Opis</label>
-                        <textarea name='desc' value={inputs.desc} onChange={handleChange}/>
+                    <div className='order'>
+                        <label>Kolejność</label>
+                        <input name='order' type='number' value={inputs.order} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className='right'>
@@ -144,10 +125,10 @@ const AdminEditProduct = ({categories}) => {
                 </div>
             </div>
             <div className='save'>
-                <button onClick={() =>handleUpdate(productId, inputs)}>Zapisz zmiany</button>
+                <button onClick={() =>handleUpdate(categoryId, inputs)}>Zapisz zmiany</button>
             </div>
         </div>
     )
 }
 
-export default AdminEditProduct
+export default AdminEditCategory

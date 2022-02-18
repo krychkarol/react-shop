@@ -12,6 +12,12 @@ import {
     updateProductsFail, updateProductsRequest, updateProductsSuccess,
     } from "./productRedux";
 import {
+    createSliderFail, createSliderRequest, createSliderSuccess,
+    deleteSliderFail, deleteSliderRequest, deleteSliderSuccess,
+    getSliderFail, getSliderRequest, getSliderSuccess, updateSliderFail,
+    updateSliderRequest, updateSliderSuccess
+    } from "./sliderRedux";
+import {
     loginFail, loginRequest, loginSuccess,
     logoutFail, logoutRequest, logoutSuccess,
     } from "./userRedux"
@@ -117,5 +123,47 @@ export const createCategory = async (product, dispatch) => {
         dispatch(createCategorysSuccess(res.data));
     }catch(err){
         dispatch(createCategoryFail());
+    }
+};
+
+//SLIDER
+export const getSlides = async (dispatch) => {
+    dispatch(getSliderRequest());
+    try{
+        const res = await publicReq.get("slides");
+        dispatch(getSliderSuccess(res.data));
+    }catch(err){
+        dispatch(getSliderFail());
+    }
+};
+
+export const deleteSlide = async (id, dispatch) => {
+    dispatch(deleteSliderRequest());
+    try{
+        //const res = await userReq.delete("slides/"+ id);
+        await userReq.delete("slides/"+ id);
+        dispatch(deleteSliderSuccess(id));
+    }catch(err){
+        dispatch(deleteSliderFail());
+    }
+};
+
+export const updateSlide = async (id, slide, dispatch) => {
+    dispatch(updateSliderRequest());
+    try{
+        const res = await userReq.put("slides/"+ id, slide);
+        dispatch(updateSliderSuccess({id:id, slide:res.data}));
+    }catch(err){
+        dispatch(updateSliderFail());
+    }
+};
+
+export const createSlide = async (product, dispatch) => {
+    dispatch(createSliderRequest());
+    try{
+        const res = await userReq.post("slides/", product);
+        dispatch(createSliderSuccess(res.data));
+    }catch(err){
+        dispatch(createSliderFail());
     }
 };

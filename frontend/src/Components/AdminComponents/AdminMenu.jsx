@@ -23,6 +23,13 @@ const AdminMenu = () => {
                         </Link>
                     </div>
                     <div className='option'>
+                        <Link to={'/admin/slajder'}>
+                            <div>
+                                Slajder
+                            </div>
+                        </Link>
+                    </div>
+                    <div className='option'>
                         <div>
                             Zamówienia
                         </div>

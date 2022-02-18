@@ -6,11 +6,14 @@ import AdminCreateProduct from '../Components/AdminComponents/AdminCreateProduct
 import AdminCategories from '../Components/AdminComponents/AdminCategories';
 import AdminEditCategory from '../Components/AdminComponents/AdminEditCategory';
 import AdminCreateCategory from '../Components/AdminComponents/AdminCreateCategory';
+import AdminSlider from '../Components/AdminComponents/AdminSlider';
+import AdminCreateSlide from '../Components/AdminComponents/AdminCreateSlide';
+import AdminEditSlide from '../Components/AdminComponents/AdminEditSlide';
+
 import {
     Routes,
     Route
 } from 'react-router-dom';
-
 
 
 const Admin = ({categories}) => {
@@ -26,6 +29,9 @@ const Admin = ({categories}) => {
                 <Route path="/admin/kategorie" element={<AdminCategories/>} />
                 <Route path="/admin/kategoria/:id" element={<AdminEditCategory/>} />
                 <Route path="/admin/kategoria/nowa" element={<AdminCreateCategory/>} />
+                <Route path="/admin/slajder" element={<AdminSlider/>} />
+                <Route path="/admin/slajd/:id" element={<AdminEditSlide/>} />
+                <Route path="/admin/slajd/nowy" element={<AdminCreateSlide/>} />
             </Routes>
         </div>
     )

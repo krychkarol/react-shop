@@ -3,6 +3,7 @@ import cartReducer from './cartRedux';
 import userReducer from './userRedux';
 import productReducer from './productRedux';
 import categoryReducer from './categoryRedux';
+import sliderReducer from './sliderRedux';
 import {
     persistStore,
     persistReducer,
@@ -21,7 +22,7 @@ const persistConfig = {
     storage,
   }
 
-const adminReducer = combineReducers({ product: productReducer, category: categoryReducer })
+const adminReducer = combineReducers({ product: productReducer, category: categoryReducer, slider: sliderReducer })
 const rootReducer = combineReducers({ user: userReducer, cart: cartReducer, admin: adminReducer });
   
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { updateCategory } from '../../Redux/api';
+import { updateSlide } from '../../Redux/api';
 import TitleBar from '../TitleBar';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import app from '../../firebase';
 
-const AdminEditCategory = () => {
+const AdminEditSlide = () => {
 
     const dispatch = useDispatch();
 
     let navigate = useNavigate();
 
     let location = useLocation();
-    const categoryId = location.pathname.split('/')[3];
+    const slideId = location.pathname.split('/')[3];
 
-    const category = useSelector(state => state.admin.category.categories.find(item => item._id === categoryId));
+    const slide = useSelector(state => state.admin.slider.slides.find(item => item._id === slideId));
 
     const [ file, setFile ] = useState();
     const [ inputs, setInputs ] = useState({
-        name: category.name,
-        subcategory: category.subcategory,
-        order: category.order,
-        img: category.img
+        name: slide.name,
+        path: slide.path,
+        desc: slide.desc,
+        img: slide.img
     });
 
     const handleChange = e => {
@@ -31,15 +31,9 @@ const AdminEditCategory = () => {
         });
     };
 
-    const handleChangeSubcategory = e => {
-        setInputs(prev => {
-            return {...prev, [e.target.name]: e.target.value.split(",")}
-        });
-    };
-
-    const handleUpdate = async (id, category) => {
-        await updateCategory(id, category, dispatch);
-        navigate('/admin/kategorie');
+    const handleUpdate = async (id, product) => {
+        await updateSlide(id, product, dispatch);
+        navigate('/admin/slajder');
     };
 
     useEffect(() => {
@@ -90,11 +84,11 @@ const AdminEditCategory = () => {
 
     return (
         // SCSS => _adminProduct 
-        <div className='admin-edit-category'>
+        <div className='admin-edit-slider'>
             <div className='top'>
-                <TitleBar title='Edytuj' subtitle={`ID: `+ category._id}/>
-                <Link to={'/admin/kategorie'}>
-                    <button>Lista Kategorii</button>
+                <TitleBar title='Edytuj' subtitle={`ID: `+ slide._id}/>
+                <Link to={'/admin/slajder'}>
+                    <button>Lista Slajdów</button>
                 </Link>
             </div>
             <div className='bottom'>
@@ -103,13 +97,13 @@ const AdminEditCategory = () => {
                         <label>Nazwa</label>
                         <input name='name' type='text' value={inputs.name} onChange={handleChange}/>
                     </div>
-                    <div className='subcategory'>
-                        <label>Podkategorie</label>
-                        <input name='subcategory' type='text' value={inputs.subcategory} onChange={handleChangeSubcategory}/>
+                    <div className='path'>
+                        <label>Scieżka</label>
+                        <input name='path' type='text' value={inputs.path} onChange={handleChange}/>
                     </div>
-                    <div className='order'>
-                        <label>Kolejność</label>
-                        <input name='order' type='number' value={inputs.order} onChange={handleChange}/>
+                    <div className='desc'>
+                        <label>Opis</label>
+                        <textarea name='desc' value={inputs.desc} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className='right'>
@@ -125,10 +119,10 @@ const AdminEditCategory = () => {
                 </div>
             </div>
             <div className='save'>
-                <button onClick={() =>handleUpdate(categoryId, inputs)}>Zapisz zmiany</button>
+                <button onClick={() =>handleUpdate(slideId, inputs)}>Zapisz zmiany</button>
             </div>
         </div>
     )
 }
 
-export default AdminEditCategory
+export default AdminEditSlide

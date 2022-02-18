@@ -85,7 +85,7 @@ const AdminCreateCategory = () => {
         <div className='top'>
             <TitleBar title='Utwórz' subtitle='Nową kategorię'/>
             <Link to={'/admin/kategorie'}>
-                    <button>Lista Kategorii</button>
+                <button>Lista Kategorii</button>
             </Link>
         </div>
         <div className='bottom'>

@@ -10,6 +10,7 @@ const orderRoute = require("./routes/order");
 const categoryRoute = require("./routes/category");
 const cartRoute = require("./routes/cart");
 const stripeRoute = require('./routes/stripe');
+const sliderRoute = require('./routes/slider');
 
 const app = express();
 dotenv.config();
@@ -29,6 +30,7 @@ app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/carts", cartRoute);
+app.use("/api/slides", sliderRoute);
 app.use("/api/stripe", stripeRoute);
 
 app.listen(5000, () => {

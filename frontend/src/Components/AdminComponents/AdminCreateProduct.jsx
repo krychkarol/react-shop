@@ -79,7 +79,7 @@ const AdminCreateProduct = ({categories}) => {
         <div className='top'>
             <TitleBar title='Utwórz' subtitle='Nowy produkt'/>
             <Link to={'/admin/produkty'}>
-                    <button>Lista Produktów</button>
+                <button>Lista Produktów</button>
             </Link>
         </div>
         <div className='bottom'>

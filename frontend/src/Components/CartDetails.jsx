@@ -2,17 +2,20 @@ import React, { useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { useState } from 'react';
 import { userReq } from '../request';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { addQty, deleteProduct, removeQty } from '../Redux/cartRedux';
 
 const CartDetails = () => {
 
     const KEY = process.env.REACT_APP_STRIPE
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const [ stripeToken, setStripeToken ] = useState();
 
@@ -29,17 +32,32 @@ const CartDetails = () => {
                     tokenId: stripeToken.id,
                     amount: cart.total * 100
                 });
-                navigate('/podsumowanie', {stripe: res.data, cart: cart});
+                navigate('/podsumowanie', {state: {stripe: res.data}});
             }catch{}
         }
         stripeToken && req();
-    },[stripeToken, navigate, cart])
+    },[stripeToken, navigate, cart]);
+
+    const handleAddQty = (id) => {
+        dispatch(addQty(id))
+    };
+
+    const handleRemoveQty = (qty, id) => {
+        if(qty > 0)
+        dispatch(removeQty(id))
+    };
+
+    const handleDelete = (id) => {
+        dispatch(deleteProduct(id))
+    }
 
     return (
         <div className='cart-details'>
             <div className='title'>Twój koszyk</div>
             <div className='top'>
+                <Link to={'/'}>
                     <button>Wróć do sklepu</button>
+                </Link>
             </div>
             <div className='bottom'>
                 <div className='list'>
@@ -54,16 +72,16 @@ const CartDetails = () => {
                                     <div>{product.name}</div>
                                 </div>
                                 <div className='qty'>
-                                    <RemoveIcon className='icon'/>
+                                    <RemoveIcon className='icon'onClick={() => handleRemoveQty(product.qty, product._id)}/>
                                     <div>{product.qty}</div>
-                                    <AddIcon className='icon'/>
+                                    <AddIcon className='icon' onClick={() => handleAddQty(product._id)}/>
                                 </div>
                                 <div className='price'>
                                     {(product.price * product.qty).toFixed(2)} zł
                                 </div>    
                             </div>
                             <div className='delete'>
-                                <DeleteIcon className='icon'/>
+                                <DeleteIcon className='icon' onClick={() => handleDelete(product._id)}/>
                             </div>
                         </div>
                     <hr/>

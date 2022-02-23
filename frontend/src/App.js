@@ -8,6 +8,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Cart from './Pages/Cart';
 import Admin from './Pages/Admin';
+import Summary from './Pages/Summary';
 import React, { useEffect, useState } from 'react';
 import {
     Routes,
@@ -17,6 +18,7 @@ import {
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { publicReq } from './request';
+
 
 function App() {
 
@@ -54,7 +56,7 @@ function App() {
                         <Route path="/zaloguj" element={user ? <Navigate to="/" /> : <Login />} />
                         <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
                         <Route path="/koszyk" element={<Cart />} />
-                        <Route path="/podsumowanie" element={<div> test </div>} />
+                        <Route path="/podsumowanie" element={<Summary/>} />
                         <Route path="*" element={<></>} />
                     </Routes>
                         {isAdmin && <Admin categories={categories} />}

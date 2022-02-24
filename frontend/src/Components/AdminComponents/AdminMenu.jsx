@@ -30,13 +30,15 @@ const AdminMenu = () => {
                         </Link>
                     </div>
                     <div className='option'>
-                        <div>
-                            Zamówienia
-                        </div>
+                        <Link to={'/admin/uzytkownicy'}>
+                            <div>
+                                Użytkownicy
+                            </div>
+                        </Link>
                     </div>
                     <div className='option'>
                         <div>
-                            Użytkownicy
+                            Zamówienia
                         </div>
                     </div>
                     <div className='option'>

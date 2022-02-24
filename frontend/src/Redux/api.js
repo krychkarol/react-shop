@@ -21,6 +21,7 @@ import {
     loginFail, loginRequest, loginSuccess,
     logoutFail, logoutRequest, logoutSuccess,
     } from "./userRedux"
+import { deleteUsersFail, deleteUsersRequest, deleteUsersSuccess, getUsersFail, getUsersRequest, getUsersSuccess, updateUsersFail, updateUsersRequest, updateUsersSuccess } from "./usersRedux";
 
 //AUTH
 export const login = async (dispatch, user) => {
@@ -165,5 +166,37 @@ export const createSlide = async (product, dispatch) => {
         dispatch(createSliderSuccess(res.data));
     }catch(err){
         dispatch(createSliderFail());
+    }
+};
+
+//USERS
+export const getUsers = async (dispatch) => {
+    dispatch(getUsersRequest());
+    try{
+        const res = await userReq.get("users");
+        dispatch(getUsersSuccess(res.data));
+    }catch(err){
+        dispatch(getUsersFail());
+    }
+};
+
+export const deleteUser = async (id, dispatch) => {
+    dispatch(deleteUsersRequest());
+    try{
+        //const res = await userReq.delete("users/"+ id);
+        await userReq.delete("users/"+ id);
+        dispatch(deleteUsersSuccess(id));
+    }catch(err){
+        dispatch(deleteUsersFail());
+    }
+};
+
+export const updateUser = async (id, user, dispatch) => {
+    dispatch(updateUsersRequest());
+    try{
+        const res = await userReq.put("users/"+ id, user);
+        dispatch(updateUsersSuccess({id:id, user:res.data}));
+    }catch(err){
+        dispatch(updateUsersFail());
     }
 };

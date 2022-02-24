@@ -14,6 +14,8 @@ import {
     Routes,
     Route
 } from 'react-router-dom';
+import AdminUsers from '../Components/AdminComponents/AdminUsers';
+import AdminEditUser from '../Components/AdminComponents/AdminEditUser';
 
 
 const Admin = ({categories}) => {
@@ -32,6 +34,8 @@ const Admin = ({categories}) => {
                 <Route path="/admin/slajder" element={<AdminSlider/>} />
                 <Route path="/admin/slajd/:id" element={<AdminEditSlide/>} />
                 <Route path="/admin/slajd/nowy" element={<AdminCreateSlide/>} />
+                <Route path="/admin/uzytkownicy" element={<AdminUsers/>} />
+                <Route path="/admin/uzytkownik/:id" element={<AdminEditUser/>} />
             </Routes>
         </div>
     )

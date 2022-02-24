@@ -45,8 +45,8 @@ const AdminProducts = ({categories}) => {
                 items[i].classList.add('inactive');
                 }
             }else{
-                for( var j = 0;  i < items.length; i++){
-                    items[j].classList.remove('inactive');
+                for( var j = 0;  j < items.length; j++){
+                items[j].classList.remove('inactive');
                 }
             }
         };
@@ -62,7 +62,6 @@ const AdminProducts = ({categories}) => {
         if (window.confirm('Czy napewno usunąć ten produkt ?')) 
         deleteProduct(id, dispatch)
     };
-
 
     const columns = [
         { field: '_id', headerName: 'ID', minWidth: 220, flex: 2.2 },

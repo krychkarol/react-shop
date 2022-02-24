@@ -55,7 +55,7 @@ function App() {
                         <Route path="/produkt/:id" element={<Product />} />
                         <Route path="/zaloguj" element={user ? <Navigate to="/" /> : <Login />} />
                         <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
-                        <Route path="/koszyk" element={<Cart />} />
+                        <Route path="/koszyk" element={user ? <Cart /> : <Login />} />
                         <Route path="/podsumowanie" element={<Summary/>} />
                         <Route path="*" element={<></>} />
                     </Routes>

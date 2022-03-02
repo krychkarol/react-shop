@@ -14,6 +14,20 @@ const AdminMenu = () => {
                                 Produkty
                             </div>
                         </Link>
+                    </div>                    
+                    <div className='option'>
+                        <Link to={'/admin/zamowienia'}>
+                            <div>
+                                Zamówienia
+                            </div>
+                        </Link>
+                    </div>                    
+                    <div className='option'>
+                        <Link to={'/admin/uzytkownicy'}>
+                            <div>
+                                Użytkownicy
+                            </div>
+                        </Link>
                     </div>
                     <div className='option'>
                         <Link to={'/admin/kategorie'}>
@@ -28,23 +42,6 @@ const AdminMenu = () => {
                                 Slajder
                             </div>
                         </Link>
-                    </div>
-                    <div className='option'>
-                        <Link to={'/admin/uzytkownicy'}>
-                            <div>
-                                Użytkownicy
-                            </div>
-                        </Link>
-                    </div>
-                    <div className='option'>
-                        <div>
-                            Zamówienia
-                        </div>
-                    </div>
-                    <div className='option'>
-                        <div>
-                            Płatnośći
-                        </div>
                     </div>
                 </div>
             </div>

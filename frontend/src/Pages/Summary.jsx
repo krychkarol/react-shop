@@ -27,7 +27,7 @@ const Summary = () => {
                     userId: currentUser._id,
                     products: cartData.products.map(item => ({
                         productId: item._id,
-                        qty: item._qty,
+                        qty: item.qty,
                     })),
                     amount: cartData.total,
                     adress: stripeData.billing_details.address

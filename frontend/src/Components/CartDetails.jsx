@@ -30,7 +30,7 @@ const CartDetails = () => {
             try{
                 const res = await userReq.post('/stripe/payment', {
                     tokenId: stripeToken.id,
-                    amount: cart.total * 100
+                    amount: Math.round(cart.total * 100)
                 });
                 navigate('/podsumowanie', {state: {stripe: res.data}});
             }catch{}
@@ -99,7 +99,7 @@ const CartDetails = () => {
                         billingAddress
                         shippingAddress
                         description={`Zapłać ${cart.total} zł`}
-                        amount={cart.total * 100}
+                        amount={Math.round(cart.total * 100)}
                         token={onToken}
                         stripeKey={KEY}
                         currency='PLN'

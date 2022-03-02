@@ -6,6 +6,11 @@ import {
     updateCategoryRequest, updateCategorySuccess,
     } from "./categoryRedux";
 import {
+    deleteOrdersFail, deleteOrdersRequest, deleteOrdersSuccess,
+    getOrdersFail, getOrdersRequest, getOrdersSuccess,
+    updateOrdersFail, updateOrdersRequest, updateOrdersSuccess
+    } from "./orderRedux";
+import {
     createProductsFail, createProductsRequest, createProductsSuccess,
     deleteProductsFail, deleteProductsRequest, deleteProductsSuccess,
     getProductsFail, getProductsRequest, getProductsSuccess,
@@ -21,7 +26,11 @@ import {
     loginFail, loginRequest, loginSuccess,
     logoutFail, logoutRequest, logoutSuccess,
     } from "./userRedux"
-import { deleteUsersFail, deleteUsersRequest, deleteUsersSuccess, getUsersFail, getUsersRequest, getUsersSuccess, updateUsersFail, updateUsersRequest, updateUsersSuccess } from "./usersRedux";
+import {
+    deleteUsersFail, deleteUsersRequest, deleteUsersSuccess,
+    getUsersFail, getUsersRequest, getUsersSuccess,
+    updateUsersFail, updateUsersRequest, updateUsersSuccess
+    } from "./usersRedux";
 
 //AUTH
 export const login = async (dispatch, user) => {
@@ -198,5 +207,37 @@ export const updateUser = async (id, user, dispatch) => {
         dispatch(updateUsersSuccess({id:id, user:res.data}));
     }catch(err){
         dispatch(updateUsersFail());
+    }
+};
+
+//ORDERS
+export const getOrders = async (dispatch) => {
+    dispatch(getOrdersRequest());
+    try{
+        const res = await userReq.get("orders");
+        dispatch(getOrdersSuccess(res.data));
+    }catch(err){
+        dispatch(getOrdersFail());
+    }
+};
+
+export const deleteOrder = async (id, dispatch) => {
+    dispatch(deleteOrdersRequest());
+    try{
+        //const res = await userReq.delete("orders/"+ id);
+        await userReq.delete("orders/"+ id);
+        dispatch(deleteOrdersSuccess(id));
+    }catch(err){
+        dispatch(deleteOrdersFail());
+    }
+};
+
+export const updateOrder = async (id, order, dispatch) => {
+    dispatch(updateOrdersRequest());
+    try{
+        const res = await userReq.put("orders/"+ id, order);
+        dispatch(updateOrdersSuccess({id:id, order:res.data}));
+    }catch(err){
+        dispatch(updateOrdersFail());
     }
 };

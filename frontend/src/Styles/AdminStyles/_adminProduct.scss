@@ -10,7 +10,8 @@
 .admin-create-category,
 .admin-edit-slider,
 .admin-create-slider,
-.admin-edit-user{
+.admin-edit-user,
+.admin-edit-order{
     padding: $Padding;
 
     .top{
@@ -52,7 +53,7 @@
             display: flex;
             flex-direction: column;
 
-            .name,.category,.subcategory,.price,.stock,.desc,.order,.path,.email{
+            .name,.category,.subcategory,.price,.stock,.desc,.order,.path,.email,.amount,.adress,.status,.list{
                 display: flex;
                 flex-direction: column;
 
@@ -77,6 +78,15 @@
                     resize: none;
                     font-size: 1rem;
                     height: 10rem;
+                }
+
+                div{
+                    color: $Dark;
+                    font-size: 1rem;
+                    height: 2rem;
+                    margin-bottom: 20px;
+                    border: none;
+                    border-bottom: $Dark 1px solid;  
                 }
             }
 
@@ -143,6 +153,67 @@
                     cursor: pointer;
                     background-color: $Light;
                     color: $Dark;
+                }
+            }
+            .title{
+                    color: $Dark_ooo;
+                    font-weight: 600;
+                    padding-left: 10px;
+                    padding-bottom: 5px;
+                }
+
+            .list{
+                width: 100%;
+                .item{
+                    display: flex;
+                    flex-direction: row;
+                    margin-bottom: 20px;
+                    border: none;
+                    border-bottom: $Dark 1px solid;
+
+        
+                    .wrapper{
+                        @media (max-width:#{$md}){
+                            flex-direction: column;
+                        }
+                        flex:5;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+        
+                        .details{
+                            flex: 2;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: space-evenly;
+                            @include title(1rem,300);
+                        }
+        
+                        .qty{
+                            flex: 1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+        
+                            div{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 0 10px;
+                                @include title(1rem,300);
+                            }
+                        }
+        
+                        .price{
+                            flex: 2;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            @include title(1rem,300);
+                        }
+                    }
                 }
             }
         }

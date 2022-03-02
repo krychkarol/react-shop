@@ -6,12 +6,12 @@ const OrderSchema = new mongoose.Schema(
         products: [
             {
                 productId: {type: String},
-                quantity: {type: Number, default: 1}
+                qty: {type: Number, default: 1}
             }
         ],
         amount: {type: Number, required: true},
         adress: {type: Object, required: true},
-        status: {type: String, default: "pending"}
+        status: {type: String, default: "Oczekuje"}
     },
     { timestamps: true}
 );

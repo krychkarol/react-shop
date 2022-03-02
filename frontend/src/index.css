@@ -2155,14 +2155,16 @@
 .admin-products,
 .admin-categories,
 .admin-slider,
-.admin-users {
+.admin-users,
+.admin-orders {
   padding: 2vh 10vw;
 }
 
 .admin-products .top,
 .admin-categories .top,
 .admin-slider .top,
-.admin-users .top {
+.admin-users .top,
+.admin-orders .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2182,14 +2184,16 @@
 .admin-products .top .title-bar,
 .admin-categories .top .title-bar,
 .admin-slider .top .title-bar,
-.admin-users .top .title-bar {
+.admin-users .top .title-bar,
+.admin-orders .top .title-bar {
   padding: 0;
 }
 
 .admin-products .top button,
 .admin-categories .top button,
 .admin-slider .top button,
-.admin-users .top button {
+.admin-users .top button,
+.admin-orders .top button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2206,7 +2210,8 @@
 .admin-products .top button:hover,
 .admin-categories .top button:hover,
 .admin-slider .top button:hover,
-.admin-users .top button:hover {
+.admin-users .top button:hover,
+.admin-orders .top button:hover {
   background-color: #ebebeb;
   color: #292929;
 }
@@ -2214,14 +2219,16 @@
 .admin-products .list,
 .admin-categories .list,
 .admin-slider .list,
-.admin-users .list {
+.admin-users .list,
+.admin-orders .list {
   width: 100%;
 }
 
 .admin-products .list .filters,
 .admin-categories .list .filters,
 .admin-slider .list .filters,
-.admin-users .list .filters {
+.admin-users .list .filters,
+.admin-orders .list .filters {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2245,7 +2252,8 @@
 .admin-products .list .filters .search,
 .admin-categories .list .filters .search,
 .admin-slider .list .filters .search,
-.admin-users .list .filters .search {
+.admin-users .list .filters .search,
+.admin-orders .list .filters .search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2263,7 +2271,8 @@
 .admin-products .list .filters .search input,
 .admin-categories .list .filters .search input,
 .admin-slider .list .filters .search input,
-.admin-users .list .filters .search input {
+.admin-users .list .filters .search input,
+.admin-orders .list .filters .search input {
   border: none;
   height: 2rem;
   font-size: 1rem;
@@ -2273,14 +2282,16 @@
 .admin-products .list .filters .search input:focus,
 .admin-categories .list .filters .search input:focus,
 .admin-slider .list .filters .search input:focus,
-.admin-users .list .filters .search input:focus {
+.admin-users .list .filters .search input:focus,
+.admin-orders .list .filters .search input:focus {
   outline: none;
 }
 
 .admin-products .list .filters .search .icon,
 .admin-categories .list .filters .search .icon,
 .admin-slider .list .filters .search .icon,
-.admin-users .list .filters .search .icon {
+.admin-users .list .filters .search .icon,
+.admin-orders .list .filters .search .icon {
   margin-left: 5px;
   padding: 2px;
   color: #292929;
@@ -2292,7 +2303,8 @@
 .admin-products .list .filters .search .icon:hover,
 .admin-categories .list .filters .search .icon:hover,
 .admin-slider .list .filters .search .icon:hover,
-.admin-users .list .filters .search .icon:hover {
+.admin-users .list .filters .search .icon:hover,
+.admin-orders .list .filters .search .icon:hover {
   cursor: pointer;
   color: #ebebeb;
   background-color: #292929;
@@ -2301,7 +2313,8 @@
 .admin-products .list .filters .filter,
 .admin-categories .list .filters .filter,
 .admin-slider .list .filters .filter,
-.admin-users .list .filters .filter {
+.admin-users .list .filters .filter,
+.admin-orders .list .filters .filter {
   padding: 0;
   margin: 0;
 }
@@ -2309,7 +2322,8 @@
 .admin-products .list .filters .filter .text,
 .admin-categories .list .filters .filter .text,
 .admin-slider .list .filters .filter .text,
-.admin-users .list .filters .filter .text {
+.admin-users .list .filters .filter .text,
+.admin-orders .list .filters .filter .text {
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0 10px;
@@ -2319,14 +2333,16 @@
 .admin-products .list .filters .filter .text.hide.inactive,
 .admin-categories .list .filters .filter .text.hide.inactive,
 .admin-slider .list .filters .filter .text.hide.inactive,
-.admin-users .list .filters .filter .text.hide.inactive {
+.admin-users .list .filters .filter .text.hide.inactive,
+.admin-orders .list .filters .filter .text.hide.inactive {
   display: none;
 }
 
 .admin-products .list .filters .filter select,
 .admin-categories .list .filters .filter select,
 .admin-slider .list .filters .filter select,
-.admin-users .list .filters .filter select {
+.admin-users .list .filters .filter select,
+.admin-orders .list .filters .filter select {
   font-size: 1rem;
   font-weight: 300;
   padding: 5px;
@@ -2338,21 +2354,24 @@
 .admin-products .list .filters .filter select.hide.inactive,
 .admin-categories .list .filters .filter select.hide.inactive,
 .admin-slider .list .filters .filter select.hide.inactive,
-.admin-users .list .filters .filter select.hide.inactive {
+.admin-users .list .filters .filter select.hide.inactive,
+.admin-orders .list .filters .filter select.hide.inactive {
   display: none;
 }
 
 .admin-products .list .grid,
 .admin-categories .list .grid,
 .admin-slider .list .grid,
-.admin-users .list .grid {
+.admin-users .list .grid,
+.admin-orders .list .grid {
   width: 100%;
 }
 
 .admin-products .list .grid .grid-name,
 .admin-categories .list .grid .grid-name,
 .admin-slider .list .grid .grid-name,
-.admin-users .list .grid .grid-name {
+.admin-users .list .grid .grid-name,
+.admin-orders .list .grid .grid-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2369,7 +2388,8 @@
 .admin-products .list .grid .grid-name .grid-image,
 .admin-categories .list .grid .grid-name .grid-image,
 .admin-slider .list .grid .grid-name .grid-image,
-.admin-users .list .grid .grid-name .grid-image {
+.admin-users .list .grid .grid-name .grid-image,
+.admin-orders .list .grid .grid-name .grid-image {
   -o-object-fit: contain;
      object-fit: contain;
   margin-right: 10px;
@@ -2378,7 +2398,8 @@
 .admin-products .list .grid .btn,
 .admin-categories .list .grid .btn,
 .admin-slider .list .grid .btn,
-.admin-users .list .grid .btn {
+.admin-users .list .grid .btn,
+.admin-orders .list .grid .btn {
   margin-left: 5px;
 }
 
@@ -2388,7 +2409,9 @@
 .admin-slider .list .grid a,
 .admin-slider .list .grid .btn,
 .admin-users .list .grid a,
-.admin-users .list .grid .btn {
+.admin-users .list .grid .btn,
+.admin-orders .list .grid a,
+.admin-orders .list .grid .btn {
   width: 100%;
   height: 75%;
   background-color: #292929;
@@ -2418,7 +2441,9 @@
 .admin-slider .list .grid a .grid-edit,
 .admin-slider .list .grid .btn .grid-edit,
 .admin-users .list .grid a .grid-edit,
-.admin-users .list .grid .btn .grid-edit {
+.admin-users .list .grid .btn .grid-edit,
+.admin-orders .list .grid a .grid-edit,
+.admin-orders .list .grid .btn .grid-edit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2433,7 +2458,8 @@
 .admin-products .list .grid a:hover,
 .admin-categories .list .grid a:hover,
 .admin-slider .list .grid a:hover,
-.admin-users .list .grid a:hover {
+.admin-users .list .grid a:hover,
+.admin-orders .list .grid a:hover {
   background-color: #bb7900;
   color: #292929;
 }
@@ -2441,7 +2467,8 @@
 .admin-products .list .grid .btn:hover,
 .admin-categories .list .grid .btn:hover,
 .admin-slider .list .grid .btn:hover,
-.admin-users .list .grid .btn:hover {
+.admin-users .list .grid .btn:hover,
+.admin-orders .list .grid .btn:hover {
   background-color: #be0000;
   color: #292929;
 }
@@ -2456,7 +2483,8 @@
 .admin-create-category,
 .admin-edit-slider,
 .admin-create-slider,
-.admin-edit-user {
+.admin-edit-user,
+.admin-edit-order {
   padding: 2vh 10vw;
 }
 
@@ -2466,7 +2494,8 @@
 .admin-create-category .top,
 .admin-edit-slider .top,
 .admin-create-slider .top,
-.admin-edit-user .top {
+.admin-edit-user .top,
+.admin-edit-order .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2489,7 +2518,8 @@
 .admin-create-category .top .title-bar,
 .admin-edit-slider .top .title-bar,
 .admin-create-slider .top .title-bar,
-.admin-edit-user .top .title-bar {
+.admin-edit-user .top .title-bar,
+.admin-edit-order .top .title-bar {
   padding: 0;
 }
 
@@ -2499,7 +2529,8 @@
 .admin-create-category .top button,
 .admin-edit-slider .top button,
 .admin-create-slider .top button,
-.admin-edit-user .top button {
+.admin-edit-user .top button,
+.admin-edit-order .top button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -2519,7 +2550,8 @@
 .admin-create-category .top button:hover,
 .admin-edit-slider .top button:hover,
 .admin-create-slider .top button:hover,
-.admin-edit-user .top button:hover {
+.admin-edit-user .top button:hover,
+.admin-edit-order .top button:hover {
   background-color: #ebebeb;
   color: #292929;
 }
@@ -2530,7 +2562,8 @@
 .admin-create-category .bottom,
 .admin-edit-slider .bottom,
 .admin-create-slider .bottom,
-.admin-edit-user .bottom {
+.admin-edit-user .bottom,
+.admin-edit-order .bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2547,7 +2580,8 @@
 .admin-create-category .bottom .left,
 .admin-edit-slider .bottom .left,
 .admin-create-slider .bottom .left,
-.admin-edit-user .bottom .left {
+.admin-edit-user .bottom .left,
+.admin-edit-order .bottom .left {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2560,7 +2594,7 @@
           flex-direction: column;
 }
 
-.admin-edit-product .bottom .left .name, .admin-edit-product .bottom .left .category, .admin-edit-product .bottom .left .subcategory, .admin-edit-product .bottom .left .price, .admin-edit-product .bottom .left .stock, .admin-edit-product .bottom .left .desc, .admin-edit-product .bottom .left .order, .admin-edit-product .bottom .left .path, .admin-edit-product .bottom .left .email,
+.admin-edit-product .bottom .left .name, .admin-edit-product .bottom .left .category, .admin-edit-product .bottom .left .subcategory, .admin-edit-product .bottom .left .price, .admin-edit-product .bottom .left .stock, .admin-edit-product .bottom .left .desc, .admin-edit-product .bottom .left .order, .admin-edit-product .bottom .left .path, .admin-edit-product .bottom .left .email, .admin-edit-product .bottom .left .amount, .admin-edit-product .bottom .left .adress, .admin-edit-product .bottom .left .status, .admin-edit-product .bottom .left .list,
 .admin-create-product .bottom .left .name,
 .admin-create-product .bottom .left .category,
 .admin-create-product .bottom .left .subcategory,
@@ -2570,6 +2604,10 @@
 .admin-create-product .bottom .left .order,
 .admin-create-product .bottom .left .path,
 .admin-create-product .bottom .left .email,
+.admin-create-product .bottom .left .amount,
+.admin-create-product .bottom .left .adress,
+.admin-create-product .bottom .left .status,
+.admin-create-product .bottom .left .list,
 .admin-edit-category .bottom .left .name,
 .admin-edit-category .bottom .left .category,
 .admin-edit-category .bottom .left .subcategory,
@@ -2579,6 +2617,10 @@
 .admin-edit-category .bottom .left .order,
 .admin-edit-category .bottom .left .path,
 .admin-edit-category .bottom .left .email,
+.admin-edit-category .bottom .left .amount,
+.admin-edit-category .bottom .left .adress,
+.admin-edit-category .bottom .left .status,
+.admin-edit-category .bottom .left .list,
 .admin-create-category .bottom .left .name,
 .admin-create-category .bottom .left .category,
 .admin-create-category .bottom .left .subcategory,
@@ -2588,6 +2630,10 @@
 .admin-create-category .bottom .left .order,
 .admin-create-category .bottom .left .path,
 .admin-create-category .bottom .left .email,
+.admin-create-category .bottom .left .amount,
+.admin-create-category .bottom .left .adress,
+.admin-create-category .bottom .left .status,
+.admin-create-category .bottom .left .list,
 .admin-edit-slider .bottom .left .name,
 .admin-edit-slider .bottom .left .category,
 .admin-edit-slider .bottom .left .subcategory,
@@ -2597,6 +2643,10 @@
 .admin-edit-slider .bottom .left .order,
 .admin-edit-slider .bottom .left .path,
 .admin-edit-slider .bottom .left .email,
+.admin-edit-slider .bottom .left .amount,
+.admin-edit-slider .bottom .left .adress,
+.admin-edit-slider .bottom .left .status,
+.admin-edit-slider .bottom .left .list,
 .admin-create-slider .bottom .left .name,
 .admin-create-slider .bottom .left .category,
 .admin-create-slider .bottom .left .subcategory,
@@ -2606,6 +2656,10 @@
 .admin-create-slider .bottom .left .order,
 .admin-create-slider .bottom .left .path,
 .admin-create-slider .bottom .left .email,
+.admin-create-slider .bottom .left .amount,
+.admin-create-slider .bottom .left .adress,
+.admin-create-slider .bottom .left .status,
+.admin-create-slider .bottom .left .list,
 .admin-edit-user .bottom .left .name,
 .admin-edit-user .bottom .left .category,
 .admin-edit-user .bottom .left .subcategory,
@@ -2614,7 +2668,24 @@
 .admin-edit-user .bottom .left .desc,
 .admin-edit-user .bottom .left .order,
 .admin-edit-user .bottom .left .path,
-.admin-edit-user .bottom .left .email {
+.admin-edit-user .bottom .left .email,
+.admin-edit-user .bottom .left .amount,
+.admin-edit-user .bottom .left .adress,
+.admin-edit-user .bottom .left .status,
+.admin-edit-user .bottom .left .list,
+.admin-edit-order .bottom .left .name,
+.admin-edit-order .bottom .left .category,
+.admin-edit-order .bottom .left .subcategory,
+.admin-edit-order .bottom .left .price,
+.admin-edit-order .bottom .left .stock,
+.admin-edit-order .bottom .left .desc,
+.admin-edit-order .bottom .left .order,
+.admin-edit-order .bottom .left .path,
+.admin-edit-order .bottom .left .email,
+.admin-edit-order .bottom .left .amount,
+.admin-edit-order .bottom .left .adress,
+.admin-edit-order .bottom .left .status,
+.admin-edit-order .bottom .left .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2624,7 +2695,7 @@
           flex-direction: column;
 }
 
-.admin-edit-product .bottom .left .name label, .admin-edit-product .bottom .left .category label, .admin-edit-product .bottom .left .subcategory label, .admin-edit-product .bottom .left .price label, .admin-edit-product .bottom .left .stock label, .admin-edit-product .bottom .left .desc label, .admin-edit-product .bottom .left .order label, .admin-edit-product .bottom .left .path label, .admin-edit-product .bottom .left .email label,
+.admin-edit-product .bottom .left .name label, .admin-edit-product .bottom .left .category label, .admin-edit-product .bottom .left .subcategory label, .admin-edit-product .bottom .left .price label, .admin-edit-product .bottom .left .stock label, .admin-edit-product .bottom .left .desc label, .admin-edit-product .bottom .left .order label, .admin-edit-product .bottom .left .path label, .admin-edit-product .bottom .left .email label, .admin-edit-product .bottom .left .amount label, .admin-edit-product .bottom .left .adress label, .admin-edit-product .bottom .left .status label, .admin-edit-product .bottom .left .list label,
 .admin-create-product .bottom .left .name label,
 .admin-create-product .bottom .left .category label,
 .admin-create-product .bottom .left .subcategory label,
@@ -2634,6 +2705,10 @@
 .admin-create-product .bottom .left .order label,
 .admin-create-product .bottom .left .path label,
 .admin-create-product .bottom .left .email label,
+.admin-create-product .bottom .left .amount label,
+.admin-create-product .bottom .left .adress label,
+.admin-create-product .bottom .left .status label,
+.admin-create-product .bottom .left .list label,
 .admin-edit-category .bottom .left .name label,
 .admin-edit-category .bottom .left .category label,
 .admin-edit-category .bottom .left .subcategory label,
@@ -2643,6 +2718,10 @@
 .admin-edit-category .bottom .left .order label,
 .admin-edit-category .bottom .left .path label,
 .admin-edit-category .bottom .left .email label,
+.admin-edit-category .bottom .left .amount label,
+.admin-edit-category .bottom .left .adress label,
+.admin-edit-category .bottom .left .status label,
+.admin-edit-category .bottom .left .list label,
 .admin-create-category .bottom .left .name label,
 .admin-create-category .bottom .left .category label,
 .admin-create-category .bottom .left .subcategory label,
@@ -2652,6 +2731,10 @@
 .admin-create-category .bottom .left .order label,
 .admin-create-category .bottom .left .path label,
 .admin-create-category .bottom .left .email label,
+.admin-create-category .bottom .left .amount label,
+.admin-create-category .bottom .left .adress label,
+.admin-create-category .bottom .left .status label,
+.admin-create-category .bottom .left .list label,
 .admin-edit-slider .bottom .left .name label,
 .admin-edit-slider .bottom .left .category label,
 .admin-edit-slider .bottom .left .subcategory label,
@@ -2661,6 +2744,10 @@
 .admin-edit-slider .bottom .left .order label,
 .admin-edit-slider .bottom .left .path label,
 .admin-edit-slider .bottom .left .email label,
+.admin-edit-slider .bottom .left .amount label,
+.admin-edit-slider .bottom .left .adress label,
+.admin-edit-slider .bottom .left .status label,
+.admin-edit-slider .bottom .left .list label,
 .admin-create-slider .bottom .left .name label,
 .admin-create-slider .bottom .left .category label,
 .admin-create-slider .bottom .left .subcategory label,
@@ -2670,6 +2757,10 @@
 .admin-create-slider .bottom .left .order label,
 .admin-create-slider .bottom .left .path label,
 .admin-create-slider .bottom .left .email label,
+.admin-create-slider .bottom .left .amount label,
+.admin-create-slider .bottom .left .adress label,
+.admin-create-slider .bottom .left .status label,
+.admin-create-slider .bottom .left .list label,
 .admin-edit-user .bottom .left .name label,
 .admin-edit-user .bottom .left .category label,
 .admin-edit-user .bottom .left .subcategory label,
@@ -2678,14 +2769,31 @@
 .admin-edit-user .bottom .left .desc label,
 .admin-edit-user .bottom .left .order label,
 .admin-edit-user .bottom .left .path label,
-.admin-edit-user .bottom .left .email label {
+.admin-edit-user .bottom .left .email label,
+.admin-edit-user .bottom .left .amount label,
+.admin-edit-user .bottom .left .adress label,
+.admin-edit-user .bottom .left .status label,
+.admin-edit-user .bottom .left .list label,
+.admin-edit-order .bottom .left .name label,
+.admin-edit-order .bottom .left .category label,
+.admin-edit-order .bottom .left .subcategory label,
+.admin-edit-order .bottom .left .price label,
+.admin-edit-order .bottom .left .stock label,
+.admin-edit-order .bottom .left .desc label,
+.admin-edit-order .bottom .left .order label,
+.admin-edit-order .bottom .left .path label,
+.admin-edit-order .bottom .left .email label,
+.admin-edit-order .bottom .left .amount label,
+.admin-edit-order .bottom .left .adress label,
+.admin-edit-order .bottom .left .status label,
+.admin-edit-order .bottom .left .list label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
   padding-left: 10px;
   padding-bottom: 5px;
 }
 
-.admin-edit-product .bottom .left .name input, .admin-edit-product .bottom .left .name select, .admin-edit-product .bottom .left .category input, .admin-edit-product .bottom .left .category select, .admin-edit-product .bottom .left .subcategory input, .admin-edit-product .bottom .left .subcategory select, .admin-edit-product .bottom .left .price input, .admin-edit-product .bottom .left .price select, .admin-edit-product .bottom .left .stock input, .admin-edit-product .bottom .left .stock select, .admin-edit-product .bottom .left .desc input, .admin-edit-product .bottom .left .desc select, .admin-edit-product .bottom .left .order input, .admin-edit-product .bottom .left .order select, .admin-edit-product .bottom .left .path input, .admin-edit-product .bottom .left .path select, .admin-edit-product .bottom .left .email input, .admin-edit-product .bottom .left .email select,
+.admin-edit-product .bottom .left .name input, .admin-edit-product .bottom .left .name select, .admin-edit-product .bottom .left .category input, .admin-edit-product .bottom .left .category select, .admin-edit-product .bottom .left .subcategory input, .admin-edit-product .bottom .left .subcategory select, .admin-edit-product .bottom .left .price input, .admin-edit-product .bottom .left .price select, .admin-edit-product .bottom .left .stock input, .admin-edit-product .bottom .left .stock select, .admin-edit-product .bottom .left .desc input, .admin-edit-product .bottom .left .desc select, .admin-edit-product .bottom .left .order input, .admin-edit-product .bottom .left .order select, .admin-edit-product .bottom .left .path input, .admin-edit-product .bottom .left .path select, .admin-edit-product .bottom .left .email input, .admin-edit-product .bottom .left .email select, .admin-edit-product .bottom .left .amount input, .admin-edit-product .bottom .left .amount select, .admin-edit-product .bottom .left .adress input, .admin-edit-product .bottom .left .adress select, .admin-edit-product .bottom .left .status input, .admin-edit-product .bottom .left .status select, .admin-edit-product .bottom .left .list input, .admin-edit-product .bottom .left .list select,
 .admin-create-product .bottom .left .name input,
 .admin-create-product .bottom .left .name select,
 .admin-create-product .bottom .left .category input,
@@ -2704,6 +2812,14 @@
 .admin-create-product .bottom .left .path select,
 .admin-create-product .bottom .left .email input,
 .admin-create-product .bottom .left .email select,
+.admin-create-product .bottom .left .amount input,
+.admin-create-product .bottom .left .amount select,
+.admin-create-product .bottom .left .adress input,
+.admin-create-product .bottom .left .adress select,
+.admin-create-product .bottom .left .status input,
+.admin-create-product .bottom .left .status select,
+.admin-create-product .bottom .left .list input,
+.admin-create-product .bottom .left .list select,
 .admin-edit-category .bottom .left .name input,
 .admin-edit-category .bottom .left .name select,
 .admin-edit-category .bottom .left .category input,
@@ -2722,6 +2838,14 @@
 .admin-edit-category .bottom .left .path select,
 .admin-edit-category .bottom .left .email input,
 .admin-edit-category .bottom .left .email select,
+.admin-edit-category .bottom .left .amount input,
+.admin-edit-category .bottom .left .amount select,
+.admin-edit-category .bottom .left .adress input,
+.admin-edit-category .bottom .left .adress select,
+.admin-edit-category .bottom .left .status input,
+.admin-edit-category .bottom .left .status select,
+.admin-edit-category .bottom .left .list input,
+.admin-edit-category .bottom .left .list select,
 .admin-create-category .bottom .left .name input,
 .admin-create-category .bottom .left .name select,
 .admin-create-category .bottom .left .category input,
@@ -2740,6 +2864,14 @@
 .admin-create-category .bottom .left .path select,
 .admin-create-category .bottom .left .email input,
 .admin-create-category .bottom .left .email select,
+.admin-create-category .bottom .left .amount input,
+.admin-create-category .bottom .left .amount select,
+.admin-create-category .bottom .left .adress input,
+.admin-create-category .bottom .left .adress select,
+.admin-create-category .bottom .left .status input,
+.admin-create-category .bottom .left .status select,
+.admin-create-category .bottom .left .list input,
+.admin-create-category .bottom .left .list select,
 .admin-edit-slider .bottom .left .name input,
 .admin-edit-slider .bottom .left .name select,
 .admin-edit-slider .bottom .left .category input,
@@ -2758,6 +2890,14 @@
 .admin-edit-slider .bottom .left .path select,
 .admin-edit-slider .bottom .left .email input,
 .admin-edit-slider .bottom .left .email select,
+.admin-edit-slider .bottom .left .amount input,
+.admin-edit-slider .bottom .left .amount select,
+.admin-edit-slider .bottom .left .adress input,
+.admin-edit-slider .bottom .left .adress select,
+.admin-edit-slider .bottom .left .status input,
+.admin-edit-slider .bottom .left .status select,
+.admin-edit-slider .bottom .left .list input,
+.admin-edit-slider .bottom .left .list select,
 .admin-create-slider .bottom .left .name input,
 .admin-create-slider .bottom .left .name select,
 .admin-create-slider .bottom .left .category input,
@@ -2776,6 +2916,14 @@
 .admin-create-slider .bottom .left .path select,
 .admin-create-slider .bottom .left .email input,
 .admin-create-slider .bottom .left .email select,
+.admin-create-slider .bottom .left .amount input,
+.admin-create-slider .bottom .left .amount select,
+.admin-create-slider .bottom .left .adress input,
+.admin-create-slider .bottom .left .adress select,
+.admin-create-slider .bottom .left .status input,
+.admin-create-slider .bottom .left .status select,
+.admin-create-slider .bottom .left .list input,
+.admin-create-slider .bottom .left .list select,
 .admin-edit-user .bottom .left .name input,
 .admin-edit-user .bottom .left .name select,
 .admin-edit-user .bottom .left .category input,
@@ -2793,7 +2941,41 @@
 .admin-edit-user .bottom .left .path input,
 .admin-edit-user .bottom .left .path select,
 .admin-edit-user .bottom .left .email input,
-.admin-edit-user .bottom .left .email select {
+.admin-edit-user .bottom .left .email select,
+.admin-edit-user .bottom .left .amount input,
+.admin-edit-user .bottom .left .amount select,
+.admin-edit-user .bottom .left .adress input,
+.admin-edit-user .bottom .left .adress select,
+.admin-edit-user .bottom .left .status input,
+.admin-edit-user .bottom .left .status select,
+.admin-edit-user .bottom .left .list input,
+.admin-edit-user .bottom .left .list select,
+.admin-edit-order .bottom .left .name input,
+.admin-edit-order .bottom .left .name select,
+.admin-edit-order .bottom .left .category input,
+.admin-edit-order .bottom .left .category select,
+.admin-edit-order .bottom .left .subcategory input,
+.admin-edit-order .bottom .left .subcategory select,
+.admin-edit-order .bottom .left .price input,
+.admin-edit-order .bottom .left .price select,
+.admin-edit-order .bottom .left .stock input,
+.admin-edit-order .bottom .left .stock select,
+.admin-edit-order .bottom .left .desc input,
+.admin-edit-order .bottom .left .desc select,
+.admin-edit-order .bottom .left .order input,
+.admin-edit-order .bottom .left .order select,
+.admin-edit-order .bottom .left .path input,
+.admin-edit-order .bottom .left .path select,
+.admin-edit-order .bottom .left .email input,
+.admin-edit-order .bottom .left .email select,
+.admin-edit-order .bottom .left .amount input,
+.admin-edit-order .bottom .left .amount select,
+.admin-edit-order .bottom .left .adress input,
+.admin-edit-order .bottom .left .adress select,
+.admin-edit-order .bottom .left .status input,
+.admin-edit-order .bottom .left .status select,
+.admin-edit-order .bottom .left .list input,
+.admin-edit-order .bottom .left .list select {
   color: #292929;
   font-size: 1rem;
   height: 2rem;
@@ -2802,7 +2984,7 @@
   border-bottom: #292929 1px solid;
 }
 
-.admin-edit-product .bottom .left .name textarea, .admin-edit-product .bottom .left .category textarea, .admin-edit-product .bottom .left .subcategory textarea, .admin-edit-product .bottom .left .price textarea, .admin-edit-product .bottom .left .stock textarea, .admin-edit-product .bottom .left .desc textarea, .admin-edit-product .bottom .left .order textarea, .admin-edit-product .bottom .left .path textarea, .admin-edit-product .bottom .left .email textarea,
+.admin-edit-product .bottom .left .name textarea, .admin-edit-product .bottom .left .category textarea, .admin-edit-product .bottom .left .subcategory textarea, .admin-edit-product .bottom .left .price textarea, .admin-edit-product .bottom .left .stock textarea, .admin-edit-product .bottom .left .desc textarea, .admin-edit-product .bottom .left .order textarea, .admin-edit-product .bottom .left .path textarea, .admin-edit-product .bottom .left .email textarea, .admin-edit-product .bottom .left .amount textarea, .admin-edit-product .bottom .left .adress textarea, .admin-edit-product .bottom .left .status textarea, .admin-edit-product .bottom .left .list textarea,
 .admin-create-product .bottom .left .name textarea,
 .admin-create-product .bottom .left .category textarea,
 .admin-create-product .bottom .left .subcategory textarea,
@@ -2812,6 +2994,10 @@
 .admin-create-product .bottom .left .order textarea,
 .admin-create-product .bottom .left .path textarea,
 .admin-create-product .bottom .left .email textarea,
+.admin-create-product .bottom .left .amount textarea,
+.admin-create-product .bottom .left .adress textarea,
+.admin-create-product .bottom .left .status textarea,
+.admin-create-product .bottom .left .list textarea,
 .admin-edit-category .bottom .left .name textarea,
 .admin-edit-category .bottom .left .category textarea,
 .admin-edit-category .bottom .left .subcategory textarea,
@@ -2821,6 +3007,10 @@
 .admin-edit-category .bottom .left .order textarea,
 .admin-edit-category .bottom .left .path textarea,
 .admin-edit-category .bottom .left .email textarea,
+.admin-edit-category .bottom .left .amount textarea,
+.admin-edit-category .bottom .left .adress textarea,
+.admin-edit-category .bottom .left .status textarea,
+.admin-edit-category .bottom .left .list textarea,
 .admin-create-category .bottom .left .name textarea,
 .admin-create-category .bottom .left .category textarea,
 .admin-create-category .bottom .left .subcategory textarea,
@@ -2830,6 +3020,10 @@
 .admin-create-category .bottom .left .order textarea,
 .admin-create-category .bottom .left .path textarea,
 .admin-create-category .bottom .left .email textarea,
+.admin-create-category .bottom .left .amount textarea,
+.admin-create-category .bottom .left .adress textarea,
+.admin-create-category .bottom .left .status textarea,
+.admin-create-category .bottom .left .list textarea,
 .admin-edit-slider .bottom .left .name textarea,
 .admin-edit-slider .bottom .left .category textarea,
 .admin-edit-slider .bottom .left .subcategory textarea,
@@ -2839,6 +3033,10 @@
 .admin-edit-slider .bottom .left .order textarea,
 .admin-edit-slider .bottom .left .path textarea,
 .admin-edit-slider .bottom .left .email textarea,
+.admin-edit-slider .bottom .left .amount textarea,
+.admin-edit-slider .bottom .left .adress textarea,
+.admin-edit-slider .bottom .left .status textarea,
+.admin-edit-slider .bottom .left .list textarea,
 .admin-create-slider .bottom .left .name textarea,
 .admin-create-slider .bottom .left .category textarea,
 .admin-create-slider .bottom .left .subcategory textarea,
@@ -2848,6 +3046,10 @@
 .admin-create-slider .bottom .left .order textarea,
 .admin-create-slider .bottom .left .path textarea,
 .admin-create-slider .bottom .left .email textarea,
+.admin-create-slider .bottom .left .amount textarea,
+.admin-create-slider .bottom .left .adress textarea,
+.admin-create-slider .bottom .left .status textarea,
+.admin-create-slider .bottom .left .list textarea,
 .admin-edit-user .bottom .left .name textarea,
 .admin-edit-user .bottom .left .category textarea,
 .admin-edit-user .bottom .left .subcategory textarea,
@@ -2856,11 +3058,128 @@
 .admin-edit-user .bottom .left .desc textarea,
 .admin-edit-user .bottom .left .order textarea,
 .admin-edit-user .bottom .left .path textarea,
-.admin-edit-user .bottom .left .email textarea {
+.admin-edit-user .bottom .left .email textarea,
+.admin-edit-user .bottom .left .amount textarea,
+.admin-edit-user .bottom .left .adress textarea,
+.admin-edit-user .bottom .left .status textarea,
+.admin-edit-user .bottom .left .list textarea,
+.admin-edit-order .bottom .left .name textarea,
+.admin-edit-order .bottom .left .category textarea,
+.admin-edit-order .bottom .left .subcategory textarea,
+.admin-edit-order .bottom .left .price textarea,
+.admin-edit-order .bottom .left .stock textarea,
+.admin-edit-order .bottom .left .desc textarea,
+.admin-edit-order .bottom .left .order textarea,
+.admin-edit-order .bottom .left .path textarea,
+.admin-edit-order .bottom .left .email textarea,
+.admin-edit-order .bottom .left .amount textarea,
+.admin-edit-order .bottom .left .adress textarea,
+.admin-edit-order .bottom .left .status textarea,
+.admin-edit-order .bottom .left .list textarea {
   overflow: auto;
   resize: none;
   font-size: 1rem;
   height: 10rem;
+}
+
+.admin-edit-product .bottom .left .name div, .admin-edit-product .bottom .left .category div, .admin-edit-product .bottom .left .subcategory div, .admin-edit-product .bottom .left .price div, .admin-edit-product .bottom .left .stock div, .admin-edit-product .bottom .left .desc div, .admin-edit-product .bottom .left .order div, .admin-edit-product .bottom .left .path div, .admin-edit-product .bottom .left .email div, .admin-edit-product .bottom .left .amount div, .admin-edit-product .bottom .left .adress div, .admin-edit-product .bottom .left .status div, .admin-edit-product .bottom .left .list div,
+.admin-create-product .bottom .left .name div,
+.admin-create-product .bottom .left .category div,
+.admin-create-product .bottom .left .subcategory div,
+.admin-create-product .bottom .left .price div,
+.admin-create-product .bottom .left .stock div,
+.admin-create-product .bottom .left .desc div,
+.admin-create-product .bottom .left .order div,
+.admin-create-product .bottom .left .path div,
+.admin-create-product .bottom .left .email div,
+.admin-create-product .bottom .left .amount div,
+.admin-create-product .bottom .left .adress div,
+.admin-create-product .bottom .left .status div,
+.admin-create-product .bottom .left .list div,
+.admin-edit-category .bottom .left .name div,
+.admin-edit-category .bottom .left .category div,
+.admin-edit-category .bottom .left .subcategory div,
+.admin-edit-category .bottom .left .price div,
+.admin-edit-category .bottom .left .stock div,
+.admin-edit-category .bottom .left .desc div,
+.admin-edit-category .bottom .left .order div,
+.admin-edit-category .bottom .left .path div,
+.admin-edit-category .bottom .left .email div,
+.admin-edit-category .bottom .left .amount div,
+.admin-edit-category .bottom .left .adress div,
+.admin-edit-category .bottom .left .status div,
+.admin-edit-category .bottom .left .list div,
+.admin-create-category .bottom .left .name div,
+.admin-create-category .bottom .left .category div,
+.admin-create-category .bottom .left .subcategory div,
+.admin-create-category .bottom .left .price div,
+.admin-create-category .bottom .left .stock div,
+.admin-create-category .bottom .left .desc div,
+.admin-create-category .bottom .left .order div,
+.admin-create-category .bottom .left .path div,
+.admin-create-category .bottom .left .email div,
+.admin-create-category .bottom .left .amount div,
+.admin-create-category .bottom .left .adress div,
+.admin-create-category .bottom .left .status div,
+.admin-create-category .bottom .left .list div,
+.admin-edit-slider .bottom .left .name div,
+.admin-edit-slider .bottom .left .category div,
+.admin-edit-slider .bottom .left .subcategory div,
+.admin-edit-slider .bottom .left .price div,
+.admin-edit-slider .bottom .left .stock div,
+.admin-edit-slider .bottom .left .desc div,
+.admin-edit-slider .bottom .left .order div,
+.admin-edit-slider .bottom .left .path div,
+.admin-edit-slider .bottom .left .email div,
+.admin-edit-slider .bottom .left .amount div,
+.admin-edit-slider .bottom .left .adress div,
+.admin-edit-slider .bottom .left .status div,
+.admin-edit-slider .bottom .left .list div,
+.admin-create-slider .bottom .left .name div,
+.admin-create-slider .bottom .left .category div,
+.admin-create-slider .bottom .left .subcategory div,
+.admin-create-slider .bottom .left .price div,
+.admin-create-slider .bottom .left .stock div,
+.admin-create-slider .bottom .left .desc div,
+.admin-create-slider .bottom .left .order div,
+.admin-create-slider .bottom .left .path div,
+.admin-create-slider .bottom .left .email div,
+.admin-create-slider .bottom .left .amount div,
+.admin-create-slider .bottom .left .adress div,
+.admin-create-slider .bottom .left .status div,
+.admin-create-slider .bottom .left .list div,
+.admin-edit-user .bottom .left .name div,
+.admin-edit-user .bottom .left .category div,
+.admin-edit-user .bottom .left .subcategory div,
+.admin-edit-user .bottom .left .price div,
+.admin-edit-user .bottom .left .stock div,
+.admin-edit-user .bottom .left .desc div,
+.admin-edit-user .bottom .left .order div,
+.admin-edit-user .bottom .left .path div,
+.admin-edit-user .bottom .left .email div,
+.admin-edit-user .bottom .left .amount div,
+.admin-edit-user .bottom .left .adress div,
+.admin-edit-user .bottom .left .status div,
+.admin-edit-user .bottom .left .list div,
+.admin-edit-order .bottom .left .name div,
+.admin-edit-order .bottom .left .category div,
+.admin-edit-order .bottom .left .subcategory div,
+.admin-edit-order .bottom .left .price div,
+.admin-edit-order .bottom .left .stock div,
+.admin-edit-order .bottom .left .desc div,
+.admin-edit-order .bottom .left .order div,
+.admin-edit-order .bottom .left .path div,
+.admin-edit-order .bottom .left .email div,
+.admin-edit-order .bottom .left .amount div,
+.admin-edit-order .bottom .left .adress div,
+.admin-edit-order .bottom .left .status div,
+.admin-edit-order .bottom .left .list div {
+  color: #292929;
+  font-size: 1rem;
+  height: 2rem;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: #292929 1px solid;
 }
 
 .admin-edit-product .bottom .right,
@@ -2869,7 +3188,8 @@
 .admin-create-category .bottom .right,
 .admin-edit-slider .bottom .right,
 .admin-create-slider .bottom .right,
-.admin-edit-user .bottom .right {
+.admin-edit-user .bottom .right,
+.admin-edit-order .bottom .right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2888,7 +3208,8 @@
 .admin-create-category .bottom .right .image,
 .admin-edit-slider .bottom .right .image,
 .admin-create-slider .bottom .right .image,
-.admin-edit-user .bottom .right .image {
+.admin-edit-user .bottom .right .image,
+.admin-edit-order .bottom .right .image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2903,7 +3224,8 @@
 .admin-create-category .bottom .right .image img,
 .admin-edit-slider .bottom .right .image img,
 .admin-create-slider .bottom .right .image img,
-.admin-edit-user .bottom .right .image img {
+.admin-edit-user .bottom .right .image img,
+.admin-edit-order .bottom .right .image img {
   height: 30vh;
   -o-object-fit: contain;
      object-fit: contain;
@@ -2916,7 +3238,8 @@
 .admin-create-category .bottom .right .file,
 .admin-edit-slider .bottom .right .file,
 .admin-create-slider .bottom .right .file,
-.admin-edit-user .bottom .right .file {
+.admin-edit-user .bottom .right .file,
+.admin-edit-order .bottom .right .file {
   margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2936,7 +3259,8 @@
 .admin-create-category .bottom .right .file .file1,
 .admin-edit-slider .bottom .right .file .file1,
 .admin-create-slider .bottom .right .file .file1,
-.admin-edit-user .bottom .right .file .file1 {
+.admin-edit-user .bottom .right .file .file1,
+.admin-edit-order .bottom .right .file .file1 {
   -webkit-box-flex: 9;
       -ms-flex: 9;
           flex: 9;
@@ -2948,7 +3272,8 @@
 .admin-create-category .bottom .right .file1,
 .admin-edit-slider .bottom .right .file1,
 .admin-create-slider .bottom .right .file1,
-.admin-edit-user .bottom .right .file1 {
+.admin-edit-user .bottom .right .file1,
+.admin-edit-order .bottom .right .file1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2964,7 +3289,8 @@
 .admin-create-category .bottom .right .file1 label,
 .admin-edit-slider .bottom .right .file1 label,
 .admin-create-slider .bottom .right .file1 label,
-.admin-edit-user .bottom .right .file1 label {
+.admin-edit-user .bottom .right .file1 label,
+.admin-edit-order .bottom .right .file1 label {
   color: rgba(41, 41, 41, 0.7);
   font-weight: 600;
   padding-left: 10px;
@@ -2977,7 +3303,8 @@
 .admin-create-category .bottom .right .file1 input,
 .admin-edit-slider .bottom .right .file1 input,
 .admin-create-slider .bottom .right .file1 input,
-.admin-edit-user .bottom .right .file1 input {
+.admin-edit-user .bottom .right .file1 input,
+.admin-edit-order .bottom .right .file1 input {
   color: #292929;
   font-size: 1rem;
   height: 2rem;
@@ -2992,7 +3319,8 @@
 .admin-create-category .bottom .right .file1 input[type=file]::file-selector-button,
 .admin-edit-slider .bottom .right .file1 input[type=file]::file-selector-button,
 .admin-create-slider .bottom .right .file1 input[type=file]::file-selector-button,
-.admin-edit-user .bottom .right .file1 input[type=file]::file-selector-button {
+.admin-edit-user .bottom .right .file1 input[type=file]::file-selector-button,
+.admin-edit-order .bottom .right .file1 input[type=file]::file-selector-button {
   border-radius: 5px;
   border: none;
   padding: 5px 15px;
@@ -3009,10 +3337,194 @@
 .admin-create-category .bottom .right .file1 input[type=file]::file-selector-button:hover,
 .admin-edit-slider .bottom .right .file1 input[type=file]::file-selector-button:hover,
 .admin-create-slider .bottom .right .file1 input[type=file]::file-selector-button:hover,
-.admin-edit-user .bottom .right .file1 input[type=file]::file-selector-button:hover {
+.admin-edit-user .bottom .right .file1 input[type=file]::file-selector-button:hover,
+.admin-edit-order .bottom .right .file1 input[type=file]::file-selector-button:hover {
   cursor: pointer;
   background-color: #ebebeb;
   color: #292929;
+}
+
+.admin-edit-product .bottom .right .title,
+.admin-create-product .bottom .right .title,
+.admin-edit-category .bottom .right .title,
+.admin-create-category .bottom .right .title,
+.admin-edit-slider .bottom .right .title,
+.admin-create-slider .bottom .right .title,
+.admin-edit-user .bottom .right .title,
+.admin-edit-order .bottom .right .title {
+  color: rgba(41, 41, 41, 0.7);
+  font-weight: 600;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.admin-edit-product .bottom .right .list,
+.admin-create-product .bottom .right .list,
+.admin-edit-category .bottom .right .list,
+.admin-create-category .bottom .right .list,
+.admin-edit-slider .bottom .right .list,
+.admin-create-slider .bottom .right .list,
+.admin-edit-user .bottom .right .list,
+.admin-edit-order .bottom .right .list {
+  width: 100%;
+}
+
+.admin-edit-product .bottom .right .list .item,
+.admin-create-product .bottom .right .list .item,
+.admin-edit-category .bottom .right .list .item,
+.admin-create-category .bottom .right .list .item,
+.admin-edit-slider .bottom .right .list .item,
+.admin-create-slider .bottom .right .list .item,
+.admin-edit-user .bottom .right .list .item,
+.admin-edit-order .bottom .right .list .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: #292929 1px solid;
+}
+
+.admin-edit-product .bottom .right .list .item .wrapper,
+.admin-create-product .bottom .right .list .item .wrapper,
+.admin-edit-category .bottom .right .list .item .wrapper,
+.admin-create-category .bottom .right .list .item .wrapper,
+.admin-edit-slider .bottom .right .list .item .wrapper,
+.admin-create-slider .bottom .right .list .item .wrapper,
+.admin-edit-user .bottom .right .list .item .wrapper,
+.admin-edit-order .bottom .right .list .item .wrapper {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .admin-edit-product .bottom .right .list .item .wrapper,
+  .admin-create-product .bottom .right .list .item .wrapper,
+  .admin-edit-category .bottom .right .list .item .wrapper,
+  .admin-create-category .bottom .right .list .item .wrapper,
+  .admin-edit-slider .bottom .right .list .item .wrapper,
+  .admin-create-slider .bottom .right .list .item .wrapper,
+  .admin-edit-user .bottom .right .list .item .wrapper,
+  .admin-edit-order .bottom .right .list .item .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.admin-edit-product .bottom .right .list .item .wrapper .details,
+.admin-create-product .bottom .right .list .item .wrapper .details,
+.admin-edit-category .bottom .right .list .item .wrapper .details,
+.admin-create-category .bottom .right .list .item .wrapper .details,
+.admin-edit-slider .bottom .right .list .item .wrapper .details,
+.admin-create-slider .bottom .right .list .item .wrapper .details,
+.admin-edit-user .bottom .right .list .item .wrapper .details,
+.admin-edit-order .bottom .right .list .item .wrapper .details {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.admin-edit-product .bottom .right .list .item .wrapper .qty,
+.admin-create-product .bottom .right .list .item .wrapper .qty,
+.admin-edit-category .bottom .right .list .item .wrapper .qty,
+.admin-create-category .bottom .right .list .item .wrapper .qty,
+.admin-edit-slider .bottom .right .list .item .wrapper .qty,
+.admin-create-slider .bottom .right .list .item .wrapper .qty,
+.admin-edit-user .bottom .right .list .item .wrapper .qty,
+.admin-edit-order .bottom .right .list .item .wrapper .qty {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.admin-edit-product .bottom .right .list .item .wrapper .qty div,
+.admin-create-product .bottom .right .list .item .wrapper .qty div,
+.admin-edit-category .bottom .right .list .item .wrapper .qty div,
+.admin-create-category .bottom .right .list .item .wrapper .qty div,
+.admin-edit-slider .bottom .right .list .item .wrapper .qty div,
+.admin-create-slider .bottom .right .list .item .wrapper .qty div,
+.admin-edit-user .bottom .right .list .item .wrapper .qty div,
+.admin-edit-order .bottom .right .list .item .wrapper .qty div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.admin-edit-product .bottom .right .list .item .wrapper .price,
+.admin-create-product .bottom .right .list .item .wrapper .price,
+.admin-edit-category .bottom .right .list .item .wrapper .price,
+.admin-create-category .bottom .right .list .item .wrapper .price,
+.admin-edit-slider .bottom .right .list .item .wrapper .price,
+.admin-create-slider .bottom .right .list .item .wrapper .price,
+.admin-edit-user .bottom .right .list .item .wrapper .price,
+.admin-edit-order .bottom .right .list .item .wrapper .price {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .admin-edit-product .save,
@@ -3021,7 +3533,8 @@
 .admin-create-category .save,
 .admin-edit-slider .save,
 .admin-create-slider .save,
-.admin-edit-user .save {
+.admin-edit-user .save,
+.admin-edit-order .save {
   margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3044,7 +3557,8 @@
 .admin-create-category .save button,
 .admin-edit-slider .save button,
 .admin-create-slider .save button,
-.admin-edit-user .save button {
+.admin-edit-user .save button,
+.admin-edit-order .save button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -3064,7 +3578,8 @@
 .admin-create-category .save button:hover,
 .admin-edit-slider .save button:hover,
 .admin-create-slider .save button:hover,
-.admin-edit-user .save button:hover {
+.admin-edit-user .save button:hover,
+.admin-edit-order .save button:hover {
   background-color: #bb7900;
   color: #ebebeb;
 }
@@ -3075,7 +3590,8 @@
 .admin-create-category .create,
 .admin-edit-slider .create,
 .admin-create-slider .create,
-.admin-edit-user .create {
+.admin-edit-user .create,
+.admin-edit-order .create {
   margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3098,7 +3614,8 @@
 .admin-create-category .create button,
 .admin-edit-slider .create button,
 .admin-create-slider .create button,
-.admin-edit-user .create button {
+.admin-edit-user .create button,
+.admin-edit-order .create button {
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -3118,7 +3635,8 @@
 .admin-create-category .create button:hover,
 .admin-edit-slider .create button:hover,
 .admin-create-slider .create button:hover,
-.admin-edit-user .create button:hover {
+.admin-edit-user .create button:hover,
+.admin-edit-order .create button:hover {
   background-color: #3a9109;
   color: #ebebeb;
 }

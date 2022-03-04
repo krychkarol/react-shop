@@ -19,8 +19,6 @@ import {
 } from 'react-router-dom';
 
 
-
-
 const Admin = ({categories}) => {
 
     return (

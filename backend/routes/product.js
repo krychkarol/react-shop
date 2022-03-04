@@ -73,4 +73,16 @@ router.delete("/:id", verifyAdmin, async (req, res) => {
     }
 });
 
+//UPDATE STOCK
+router.put("/stock/:id", async (req, res) => {
+    try{
+        await Product.findByIdAndUpdate(req.params.id, {
+            $set: req.body
+        },{new: true});
+        res.status(200).json("Produkt zaktualizowany");
+    }catch(err){
+        res.status(500).json(err)
+    }
+});
+
 module.exports = router;

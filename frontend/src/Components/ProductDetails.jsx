@@ -15,7 +15,7 @@ const ProductDetails = ({product}) => {
         if(action === 'remove')
             qty > 1 && setQty(qty - 1)
         else
-            setQty(qty + 1)
+            product.stock > qty && setQty(qty + 1)
     }
 
     const handleAddToCart = () => {

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import TitleBar from '../Components/TitleBar';
 import { clearCart } from '../Redux/cartRedux';
-import { userReq } from '../request';
+import { publicReq, userReq } from '../request';
 
 const Summary = () => {
 
@@ -35,8 +35,16 @@ const Summary = () => {
                 setOrder(res.data)
             }catch{}
         };
+        const updateStock = async () => {
+            try{
+                for(let i = 0; i < cartData.cartQty; i++){
+                    await publicReq.put("products/stock/" + cartData.products[i]._id , {stock: cartData.products[i].stock - cartData.products[i].qty});
+                }
+            }catch{}
+        };
         if(cartData.cartQty !== 0){
            createOrder();
+           updateStock();
            setCart(cartData);
            dispatch(clearCart())
         }

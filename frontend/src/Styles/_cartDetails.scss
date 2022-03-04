@@ -12,6 +12,12 @@
         margin-bottom: 15px;
     }
 
+    .error{
+        @include title(1rem,600);
+        color: $Danger;
+        padding: 5px;
+    }
+
     .top{
         @media (max-width:#{$sm}){
             flex-direction: column;

@@ -38,6 +38,7 @@ export const login = async (dispatch, user) => {
     try{
         const res = await publicReq.post("auth/login", user);
         dispatch(loginSuccess(res.data));
+        window.location.reload();
     }catch(err){
         dispatch(loginFail());
     }

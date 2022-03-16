@@ -16,7 +16,7 @@ const Navbar = ({categories}) => {
     const [ search, setSearch ] = useState("");
 
     const qty = useSelector(state => state.cart.cartQty)
-    const isLogIn = useSelector(state => state.user.currentUser);
+    const isLogIn = useSelector(state => state.user.currentUser._id);
     const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
 
     const toggleMenu = () => {
@@ -67,7 +67,7 @@ const Navbar = ({categories}) => {
                         <div className='login-dropdown'>
                             <PermIdentityIcon className='icon-drop'/>
                             <div className='dropdown-list'>
-                                {isLogIn ? (
+                                {isLogIn !== "guest" ? (
                                     isAdmin ? (
                                         <>
                                             <div className='item' onClick={() => handleLogout()}>Wyloguj</div>

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import TitleBar from '../Components/TitleBar';
 import { clearCart } from '../Redux/cartRedux';
-import { publicReq, userReq } from '../request';
+import { publicReq} from '../request';
 
 const Summary = () => {
 
@@ -23,7 +23,7 @@ const Summary = () => {
     useEffect(() => {
         const createOrder = async () => {
             try{
-                const res = await userReq.post("orders" , {
+                const res = await publicReq.post("orders" , {
                     userId: currentUser._id,
                     products: cartData.products.map(item => ({
                         productId: item._id,
@@ -60,7 +60,7 @@ const Summary = () => {
 
                 <div className='list'>
                     {cart.products.map(product => (
-                    <>
+                    <div key={product._id}>
                         <div className='item'>
                             <div className='wrapper'>
                                 <div className='details'>
@@ -75,7 +75,7 @@ const Summary = () => {
                             </div>
                         </div>
                     <hr/>
-                    </>))}
+                    </div>))}
                 </div>
                 <div className='list'>
                         <div className='item'>

@@ -76,7 +76,7 @@ const CartDetails = () => {
             <div className='bottom'>
                 <div className='list'>
                     {cart.products.map(product => (
-                    <>
+                    <div key={product._id}>
                         <div className='item'>
                             <div className='image'>
                                 <img src={product.img} alt='#'/>
@@ -99,7 +99,7 @@ const CartDetails = () => {
                             </div>
                         </div>
                     <hr/>
-                    </>))}
+                    </div>))}
                 </div>
                 <div className='summary'>
                     <div className='title'>

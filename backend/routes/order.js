@@ -1,5 +1,5 @@
 const Order = require("../models/Order");
-const { verifyToken, verifyAdmin } = require("./verify");
+const { verifyAdmin } = require("./verify");
 const router = require ("express").Router();
 
 
@@ -25,7 +25,7 @@ router.get("/:id", verifyAdmin, async (req, res) => {
 
 
 //CREATE
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", async (req, res) => {
     const newOrder = new Order(req.body);
     try{
         const saveNewOrder = await newOrder.save();

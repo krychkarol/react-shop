@@ -16,16 +16,21 @@ import {
     Navigate,
     useLocation
 } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { publicReq } from './request';
+import jwt_decode from "jwt-decode";
+import { logout } from './Redux/api';
 
 
 function App() {
 
     let location = useLocation();
 
-    const user = useSelector(state => state.user.currentUser);
+    const dispatch = useDispatch();
+
+    const user = useSelector(state => state.user.currentUser._id);
     const isAdmin = useSelector(state => state.user.currentUser?.isAdmin);
+    const token = useSelector(state => state.user.currentUser.token);
 
     const [ adminPath, setAdminPath ] = useState("");
     const [ categories, setCategories ] = useState([]);
@@ -33,6 +38,16 @@ function App() {
     useEffect(() => {
         setAdminPath(location.pathname.toString().includes("/admin"));
     }, [location]);
+
+    useEffect(() => {
+        if(token){
+            let decodedToken = jwt_decode(token);
+            let currentDate = new Date();
+            if (decodedToken.exp * 1000 < currentDate.getTime()) {
+                logout(dispatch)
+            } 
+        }
+    })
 
     useEffect(() => {
         const getCategories = async () => {
@@ -53,9 +68,9 @@ function App() {
                         <Route path="/produkty/:category/:subcategory" element={<Products categories={categories}/>} />
                         <Route path="/produkty/pokaz/:parametr" element={<Products categories={categories}/>} />
                         <Route path="/produkt/:id" element={<Product />} />
-                        <Route path="/zaloguj" element={user ? <Navigate to="/" /> : <Login />} />
-                        <Route path="/zarejestruj" element={user ? <Navigate to="/" /> : <Register />} />
-                        <Route path="/koszyk" element={user ? <Cart /> : <Login />} />
+                        <Route path="/zaloguj" element={user !== "guest" ? <Navigate to="/" /> : <Login />} />
+                        <Route path="/zarejestruj" element={user !== "guest" ? <Navigate to="/" /> : <Register />} />
+                        <Route path="/koszyk" element={<Cart />}/>
                         <Route path="/podsumowanie" element={<Summary/>} />
                         <Route path="*" element={<></>} />
                     </Routes>

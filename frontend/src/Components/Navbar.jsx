@@ -74,12 +74,14 @@ const Navbar = ({categories}) => {
                                             <Link to='/admin'>
                                                 <div className='item'>Panel Admina</div>
                                             </Link>
+                                            <Link to='/moje-konto'>
+                                                <div className='item'>Moje Konto</div>
+                                            </Link>
                                         </>
                                         ) : (
                                         <>
                                             <div className='item' onClick={() => handleLogout()}>Wyloguj</div>
-                                            <Link to='#'>
-                                                {/* TODO USER ACCOUNT DETAILS */}
+                                            <Link to='/moje-konto'>
                                                 <div className='item'>Moje Konto</div>
                                             </Link>
                                         </>

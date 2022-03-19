@@ -5,7 +5,8 @@ const userSlice = createSlice({
     initialState:{
         currentUser: {_id: "guest"},
         fetching: false,
-        error: false
+        error: false,
+        reg: false,
     },
     reducers:{
         //LOGIN
@@ -15,6 +16,7 @@ const userSlice = createSlice({
         loginSuccess:(state, action) => {
             state.fetching = false;
             state.currentUser = action.payload;
+            state.error = false;
         },
         loginFail:(state) => {
             state.fetching = false;
@@ -28,16 +30,38 @@ const userSlice = createSlice({
         logoutSuccess:(state) => {
             state.fetching = false;
             state.currentUser = {_id: "guest"};
+            state.error = false;
         },
         logoutFail:(state) => {
             state.fetching = false;
             state.error = true;
         },
-        
+
+        //REGISTER
+        registerRequest:(state) => {
+            state.fetching = true;
+        },
+        registerSuccess:(state) => {
+            state.fetching = false;
+            state.error = false;
+            state.reg = true;
+        },
+        registerFail:(state, action) => {
+            state.fetching = false;
+            state.error = action.payload;
+        },
+
+        //OTHER
+        clearErr:(state) => {
+            state.error = false;
+            state.reg = false;
+        }
     }
 })
 
 export const  { loginRequest, loginSuccess, loginFail,
-                logoutRequest, logoutSuccess, logoutFail
+                logoutRequest, logoutSuccess, logoutFail,
+                registerRequest, registerSuccess, registerFail,
+                clearErr
               } = userSlice.actions;
 export default userSlice.reducer;

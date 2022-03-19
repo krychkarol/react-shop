@@ -123,7 +123,6 @@ const CartDetails = () => {
                     
                 </div>
             </div>
-            <button onClick={() => console.log(errorMsg)}> test </button>
         </div>
     )
 }

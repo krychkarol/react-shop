@@ -25,6 +25,7 @@ import {
 import {
     loginFail, loginRequest, loginSuccess,
     logoutFail, logoutRequest, logoutSuccess,
+    registerFail, registerRequest, registerSuccess,
     } from "./userRedux"
 import {
     deleteUsersFail, deleteUsersRequest, deleteUsersSuccess,
@@ -50,6 +51,16 @@ export const logout = async (dispatch) => {
         dispatch(logoutSuccess());
     }catch(err){
         dispatch(logoutFail());
+    }
+};
+
+export const register = async (dispatch, user) => {
+    dispatch(registerRequest());
+    try{
+        await publicReq.post("auth/register", user);
+        dispatch(registerSuccess());
+    }catch(err){
+        dispatch(registerFail(err.response.data));
     }
 };
 

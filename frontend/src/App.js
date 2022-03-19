@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { publicReq } from './request';
 import jwt_decode from "jwt-decode";
 import { logout } from './Redux/api';
+import User from './Pages/User';
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
                         <Route path="/zarejestruj" element={user !== "guest" ? <Navigate to="/" /> : <Register />} />
                         <Route path="/koszyk" element={<Cart />}/>
                         <Route path="/podsumowanie" element={<Summary/>} />
+                        <Route path="/moje-konto" element={user !== "guest" ? <User/> : <Navigate to="/" />} />
                         <Route path="*" element={<></>} />
                     </Routes>
                         {isAdmin && <Admin categories={categories} />}

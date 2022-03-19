@@ -9,6 +9,8 @@ import Register from './Pages/Register';
 import Cart from './Pages/Cart';
 import Admin from './Pages/Admin';
 import Summary from './Pages/Summary';
+import User from './Pages/User';
+
 import React, { useEffect, useState } from 'react';
 import {
     Routes,
@@ -17,10 +19,11 @@ import {
     useLocation
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { publicReq } from './request';
 import jwt_decode from "jwt-decode";
 import { logout } from './Redux/api';
-import User from './Pages/User';
+
 
 
 function App() {

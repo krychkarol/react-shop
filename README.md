@@ -4,9 +4,9 @@
 This project is a simple MERN website for an online store
 
 ### Front-End
-  ####- React
+- React
 
 ### Back-End
-  ####- Node.js
-  ####- Express.js
-  ####- MongoDB
+- Node.js
+- Express.js
+- MongoDB

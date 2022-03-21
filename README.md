@@ -3,11 +3,21 @@
 ## General info
 This project is a simple MERN website for an online store
 
-### Front-End
-- React
-  -test
+## Technologies
 
-### Back-End
-- Node.js
-- Express.js
-- MongoDB
+#### Front-End
+React with Redux
+
+#### Back-End
+REST API Server created with Node.js, Express.js and connected to MongoDB
+
+## Features
+- Register, Login
+- JWT Authentication
+- Stripe payment method
+- Firebase storage for images
+- Admin Dashboard - CRUD operations on products, users, orders, etc.
+
+## Live Demo
+Application deployed on Heroku - [Demo](https://brodacz.herokuapp.com/)
+> For making payment use 4242 4242 4242 4242 credit card number for Test Mode.

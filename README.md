@@ -21,5 +21,5 @@ REST API Server created with Node.js, Express.js and connected to MongoDB
 ## Live Demo
 Application deployed on Heroku - [Demo](https://brodacz.herokuapp.com/)
 
-Application is deployed on free hosting - this may cause low performence, long loading or errors (try refreshing)
+Application is deployed on free hosting - this may cause low performence, long loading or errors (try refresh)
 > For making payment use 4242 4242 4242 4242 credit card number for Test Mode.

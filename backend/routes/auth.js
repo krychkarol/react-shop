@@ -26,12 +26,12 @@ router.post('/login', async (req, res) => {
     try{
         const user = await User.findOne({username: req.body.username});
         if(!user)
-            res.status(401).json("Zła nazwa użytkownika lub hasło");
+            return res.status(401).json("Zła nazwa użytkownika lub hasło");
 
         const encPassword = CryptoJS.AES.decrypt(user.password, process.env.CRYPTOJS_KEY);
         const decPassword = encPassword.toString(CryptoJS.enc.Utf8);
         if(decPassword !== req.body.password)
-            res.status(401).json("Zła nazwa użytkownika lub hasło");
+            return res.status(401).json("Zła nazwa użytkownika lub hasło");
         
         const token = jwt.sign({
             id: user._id,
